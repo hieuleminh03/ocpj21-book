@@ -4,8 +4,8 @@ layout: answer
 title: "Chương 3"
 subtitle: "Làm việc với Records và Enums"
 exam_objectives:
-  - "Create classes and records, and define and use instance and static fields and methods, constructors, and instance and static initializers."
-  - "Create and use enum types with fields, methods, and constructors."
+  - "Tạo class và record, định nghĩa và sử dụng instance field, static field, method, constructor cùng instance initializer và static initializer."
+  - "Tạo và sử dụng enum type với field, method và constructor."
 ---
 
 ## Đáp án {#answers}

@@ -4,7 +4,7 @@ layout: answer
 title: "Chương 11"
 subtitle: "Date/Time API"
 exam_objectives:
-  - "Manipulate date, time, duration, period, instant and time-zone objects including daylight saving time using Date-Time API."
+  - "Thao tác date, time, duration, period, instant và time-zone object bao gồm daylight saving time bằng Date-Time API."
 ---
 
 ## Đáp án {#answers}

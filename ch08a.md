@@ -4,7 +4,7 @@ layout: answer
 title: "Chương 8"
 subtitle: "Functional Interface và biểu thức Lambda"
 exam_objectives:
-  - "Use Java object and primitive Streams, including lambda expressions implementing functional interfaces, to create, filter, transform, process, and sort data."
+  - "Sử dụng Stream cho object và primitive, bao gồm biểu thức lambda triển khai functional interface, để tạo, filter, transform, process và sort dữ liệu."
 ---
 
 ## Đáp án {#answers}

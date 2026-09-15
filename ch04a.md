@@ -4,8 +4,8 @@ layout: answer
 title: "Chương 4"
 subtitle: "Làm việc với dữ liệu"
 exam_objectives:
-  - "Use primitives and wrapper classes. Evaluate arithmetic and boolean expressions, using the Math API and by applying precedence rules, type conversions, and casting."
-  - "Manipulate text, including text blocks, using String and StringBuilder classes."
+  - "Sử dụng primitive và wrapper class. Đánh giá biểu thức số học và boolean, dùng Math API cùng việc áp dụng operator precedence, type conversion và casting."
+  - "Thao tác text, bao gồm text block, bằng class String và StringBuilder."
 ---
 
 ## Đáp án {#answers}

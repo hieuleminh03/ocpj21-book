@@ -4,8 +4,8 @@ layout: answer
 title: "Chương 5"
 subtitle: "Điều khiển luồng chương trình"
 exam_objectives:
-  - "Create program flow control constructs including if/else, switch statements and expressions, loops, and break and continue statements."
-  - "Implement inheritance, including abstract and sealed types as well as record classes. Override methods, including that of the Object class. Implement polymorphism and differentiate between object type and reference type. Perform reference type casting, identify object types using the instanceof operator, and pattern matching with the instanceof operator and the switch construct."
+  - "Tạo các cấu trúc điều khiển luồng chương trình gồm if/else, switch statement và switch expression, loop, cùng break và continue."
+  - "Triển khai inheritance, bao gồm abstract type, sealed type cũng như record class. Override method, kể cả method của class Object. Triển khai polymorphism và phân biệt object type với reference type. Thực hiện reference type casting, nhận diện object type bằng toán tử instanceof, và pattern matching với toán tử instanceof cùng cấu trúc switch."
 ---
 
 ## Đáp án {#answers}

@@ -4,8 +4,8 @@ layout: answer
 title: "Chương 9"
 subtitle: "Streams"
 exam_objectives:
-  - "Use Java object and primitive Streams, including lambda expressions implementing functional interfaces, to create, filter, transform, process, and sort data."
-  - "Perform decomposition, concatenation, and reduction, and grouping and partitioning on sequential and parallel streams."
+  - "Sử dụng Stream cho object và primitive, bao gồm biểu thức lambda triển khai functional interface, để tạo, filter, transform, process và sort dữ liệu."
+  - "Thực hiện decomposition, concatenation và reduction, cũng như grouping và partitioning trên sequential stream và parallel stream."
 ---
 
 ## Đáp án {#answers}

@@ -4,7 +4,7 @@ layout: answer
 title: "Chương 14"
 subtitle: "Localization"
 exam_objectives:
-  - "Implement localization using locales and resource bundles. Parse and format messages, dates, times, and numbers, including currency and percentage values."
+  - "Triển khai localization bằng locale và resource bundle. Parse và format message, date, time và number, bao gồm giá trị currency và percentage."
 ---
 
 ## Đáp án {#answers}

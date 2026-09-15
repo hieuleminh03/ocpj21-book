@@ -4,8 +4,8 @@ layout: answer
 title: "Chương 13"
 subtitle: "Java Platform Module System"
 exam_objectives:
-  - "Define modules and expose module content, including that by reflection, and declare module dependencies, define services, providers, and consumers."
-  - "Compile Java code, create modular and non-modular jars, runtime images, and implement migration to modules using unnamed and automatic modules."
+  - "Định nghĩa module và expose nội dung module, bao gồm qua reflection, khai báo module dependency, định nghĩa service, provider và consumer."
+  - "Compile Java code, tạo modular jar và non-modular jar, runtime image, và triển khai migration sang module bằng unnamed module và automatic module."
 ---
 
 ## Đáp án {#answers}

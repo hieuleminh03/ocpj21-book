@@ -4,9 +4,9 @@ layout: answer
 title: "Chương 2"
 subtitle: "Sử dụng lập trình hướng đối tượng trong Java - Phần 2"
 exam_objectives:
-  - "Understand variable scopes, apply encapsulation, and create immutable objects. Use local variable type inference."
-  - "Implement inheritance, including abstract and sealed types as well as record classes. Override methods, including that of the Object class. Implement polymorphism and differentiate between object type and reference type. Perform reference type casting, identify object types using the instanceof operator, and pattern matching with the instanceof operator and the switch construct."
-  - "Create and use interfaces, identify functional interfaces, and utilize private, static, and default interface methods."
+  - "Hiểu scope của biến, áp dụng encapsulation và tạo immutable object. Sử dụng local variable type inference."
+  - "Triển khai inheritance, bao gồm abstract type, sealed type cũng như record class. Override method, kể cả method của class Object. Triển khai polymorphism và phân biệt object type với reference type. Thực hiện reference type casting, nhận diện object type bằng toán tử instanceof, và pattern matching với toán tử instanceof cùng cấu trúc switch."
+  - "Tạo và sử dụng interface, nhận diện functional interface, và tận dụng private method, static method và default method trong interface."
 ---
 
 ## Đáp án {#answers}

@@ -4,9 +4,9 @@ layout: answer
 title: "Chương 10"
 subtitle: "Concurrency và Multithreading"
 exam_objectives:
-  - "Create both platform and virtual threads. Use both Runnable and Callable objects, manage the thread lifecycle, and use different Executor services and concurrent API to run tasks."
-  - "Develop thread-safe code, using locking mechanisms and concurrent API."
-  - "Process Java collections concurrently and utilize parallel streams."
+  - "Tạo cả platform thread lẫn virtual thread. Sử dụng cả Runnable lẫn Callable object, quản lý thread lifecycle, và dùng các Executor service khác nhau cùng concurrent API để chạy task."
+  - "Phát triển code thread-safe, dùng cơ chế locking và concurrent API."
+  - "Xử lý Java collection đồng thời và tận dụng parallel stream."
 ---
 
 ## Đáp án {#answers}

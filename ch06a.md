@@ -4,7 +4,7 @@ layout: answer
 title: "Chương 6"
 subtitle: "Mảng, Generics và Collections"
 exam_objectives:
-  - "Create arrays, List, Set, Map and Deque collections, and add, remove, update, retrieve and sort their elements."
+  - "Tạo array, collection List, Set, Map và Deque, rồi add, remove, update, retrieve và sort các phần tử của chúng."
 ---
 
 ## Đáp án {#answers}

@@ -4,7 +4,7 @@ layout: answer
 title: "Chương 7"
 subtitle: "Xử lý lỗi và Exceptions"
 exam_objectives:
-  - "Handle exceptions using try/catch/finally, try-with-resources, and multi-catch blocks, including custom exceptions."
+  - "Xử lý exception bằng try/catch/finally, try-with-resources và multi-catch block, bao gồm custom exception."
 ---
 
 ## Đáp án {#answers}

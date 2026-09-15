@@ -77,40 +77,40 @@ Bảng sau cho biết mỗi exam objective và sub-objective được trình bà
 
 | Exam Objectives                                                                                          | Chapter |
 |----------------------------------------------------------------------------------------------------------|---------|
-| **Handling Date, Time, Text, Numeric and Boolean Values**                                                |  4       |
-|<span class="indented">Use primitives and wrapper classes. Evaluate arithmetic and boolean expressions, using the Math API and by applying precedence rules, type conversions, and casting.</span> |  4       |
-|<span class="indented">Manipulate text, including text blocks, using String and StringBuilder classes.</span>                        |  4       |
-|<span class="indented">Manipulate date, time, duration, period, instant and time-zone objects including daylight saving time using Date-Time API.</span>           | 11       |
-| **Controlling Program Flow**                                                                             |  5       |
-|<span class="indented">Create program flow control constructs including if/else, switch statements and expressions, loops, and break and continue statements.</span> |  5       |
-| **Using Object-Oriented Concepts in Java**                                                              | 1, 2, 3, 5 |
-|<span class="indented">Declare and instantiate Java objects including nested class objects, and explain the object life-cycle including creation, reassigning references, and garbage collection.</span> |  1       |
-|<span class="indented">Create classes and records, and define and use instance and static fields and methods, constructors, and instance and static initializers.</span> |  1,  3   |
-|<span class="indented">Implement overloading, including var-arg methods.</span>                                                     |  1       |
-|<span class="indented">Understand variable scopes, apply encapsulation, and create immutable objects. Use local variable type inference.</span> |  2       |
-|<span class="indented">Implement inheritance, including abstract and sealed types as well as record classes. Override methods, including that of the Object class. Implement polymorphism and differentiate between object type and reference type. Perform reference type casting, identify object types using the instanceof operator, and pattern matching with the instanceof operator and the switch construct.</span> |  2, 5    |
-|<span class="indented">Create and use interfaces, identify functional interfaces, and utilize private, static, and default interface methods.</span> |  2       |
-|<span class="indented">Create and use enum types with fields, methods, and constructors.</span>                                    |  3       |
-| **Handling Exceptions**                                                                                  |  7       |
-|<span class="indented">Handle exceptions using try/catch/finally, try-with-resources, and multi-catch blocks, including custom exceptions.</span> |  7       |
-| **Working with Arrays and Collections**                                                                  |  6       |
-|<span class="indented">Create arrays, List, Set, Map and Deque collections, and add, remove, update, retrieve and sort their elements.</span> |  6       |
-| **Working with Streams and Lambda expressions**                                                          |  8, 9    |
-|<span class="indented">Use Java object and primitive Streams, including lambda expressions implementing functional interfaces, to create, filter, transform, process, and sort data.</span> |  8, 9    |
-|<span class="indented">Perform decomposition, concatenation, and reduction, and grouping and partitioning on sequential and parallel streams.</span> |  9       |
-| **Packaging and Deploying Java Code**                            | 13       |
-|<span class="indented">Define modules and expose module content, including that by reflection, and declare module dependencies, define services, providers, and consumers.</span> | 13       |
-|<span class="indented">Compile Java code, create modular and non-modular jars, runtime images, and implement migration to modules using unnamed and automatic modules.</span> | 13       |
-| **Managing Concurrent Code Execution**                                                                   | 10       |
-|<span class="indented">Create both platform and virtual threads. Use both Runnable and Callable objects, manage the thread lifecycle, and use different Executor services and concurrent API to run tasks.</span> | 10       |
-|<span class="indented">Develop thread-safe code, using locking mechanisms and concurrent API.</span>                      | 10       |
-|<span class="indented">Process Java collections concurrently and utilize parallel streams.</span>                          | 10       |
-| **Using Java I/O API**                                                                                   | 12       |
-|<span class="indented">Read and write console and file data using I/O streams.</span>                                               | 12       |
-|<span class="indented">Serialize and de-serialize Java objects.</span>                                                              | 12       |
-|<span class="indented">Construct, traverse, create, read, and write Path objects and their properties using the java.nio.file API.</span>          | 12       |
-| **Implementing Localization**                                                                            | 14       |
-|<span class="indented">Implement localization using locales and resource bundles. Parse and format messages, dates, times, and numbers, including currency and percentage values.</span> | 14       |
+| **Xử lý giá trị Date, Time, Text, Numeric và Boolean**                                                |  4       |
+|<span class="indented">Sử dụng primitive và wrapper class. Đánh giá biểu thức số học và boolean, dùng Math API cùng việc áp dụng operator precedence, type conversion và casting.</span> |  4       |
+|<span class="indented">Thao tác text, bao gồm text block, bằng class String và StringBuilder.</span>                        |  4       |
+|<span class="indented">Thao tác date, time, duration, period, instant và time-zone object bao gồm daylight saving time bằng Date-Time API.</span>           | 11       |
+| **Điều khiển luồng chương trình**                                                                             |  5       |
+|<span class="indented">Tạo các cấu trúc điều khiển luồng chương trình gồm if/else, switch statement và switch expression, loop, cùng break và continue.</span> |  5       |
+| **Sử dụng các khái niệm hướng đối tượng trong Java**                                                              | 1, 2, 3, 5 |
+|<span class="indented">Khai báo và khởi tạo Java object bao gồm cả nested class object, đồng thời giải thích vòng đời của object gồm creation, reassigning references và garbage collection.</span> |  1       |
+|<span class="indented">Tạo class và record, định nghĩa và sử dụng instance field, static field, method, constructor cùng instance initializer và static initializer.</span> |  1,  3   |
+|<span class="indented">Triển khai overloading, bao gồm cả var-arg method.</span>                                                     |  1       |
+|<span class="indented">Hiểu scope của biến, áp dụng encapsulation và tạo immutable object. Sử dụng local variable type inference.</span> |  2       |
+|<span class="indented">Triển khai inheritance, bao gồm abstract type, sealed type cũng như record class. Override method, kể cả method của class Object. Triển khai polymorphism và phân biệt object type với reference type. Thực hiện reference type casting, nhận diện object type bằng toán tử instanceof, và pattern matching với toán tử instanceof cùng cấu trúc switch.</span> |  2, 5    |
+|<span class="indented">Tạo và sử dụng interface, nhận diện functional interface, và tận dụng private method, static method và default method trong interface.</span> |  2       |
+|<span class="indented">Tạo và sử dụng enum type với field, method và constructor.</span>                                    |  3       |
+| **Xử lý Exception**                                                                                  |  7       |
+|<span class="indented">Xử lý exception bằng try/catch/finally, try-with-resources và multi-catch block, bao gồm custom exception.</span> |  7       |
+| **Làm việc với Array và Collection**                                                                  |  6       |
+|<span class="indented">Tạo array, collection List, Set, Map và Deque, rồi add, remove, update, retrieve và sort các phần tử của chúng.</span> |  6       |
+| **Làm việc với Stream và biểu thức Lambda**                                                          |  8, 9    |
+|<span class="indented">Sử dụng Stream cho object và primitive, bao gồm biểu thức lambda triển khai functional interface, để tạo, filter, transform, process và sort dữ liệu.</span> |  8, 9    |
+|<span class="indented">Thực hiện decomposition, concatenation và reduction, cũng như grouping và partitioning trên sequential stream và parallel stream.</span> |  9       |
+| **Đóng gói và triển khai Java code**                            | 13       |
+|<span class="indented">Định nghĩa module và expose nội dung module, bao gồm qua reflection, khai báo module dependency, định nghĩa service, provider và consumer.</span> | 13       |
+|<span class="indented">Compile Java code, tạo modular jar và non-modular jar, runtime image, và triển khai migration sang module bằng unnamed module và automatic module.</span> | 13       |
+| **Quản lý thực thi code đồng thời**                                                                   | 10       |
+|<span class="indented">Tạo cả platform thread lẫn virtual thread. Sử dụng cả Runnable lẫn Callable object, quản lý thread lifecycle, và dùng các Executor service khác nhau cùng concurrent API để chạy task.</span> | 10       |
+|<span class="indented">Phát triển code thread-safe, dùng cơ chế locking và concurrent API.</span>                      | 10       |
+|<span class="indented">Xử lý Java collection đồng thời và tận dụng parallel stream.</span>                          | 10       |
+| **Sử dụng Java I/O API**                                                                                   | 12       |
+|<span class="indented">Đọc và ghi dữ liệu console và file bằng I/O stream.</span>                                               | 12       |
+|<span class="indented">Serialize và de-serialize Java object.</span>                                                              | 12       |
+|<span class="indented">Construct, traverse, create, read và write Path object cùng các thuộc tính của chúng bằng API java.nio.file.</span>          | 12       |
+| **Triển khai Localization**                                                                            | 14       |
+|<span class="indented">Triển khai localization bằng locale và resource bundle. Parse và format message, date, time và number, bao gồm giá trị currency và percentage.</span> | 14       |
 
 Ở cuối mỗi chương, bạn sẽ tìm thấy một bộ câu hỏi thực hành để đo mức độ hiểu biết của mình về các chủ đề đã học trong chương.
 
@@ -139,7 +139,7 @@ Kết hợp những chiến thuật này với một kế hoạch học tập to
 
 ## Mẹo học tập {#tips-for-studying}
 
-### 1. Hiểu rõ exam objective {#1-understand-the-exam-objectives}
+### 1. Hiểu rõ exam objective
 Đầu tiên, hãy truy cập [trang web Oracle Certification chính thức](https://education.oracle.com/product/pexam_1Z0-830) để biết thông tin chi tiết về các objective, cấu trúc và chủ đề được kiểm tra trong kỳ thi 1Z0-830.
 
 Tuy nhiên, hiểu rõ exam objective không chỉ là biết chủ đề nào sẽ có trong kỳ thi; đó là việc tích hợp kiến thức này một cách toàn diện vào kế hoạch học tập, đảm bảo bạn chuẩn bị tốt cho độ rộng và độ sâu của các câu hỏi sẽ gặp.
@@ -149,7 +149,7 @@ Những cuốn study guide như cuốn này mang đến cách học có cấu tr
 - **Các khóa đào tạo chính thức hoặc được công nhận**: Oracle cung cấp khóa đào tạo chính thức cho chứng chỉ Java programmer. Các khóa học do giảng viên được Oracle chứng nhận hoặc chuyên gia được công nhận giảng dạy có thể mang đến hiểu biết sâu sắc về lập trình Java và các mục tiêu chứng chỉ. Họ cũng có thể trả lời những câu hỏi phức tạp và làm rõ các khái niệm khó.
 - **Diễn đàn và nhóm thảo luận**: Các diễn đàn trực tuyến và nhóm mạng xã hội dành cho chứng chỉ Java là nơi tuyệt vời để đặt câu hỏi, chia sẻ mẹo học tập và kết nối với những lập trình viên khác quan tâm đến các kỳ thi chứng chỉ Java. Tôi có thể giới thiệu [Coderanch](https://coderanch.com/f/24/java-programmer-OCPJP).
 
-### 2. Lập kế hoạch học tập {#2-create-a-study-plan}
+### 2. Lập kế hoạch học tập
 
 Bạn cần tiếp cận việc ôn thi một cách có chiến lược. Một kế hoạch tốt không chỉ giải quyết việc bạn cần học gì mà còn cả cách bạn học hiệu quả nhất, đảm bảo rằng khi ngày thi đến, bạn tự tin về kiến thức của mình và sẵn sàng thành công. Dưới đây là cách tạo một kế hoạch học tập hiệu quả:
 
@@ -163,7 +163,7 @@ Bạn cần tiếp cận việc ôn thi một cách có chiến lược. Một k
 
 5. **Điều chỉnh kế hoạch khi cần.** Thường xuyên đánh giá tiến độ của bạn so với kế hoạch học tập. Hãy sẵn sàng điều chỉnh lịch trình nếu bạn tiến nhanh hoặc chậm hơn dự kiến. Các sự kiện trong cuộc sống có thể khiến bạn phải thay đổi kế hoạch học tập. Điều quan trọng là giữ linh hoạt và thích nghi trong khi vẫn nhìn về mục tiêu.
 
-### 3. Luyện viết code bằng tay {#3-practice-coding-by-hand}
+### 3. Luyện viết code bằng tay
 
 Dù lập trình viên phụ thuộc nhiều vào Integrated Development Environment (IDE) khi code, khả năng viết code bằng tay (không có sự hỗ trợ của auto-completion hay syntax highlighting) vẫn quan trọng, đặc biệt trong bối cảnh các kỳ thi chứng chỉ. Viết code bằng tay buộc bạn phải nhớ cú pháp và các cấu trúc lập trình từ ký ức, củng cố kiến thức và hiểu biết của bạn về các nền tảng Java.
 
@@ -173,7 +173,7 @@ Trước khi bắt đầu code, hãy cân nhắc phác thảo chương trình b�
 
 Sau khi viết code, hãy xem lại từng dòng để kiểm tra lỗi cú pháp, sai sót logic và những vấn đề tiềm ẩn khác. Dành thời gian hiểu mọi lỗi bạn gặp và vì sao chúng xảy ra. Việc thực hành có suy ngẫm này rất quan trọng cho việc học và cải thiện. Nếu có thể, hãy nhờ người khác xem lại code viết tay của bạn. Một góc nhìn mới có thể mang đến hiểu biết mới và phát hiện những lỗi bạn có thể đã bỏ sót.
 
-### 4. Đưa đề thi thử vào kế hoạch {#4-include-practice-exams-in-your-plan}
+### 4. Đưa đề thi thử vào kế hoạch
 Ngoài các câu hỏi mẫu được cung cấp trong cuốn sách này, đề thi thử giúp bạn làm quen với định dạng kỳ thi, bao gồm cách diễn đạt câu hỏi và giới hạn thời gian. Cách tiếp cận này cho phép bạn nhận ra điểm yếu của mình, từ đó học tập trung và hiệu quả hơn vào những chủ đề cần cải thiện.
 
 Đừng trì hoãn việc làm đề thi thử đến phút cuối. Thay vào đó, hãy đưa chúng vào kế hoạch học tập sớm và đều đặn để đánh giá mức độ hiểu bài và theo dõi tiến độ. Dưới đây là một số mẹo:
@@ -188,7 +188,7 @@ Ngoài các câu hỏi mẫu được cung cấp trong cuốn sách này, đề 
 - **Tinh chỉnh kế hoạch học tập:** Tận dụng những hiểu biết thu được từ đề thi thử để tinh chỉnh kế hoạch học tập. Dành thêm thời gian cho những phần có kết quả thấp hơn và tiếp tục luyện tập cho đến khi bạn thấy điểm số cải thiện ổn định.
 
 
-### 5. Giữ sức khỏe và động lực {#5-stay-healthy-and-motivated}
+### 5. Giữ sức khỏe và động lực
 Học cho kỳ thi chứng chỉ Java có thể là quá trình tốn thời gian và căng thẳng. Hãy nhớ rằng việc nghỉ ngơi, ngủ đủ giấc, tập thể dục đều đặn và ăn uống lành mạnh rất quan trọng để giữ sự tập trung và tràn đầy năng lượng.
 
 Những gì bạn ăn ảnh hưởng đáng kể đến chức năng não và mức năng lượng. Duy trì một chế độ ăn cân bằng với nhiều trái cây, rau củ, protein nạc và ngũ cốc nguyên hạt có thể mang lại nguồn năng lượng ổn định cần thiết cho những khoảng thời gian học dài. Hãy cố hạn chế nạp caffeine và đường để tránh những cơn sụt năng lượng khó tránh khỏi mà chúng gây ra.

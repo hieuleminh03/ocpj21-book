@@ -4,9 +4,9 @@ layout: answer
 title: "Chương 1"
 subtitle: "Sử dụng lập trình hướng đối tượng trong Java - Phần 1"
 exam_objectives:
-  - "Declare and instantiate Java objects including nested class objects, and explain the object life-cycle including creation, reassigning references, and garbage collection."
-  - "Create classes and records, and define and use instance and static fields and methods, constructors, and instance and static initializers."
-  - "Implement overloading, including var-arg methods."
+  - "Khai báo và khởi tạo Java object bao gồm cả nested class object, đồng thời giải thích vòng đời của object gồm creation, reassigning references và garbage collection."
+  - "Tạo class và record, định nghĩa và sử dụng instance field, static field, method, constructor cùng instance initializer và static initializer."
+  - "Triển khai overloading, bao gồm cả var-arg method."
 ---
 
 ## Đáp án {#answers}

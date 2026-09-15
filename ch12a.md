@@ -4,9 +4,9 @@ layout: answer
 title: "Chương 12"
 subtitle: "File I/O và Serialization"
 exam_objectives:
-  - "Read and write console and file data using I/O streams."
-  - "Serialize and de-serialize Java objects."
-  - "Construct, traverse, create, read, and write Path objects and their properties using the java.nio.file API."
+  - "Đọc và ghi dữ liệu console và file bằng I/O stream."
+  - "Serialize và de-serialize Java object."
+  - "Construct, traverse, create, read và write Path object cùng các thuộc tính của chúng bằng API java.nio.file."
 ---
 
 ## Đáp án {#answers}
