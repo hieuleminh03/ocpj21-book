@@ -10,8 +10,8 @@ Nếu bạn thấy nội dung hữu ích, hãy ủng hộ tác giả bằng các
 # Ghi chú về bản dịch
 
 - Thuật ngữ kỹ thuật (class, object, method, stream, lambda, exception, ...) được giữ nguyên tiếng Anh để thuận tiện đối chiếu khi làm bài thi bằng tiếng Anh.
-- Exam objective ở đầu mỗi chương giữ nguyên 100% bản gốc của Oracle.
-- Code block giữ nguyên hoàn toàn, không chỉnh sửa.
+- Toàn bộ phần giải thích được dịch sang tiếng Việt, bao gồm exam objective ở đầu mỗi chương (vẫn giữ nguyên các thuật ngữ kỹ thuật tiếng Anh).
+- Code trong các ví dụ giữ nguyên 100%; chỉ comment/Javadoc trong code được dịch sang tiếng Việt (giữ nguyên identifier, API, từ khóa và đoạn code minh họa bên trong comment).
 - Anchor của tiêu đề giữ theo bản gốc để mục lục hoạt động đúng.
 
 # License
