@@ -1,266 +1,266 @@
 ---
 layout: answer
 
-title: "Chapter ELEVEN"
-subtitle: "The Date API"
+title: "Chương 11"
+subtitle: "Date/Time API"
 exam_objectives:
   - "Manipulate date, time, duration, period, instant and time-zone objects including daylight saving time using Date-Time API."
 ---
 
-## Answers
-**1. The correct answer is D.**
+## Đáp án {#answers}
+**1. Đáp án đúng là D.**
 
-**Explanation:**
+**Giải thích:**
 
 - **A)** `LocalDate.of(2014);` 
-  - This option is incorrect. The `LocalDate.of()` method requires a year, month, and day to be specified. Providing only a year will result in a compilation error.
+  - Đáp án này sai. Method `LocalDate.of()` yêu cầu phải chỉ định year, month và day. Chỉ cung cấp year sẽ dẫn đến compile error.
 
 - **B)** `LocalDate.with(2014, 1, 30);`
-  - This option is incorrect. The `LocalDate` class does not have a `with()` method that takes three int arguments for year, month, and day. The correct method to use is `LocalDate.of(int year, int month, int dayOfMonth)`.
+  - Đáp án này sai. Class `LocalDate` không có method `with()` nhận ba tham số int cho year, month và day. Method đúng để dùng là `LocalDate.of(int year, int month, int dayOfMonth)`.
 
 - **C)** `LocalDate.of(2014, 0, 30);`
-  - This option is incorrect. The month value is 0, but months in the `LocalDate` class are indexed starting from 1. Valid month values are from 1 to 12, so using 0 will throw a `DateTimeException`.
+  - Đáp án này sai. Giá trị month là 0, nhưng month trong class `LocalDate` được đánh index bắt đầu từ 1. Các giá trị month hợp lệ là từ 1 đến 12, nên dùng 0 sẽ throw `DateTimeException`.
 
 - **D)** `LocalDate.now().plusDays(5);`
-  - This option is correct. It accurately obtains the current date using `LocalDate.now()` and then adds 5 days to it using the `plusDays()` method. This will create a new `LocalDate` object representing the date 5 days from now.
+  - Đáp án này đúng. Nó lấy chính xác date hiện tại bằng `LocalDate.now()` rồi cộng thêm 5 ngày bằng method `plusDays()`. Thao tác này sẽ tạo một object `LocalDate` mới biểu diễn date 5 ngày kể từ bây giờ.
 
 
-**2. The correct answer is C.** 
+**2. Đáp án đúng là C.** 
 
-**Explanation:**
+**Giải thích:**
 
 - **A)** A `LocalDate` instance representing `2014-01-02` 
-  - This option is incorrect. The `atTime` method does not return a `LocalDate`, but rather combines the `LocalDate` with the provided time parameters to create a `LocalDateTime` object.
+  - Đáp án này sai. Method `atTime` không trả về một `LocalDate`, mà kết hợp `LocalDate` với các tham số time được cung cấp để tạo một object `LocalDateTime`.
 
 - **B)** A `LocalTime` instance representing `14:30:59:999999`
-  - This option is incorrect. The `atTime` method does not return a `LocalTime`, but rather combines the `LocalDate` with the provided time parameters to create a `LocalDateTime` object. Additionally, `LocalTime` does not have nanosecond precision, so `999999` nanoseconds would be an invalid `LocalTime`.
+  - Đáp án này sai. Method `atTime` không trả về một `LocalTime`, mà kết hợp `LocalDate` với các tham số time được cung cấp để tạo một object `LocalDateTime`. Ngoài ra, `LocalTime` không có độ chính xác đến nanosecond, nên `999999` nanosecond sẽ là một `LocalTime` không hợp lệ.
 
 - **C)** A `LocalDateTime` instance representing `2014-01-02 14:30:59:999999` 
-  - This option is correct. The `atTime` method takes a `LocalDate` and combines it with the provided hour, minute, second, and nanosecond parameters to create a `LocalDateTime` object representing that date and time. The resulting `LocalDateTime` will be `2014-01-02 14:30:59:999999`.
+  - Đáp án này đúng. Method `atTime` nhận một `LocalDate` và kết hợp nó với các tham số hour, minute, second và nanosecond được cung cấp để tạo một object `LocalDateTime` biểu diễn date và time đó. `LocalDateTime` thu được sẽ là `2014-01-02 14:30:59:999999`.
 
 - **D)** An exception is thrown
-  - This option is incorrect. The provided parameters of 14 for hour, 30 for minute, 59 for second, and 999999 for nanosecond are all valid values for their respective fields, so combining them with the `LocalDate` will not throw an exception.
+  - Đáp án này sai. Các tham số được cung cấp gồm 14 cho hour, 30 cho minute, 59 cho second và 999999 cho nanosecond đều là giá trị hợp lệ cho các field tương ứng, nên kết hợp chúng với `LocalDate` sẽ không throw exception.
 
 
-**3. The correct answers are B and D.**
+**3. Đáp án đúng là B và D.**
 
-**Explanation:**
+**Giải thích:**
 
 - **A)** `YEAR`
-  - This option is incorrect. `YEAR` is not a valid `ChronoUnit` for `LocalTime`. `LocalTime` represents a time of day without any date information, so units of `YEAR` do not apply.
+  - Đáp án này sai. `YEAR` không phải là `ChronoUnit` hợp lệ cho `LocalTime`. `LocalTime` biểu diễn time of day mà không có bất kỳ thông tin date nào, nên các đơn vị `YEAR` không áp dụng được.
 
 - **B)** `NANOS`
-  - This option is correct. `NANOS` is a valid `ChronoUnit` for `LocalTime`. `LocalTime` has nanosecond precision, so you can perform operations on `LocalTime` using the `NANOS` unit.
+  - Đáp án này đúng. `NANOS` là `ChronoUnit` hợp lệ cho `LocalTime`. `LocalTime` có độ chính xác đến nanosecond, nên bạn có thể thực hiện các thao tác trên `LocalTime` với đơn vị `NANOS`.
 
 - **C)** `DAY`
-  - This option is incorrect. `DAY` is not a valid `ChronoUnit` for `LocalTime`. Similar to `YEAR`, `LocalTime` has no concept of days since it only represents a time, not a date.
+  - Đáp án này sai. `DAY` không phải là `ChronoUnit` hợp lệ cho `LocalTime`. Tương tự `YEAR`, `LocalTime` không có khái niệm day vì nó chỉ biểu diễn time, không biểu diễn date.
 
 - **D)** `HALF_DAYS`
-  - This option is correct. `HALF_DAYS` is a valid `ChronoUnit` for `LocalTime`. A day can be divided into two 12-hour periods (AM and PM), so `HALF_DAYS` can be used with `LocalTime` to represent a difference or addition of 12 hour chunks of time.
+  - Đáp án này đúng. `HALF_DAYS` là `ChronoUnit` hợp lệ cho `LocalTime`. Một ngày có thể chia thành hai khoảng 12 giờ (AM và PM), nên `HALF_DAYS` có thể được dùng với `LocalTime` để biểu diễn chênh lệch hoặc cộng thêm các khối thời gian 12 giờ.
 
 
-**4. The correct answers are B and C.**
+**4. Đáp án đúng là B và C.**
 
-**Explanation:**
+**Giải thích:**
 
 - **A)** `java.time.Period` implements `java.time.temporal.Temporal`
-  - This option is incorrect. `java.time.Period` does not implement the `java.time.temporal.Temporal` interface. `Period` represents a span of time between two dates and is not itself a temporal object.
+  - Đáp án này sai. `java.time.Period` không implement interface `java.time.temporal.Temporal`. `Period` biểu diễn một khoảng thời gian giữa hai date và bản thân nó không phải là một temporal object.
 
 - **B)** `java.time.Instant` implements `java.time.temporal.Temporal`
-  - This option is correct. `java.time.Instant` does implement the `java.time.temporal.Temporal` interface. `Instant` represents a point in time on the timeline and can be thought of as a temporal object.
+  - Đáp án này đúng. `java.time.Instant` thực sự implement interface `java.time.temporal.Temporal`. `Instant` biểu diễn một thời điểm trên timeline và có thể được coi là một temporal object.
 
 - **C)** `LocalDate` and `LocalTime` are thread-safe.
-  - This option is correct. `LocalDate` and `LocalTime` are indeed thread-safe. All the core Java Time classes, including `LocalDate`, `LocalTime`, `LocalDateTime`, `Instant`, etc., are designed to be immutable and thread-safe.
+  - Đáp án này đúng. `LocalDate` và `LocalTime` thực sự thread-safe. Tất cả các class cốt lõi của Java Time, bao gồm `LocalDate`, `LocalTime`, `LocalDateTime`, `Instant`, v.v., đều được thiết kế immutable và thread-safe.
 
 - **D)** `LocalDateTime.now()` will return the current time in UTC zone
-  - This option is incorrect. `LocalDateTime.now()` returns the current date and time using the system clock in the default time zone, not necessarily in the UTC zone. To get the current time in UTC, you would use `LocalDateTime.now(ZoneOffset.UTC)` or `Instant.now()`.
+  - Đáp án này sai. `LocalDateTime.now()` trả về date và time hiện tại theo system clock ở default time zone, không nhất thiết ở UTC zone. Để lấy time hiện tại theo UTC, bạn sẽ dùng `LocalDateTime.now(ZoneOffset.UTC)` hoặc `Instant.now()`.
 
 
-**5. The correct answer is A.**
+**5. Đáp án đúng là A.**
 
-**Explanation:**
+**Giải thích:**
 
 - **A)** `int nanos = i.getNano();`
-  - This option is correct. The `Instant` class does have a `getNano()` method that returns the nanosecond part of the `Instant` as an `int`. This is a valid way to get the nanoseconds.
+  - Đáp án này đúng. Class `Instant` có method `getNano()` trả về phần nanosecond của `Instant` dưới dạng `int`. Đây là cách hợp lệ để lấy nanosecond.
 
 - **B)** `long nanos = i.get(ChronoField.NANOS);`
-  - This option is incorrect. You can use the `get(TemporalField)` method of `Instant` to get the value of a specific `ChronoField`. Passing `ChronoField.NANO_OF_SECOND` (not `ChronoField.NANO`) will return the nanosecond part of the `Instant` as a `long`.
+  - Đáp án này sai. Bạn có thể dùng method `get(TemporalField)` của `Instant` để lấy giá trị của một `ChronoField` cụ thể. Truyền `ChronoField.NANO_OF_SECOND` (không phải `ChronoField.NANO`) sẽ trả về phần nanosecond của `Instant` dưới dạng `long`.
 
 - **C)** `long nanos = i.get(ChronoUnit.NANOS);`
-  - This option is incorrect. While `Instant` does have a `get(TemporalUnit)` method, `ChronoUnit.NANOS` is not a valid argument for it. `ChronoUnit` values are used for durations and periods, not for fields of a temporal object.
+  - Đáp án này sai. Mặc dù `Instant` có method `get(TemporalUnit)`, nhưng `ChronoUnit.NANOS` không phải là tham số hợp lệ cho nó. Các giá trị `ChronoUnit` được dùng cho duration và period, không dùng cho field của một temporal object.
 
 - **D)** `int nanos = i.getEpochNano();`
-  - This option is incorrect. The `Instant` class does have a `getEpochSecond()` method that returns the number of seconds since the Unix epoch, but there is no corresponding `getEpochNano()` method.
+  - Đáp án này sai. Class `Instant` có method `getEpochSecond()` trả về số giây kể từ Unix epoch, nhưng không có method `getEpochNano()` tương ứng.
 
 
 
-**6. The correct answer is D.**
+**6. Đáp án đúng là D.**
 
-**Explanation:**
+**Giải thích:**
 
 - **A)** `P29D`
-  - This option is incorrect. The `Period.between` method calculates the period between the second date and the first date, in that order. Since the first date (2025-03-20) is later than the second date (2025-02-20), the resulting period will be negative, not positive.
+  - Đáp án này sai. Method `Period.between` tính period giữa date thứ hai và date thứ nhất, theo thứ tự đó. Vì date thứ nhất (2025-03-20) muộn hơn date thứ hai (2025-02-20), period thu được sẽ là số âm, không phải số dương.
 
 - **B)** `P-29D`
-  - This option is incorrect. While the resulting period will be negative, it will not be represented as `-29D`. A `Period` first counts the number of complete months, then the remaining days.
+  - Đáp án này sai. Mặc dù period thu được sẽ âm, nó sẽ không được biểu diễn là `-29D`. Một `Period` đếm số tháng tròn trước, rồi mới đến số ngày còn lại.
 
 - **C)** `P1M`
-  - This option is incorrect. The resulting period will be negative because the first date is later than the second date.
+  - Đáp án này sai. Period thu được sẽ âm vì date thứ nhất muộn hơn date thứ hai.
 
 - **D)** `P-1M`
-  - This option is correct. The `Period.between` method subtracts the second date from the first date. In this case, `2025-03-20` minus `2025-02-20` results in a period of -1 month, which is represented as `P-1M`. The `Period` class first calculates the difference in complete months, and then any remaining days. Since the difference is exactly one month, the result is `P-1M`.
+  - Đáp án này đúng. Method `Period.between` lấy date thứ nhất trừ date thứ hai. Trong trường hợp này, `2025-03-20` trừ `2025-02-20` cho kết quả là period -1 tháng, được biểu diễn là `P-1M`. Class `Period` tính chênh lệch theo số tháng tròn trước, rồi đến số ngày còn lại. Vì chênh lệch đúng một tháng, kết quả là `P-1M`.
 
 
 
-**7. The correct answer is D.**
+**7. Đáp án đúng là D.**
 
-**Explanation:**
+**Giải thích:**
 
 - **A)** `PT5M`
-  - This option is incorrect. `PT5M` represents a duration of 5 minutes, which would be the result if the second time point was 5 minutes after the first. However, since `LocalTime.of(18, 5)` is being compared to a `LocalDateTime`, this causes an issue because they are not of the same type.
+  - Đáp án này sai. `PT5M` biểu diễn duration 5 phút, đây sẽ là kết quả nếu thời điểm thứ hai sau thời điểm thứ nhất 5 phút. Tuy nhiên, vì `LocalTime.of(18, 5)` được so sánh với một `LocalDateTime`, điều này gây ra vấn đề vì chúng không cùng type.
 
 - **B)** `PT-5M`
-  - This option is incorrect. `PT-5M` represents a duration of negative 5 minutes. Similar to option A, this would only be the case if the second time point was before the first. The main issue is that there is a type mismatch between `LocalDateTime` and `LocalTime`.
+  - Đáp án này sai. `PT-5M` biểu diễn duration âm 5 phút. Tương tự đáp án A, đây chỉ là trường hợp nếu thời điểm thứ hai trước thời điểm thứ nhất. Vấn đề chính là có sự không khớp type giữa `LocalDateTime` và `LocalTime`.
 
 - **C)** `PT300S`
-  - This option is incorrect. `PT300S` represents a duration of 300 seconds (or 5 minutes), which again would be the result if the second time point was 5 minutes after the first. However, this still doesn't resolve the type mismatch issue between `LocalDateTime` and `LocalTime`. 
+  - Đáp án này sai. `PT300S` biểu diễn duration 300 giây (hay 5 phút), một lần nữa đây sẽ là kết quả nếu thời điểm thứ hai sau thời điểm thứ nhất 5 phút. Tuy nhiên, điều này vẫn không giải quyết vấn đề không khớp type giữa `LocalDateTime` và `LocalTime`. 
 
 - **D)** An exception is thrown
-  - This option is correct. An exception is thrown because there is a type mismatch between `LocalDateTime.of(2025, 3, 20, 18, 0)` and `LocalTime.of(18, 5)`. The `Duration.between` method requires two temporal objects of the same type.
+  - Đáp án này đúng. Exception được throw vì có sự không khớp type giữa `LocalDateTime.of(2025, 3, 20, 18, 0)` và `LocalTime.of(18, 5)`. Method `Duration.between` yêu cầu hai temporal object cùng type.
 
 
-**8. The correct answers are A and C.**
+**8. Đáp án đúng là A và C.**
 
-**Explanation:**
+**Giải thích:**
 
 - **A)** `DAY_OF_WEEK`
-  - This option is correct. `DAY_OF_WEEK` is a valid `ChronoField` value for `LocalDate`. It represents the day of the week, an integer from 1 (Monday) to 7 (Sunday), which can be extracted from a `LocalDate`.
+  - Đáp án này đúng. `DAY_OF_WEEK` là giá trị `ChronoField` hợp lệ cho `LocalDate`. Nó biểu diễn day của tuần, một số nguyên từ 1 (Monday) đến 7 (Sunday), có thể được trích xuất từ một `LocalDate`.
 
 - **B)** `HOUR_OF_DAY`
-  - This option is incorrect. `HOUR_OF_DAY` is not a valid `ChronoField` value for `LocalDate`. `HOUR_OF_DAY` pertains to `LocalTime` or `LocalDateTime`, which include time components, whereas `LocalDate` only deals with date components.
+  - Đáp án này sai. `HOUR_OF_DAY` không phải là giá trị `ChronoField` hợp lệ cho `LocalDate`. `HOUR_OF_DAY` liên quan đến `LocalTime` hoặc `LocalDateTime`, những type bao gồm thành phần time, trong khi `LocalDate` chỉ xử lý thành phần date.
 
 - **C)** `DAY_OF_MONTH`
-  - This option is correct. `DAY_OF_MONTH` is a valid `ChronoField` value for `LocalDate`. It represents the day of the month, which can be extracted from a `LocalDate`.
+  - Đáp án này đúng. `DAY_OF_MONTH` là giá trị `ChronoField` hợp lệ cho `LocalDate`. Nó biểu diễn day của tháng, có thể được trích xuất từ một `LocalDate`.
 
 - **D)** `MILLI_OF_SECOND`
-  - This option is incorrect. `MILLI_OF_SECOND` is not a valid `ChronoField` value for `LocalDate`. `MILLI_OF_SECOND` pertains to time components, specifically for `LocalTime` or `LocalDateTime`, and `LocalDate` only deals with date components.
+  - Đáp án này sai. `MILLI_OF_SECOND` không phải là giá trị `ChronoField` hợp lệ cho `LocalDate`. `MILLI_OF_SECOND` liên quan đến thành phần time, cụ thể cho `LocalTime` hoặc `LocalDateTime`, và `LocalDate` chỉ xử lý thành phần date.
 
 
 
-**9. The correct answer is C.**
+**9. Đáp án đúng là C.**
 
-**Explanation:**
+**Giải thích:**
 
 - **A)** `ZoneId.ofHours(2);`
-  - This option is incorrect. The method `ofHours(int)` belongs to the `ZoneOffset` class, not `ZoneId`.
+  - Đáp án này sai. Method `ofHours(int)` thuộc class `ZoneOffset`, không phải `ZoneId`.
 
 - **B)** `ZoneId.of("2");`
-  - This option is incorrect. The format of the offset is incorrect for `ZoneId`. It should be a proper time-zone ID or start with a sign (`+` or `-`).
+  - Đáp án này sai. Định dạng của offset không đúng cho `ZoneId`. Nó phải là một time-zone ID hợp lệ hoặc bắt đầu bằng một dấu (`+` hoặc `-`).
 
 - **C)** `ZoneId.of("-1");`
-  - This option is correct. `ZoneId.of("-1")` is valid since it follows the correct format for time-zone offsets.
+  - Đáp án này đúng. `ZoneId.of("-1")` hợp lệ vì nó tuân theo đúng định dạng cho time-zone offset.
 
 - **D)** `ZoneId.of("America/Canada");`
-  - This option is incorrect. The format for zone regions should be in the `"Area/City"` format, not `"Area/Country"`. A valid example would be `"America/Montreal"`.
+  - Đáp án này sai. Định dạng cho zone region phải theo dạng `"Area/City"`, không phải `"Area/Country"`. Một ví dụ hợp lệ sẽ là `"America/Montreal"`.
 
 
-**10. The correct answer is D.**
+**10. Đáp án đúng là D.**
 
-**Explanation:**
+**Giải thích:**
 
 - **A)** `0`
-  - This option is incorrect. The method `offset.get(ChronoField.HOUR_OF_DAY)` does not return the hour value of the `ZoneOffset`. `ZoneOffset` represents a time-zone offset from UTC/Greenwich, and calling `get(ChronoField.HOUR_OF_DAY)` on it is not appropriate.
+  - Đáp án này sai. Method `offset.get(ChronoField.HOUR_OF_DAY)` không trả về giá trị hour của `ZoneOffset`. `ZoneOffset` biểu diễn time-zone offset so với UTC/Greenwich, và gọi `get(ChronoField.HOUR_OF_DAY)` trên nó là không phù hợp.
 
 - **B)** `1`
-  - This option is incorrect. Similar to option A, the `get` method of `ZoneOffset` with `ChronoField.HOUR_OF_DAY` does not produce this result. The `ZoneOffset` class is not meant to provide such a field directly.
+  - Đáp án này sai. Tương tự đáp án A, method `get` của `ZoneOffset` với `ChronoField.HOUR_OF_DAY` không tạo ra kết quả này. Class `ZoneOffset` không được thiết kế để cung cấp trực tiếp field như vậy.
 
 - **C)** `12:00`
-  - This option is incorrect. `12:00` is not a valid response for the method call as it implies a time representation, while `ZoneOffset` is dealing with offset values rather than specific time of day values.
+  - Đáp án này sai. `12:00` không phải là kết quả hợp lệ cho lời gọi method vì nó ngụ ý một biểu diễn time, trong khi `ZoneOffset` xử lý các giá trị offset chứ không phải các giá trị time of day cụ thể.
 
 - **D)** An exception is thrown
-  - This option is correct. An exception is thrown because `ZoneOffset` does not support the field `ChronoField.HOUR_OF_DAY`. The `ZoneOffset` class provides offset values in terms of seconds rather than specific chrono fields like hour of day.
+  - Đáp án này đúng. Exception được throw vì `ZoneOffset` không hỗ trợ field `ChronoField.HOUR_OF_DAY`. Class `ZoneOffset` cung cấp giá trị offset theo đơn vị giây thay vì các chrono field cụ thể như hour of day.
 
 
-**11. The correct answer is A.**
+**11. Đáp án đúng là A.**
 
-**Explanation:**
+**Giải thích:**
 
 - **A)** `05:00` 
-  - This option is correct. `ZonedDateTime.of(2025, 02, 28, 5, 0, 0, 0, ZoneId.of("+05:00"))` creates a `ZonedDateTime` instance with the specified date, time, and time zone offset of +05:00. Calling `toLocalTime()` on this instance returns the local time, which is `05:00`, as no conversion to the local time zone of +2:00 is done in this code snippet.
+  - Đáp án này đúng. `ZonedDateTime.of(2025, 02, 28, 5, 0, 0, 0, ZoneId.of("+05:00"))` tạo một instance `ZonedDateTime` với date, time và time zone offset +05:00 được chỉ định. Gọi `toLocalTime()` trên instance này trả về local time, tức `05:00`, vì không có chuyển đổi sang local time zone +2:00 nào được thực hiện trong đoạn code này.
 
 - **B)** `17:00`
-  - This option is incorrect. `17:00` would be the time if the code converted the given time (05:00) from the +05:00 time zone to the local time zone of +02:00, which it does not. 
+  - Đáp án này sai. `17:00` sẽ là time nếu code chuyển đổi time đã cho (05:00) từ time zone +05:00 sang local time zone +02:00, nhưng nó không làm vậy. 
 
 - **C)** `02:00`
-  - This option is incorrect. `02:00` does not correspond to any logical result based on the given time and time zone offset.
+  - Đáp án này sai. `02:00` không tương ứng với bất kỳ kết quả logic nào dựa trên time và time zone offset đã cho.
 
 - **D)** `03:00`
-  - This option is incorrect. `03:00` also does not correspond to any logical result based on the given time and time zone offset.
+  - Đáp án này sai. `03:00` cũng không tương ứng với bất kỳ kết quả logic nào dựa trên time và time zone offset đã cho.
 
 
-**12. The correct answer is C.**
+**12. Đáp án đúng là C.**
 
-**Explanation:**
+**Giải thích:**
 
 - **A)** `2025-10-04T00:00-03:00[America/Asuncion]` 
-  - This option is incorrect. The initial time is `2025-10-04T00:00-03:00[America/Asuncion]` before DST starts. When 1 hour is added, the time will shift forward by 1 hour, but since DST starts at this moment, the offset will change.
+  - Đáp án này sai. Time ban đầu là `2025-10-04T00:00-03:00[America/Asuncion]` trước khi DST bắt đầu. Khi cộng thêm 1 giờ, time sẽ dịch lên 1 giờ, nhưng vì DST bắt đầu đúng lúc này, offset sẽ thay đổi.
 
 - **B)** `2025-10-04T01:00-03:00[America/Asuncion]` 
-  - This option is incorrect. Adding 1 hour to the initial time `2025-10-04T00:00-03:00[America/Asuncion]` while considering the start of DST (which typically adds 1 hour to the local time) means that the effective time would be adjusted by the DST transition.
+  - Đáp án này sai. Cộng 1 giờ vào time ban đầu `2025-10-04T00:00-03:00[America/Asuncion]` trong khi xét đến thời điểm DST bắt đầu (thường cộng 1 giờ vào local time) nghĩa là effective time sẽ được điều chỉnh bởi DST transition.
 
 - **C)** `2025-10-04T02:00-03:00[America/Asuncion]`
-  - This option is correct. Initially, the time is `2025-10-04T00:00-03:00[America/Asuncion]`. With the addition of 1 hour and considering the DST start at `2025-10-04T00:00`, the time advances to `2025-10-04T02:00-03:00[America/Asuncion]`, as it effectively skips the 01:00 hour.
+  - Đáp án này đúng. Ban đầu, time là `2025-10-04T00:00-03:00[America/Asuncion]`. Khi cộng thêm 1 giờ và xét đến thời điểm DST bắt đầu lúc `2025-10-04T00:00`, time tiến tới `2025-10-04T02:00-03:00[America/Asuncion]`, vì nó thực sự bỏ qua giờ 01:00.
 
 - **D)** `2025-10-03T23:00-03:00[America/Asuncion]`
-  - This option is incorrect. The date and time `2025-10-03T23:00-03:00[America/Asuncion]` does not correlate correctly with the 1 hour addition from the initial time and does not account for the DST transition. 
+  - Đáp án này sai. Date và time `2025-10-03T23:00-03:00[America/Asuncion]` không tương ứng đúng với việc cộng 1 giờ từ time ban đầu và không tính đến DST transition. 
 
 
-**13. The correct answer is B.**
+**13. Đáp án đúng là B.**
 
-**Explanation:**
+**Giải thích:**
 
 - **A)** `java.time.ZoneOffset` is a subclass of `java.time.ZoneId`.
-  - This option is incorrect. `java.time.ZoneOffset` is not a subclass of `java.time.ZoneId`. `java.time.ZoneOffset` is a final class that extends `java.time.ZoneId` but it is not a subclass.
+  - Đáp án này sai. `java.time.ZoneOffset` không phải là subclass của `java.time.ZoneId`. `java.time.ZoneOffset` là một final class extends `java.time.ZoneId` nhưng nó không phải là subclass.
 
 - **B)** `java.time.Instant` can be obtained from `java.time.ZonedDateTime`. 
-  - This option is correct. `java.time.Instant` can indeed be obtained from `java.time.ZonedDateTime` using the `toInstant()` method.
+  - Đáp án này đúng. `java.time.Instant` thực sự có thể được lấy từ `java.time.ZonedDateTime` bằng method `toInstant()`.
 
 - **C)** `java.time.ZoneOffset` can manage DST.
-  - This option is incorrect. `java.time.ZoneOffset` represents a fixed offset from UTC and does not manage Daylight Saving Time (DST). DST is managed by `java.time.ZoneId`.
+  - Đáp án này sai. `java.time.ZoneOffset` biểu diễn một offset cố định so với UTC và không quản lý Daylight Saving Time (DST). DST được quản lý bởi `java.time.ZoneId`.
 
 - **D)** `java.time.OffsetDateTime` represents a point in time in the UTC time zone.
-  - This option is incorrect. `java.time.OffsetDateTime` represents a date-time with an offset from UTC, but it does not necessarily represent a point in the UTC time zone. The offset can be any valid `ZoneOffset`.
+  - Đáp án này sai. `java.time.OffsetDateTime` biểu diễn một date-time với offset so với UTC, nhưng nó không nhất thiết biểu diễn một thời điểm ở UTC time zone. Offset có thể là bất kỳ `ZoneOffset` hợp lệ nào.
 
 
-**14. The correct answer is C.**
+**14. Đáp án đúng là C.**
 
-**Explanation:**
+**Giải thích:**
 
 - **A)** `5/7/15 4:00 PM`
-  - This option is incorrect. The `DateTimeFormatter.ofLocalizedTime(FormatStyle.SHORT)` method is used to format only the time portion of a `LocalDateTime` object, and it does not include the date. Therefore, the output will not include `5/7/15`.
+  - Đáp án này sai. Method `DateTimeFormatter.ofLocalizedTime(FormatStyle.SHORT)` được dùng để format chỉ phần time của một object `LocalDateTime`, và nó không bao gồm date. Do đó, output sẽ không bao gồm `5/7/15`.
 
 - **B)** `5/7/15`
-  - This option is incorrect. As mentioned earlier, the `DateTimeFormatter.ofLocalizedTime(FormatStyle.SHORT)` formats only the time portion and does not include the date. Thus, the output `5/7/15` is not possible.
+  - Đáp án này sai. Như đã đề cập trước đó, `DateTimeFormatter.ofLocalizedTime(FormatStyle.SHORT)` chỉ format phần time và không bao gồm date. Vì vậy, output `5/7/15` là không thể.
 
 - **C)** `4:00 PM`
-  - This option is correct. The `DateTimeFormatter.ofLocalizedTime(FormatStyle.SHORT)` formats the time portion of the `LocalDateTime` object in a short style. Given the input time `16:00`, in the `Locale.ENGLISH`, the formatted output is `4:00 PM`.
+  - Đáp án này đúng. `DateTimeFormatter.ofLocalizedTime(FormatStyle.SHORT)` format phần time của object `LocalDateTime` theo kiểu short. Với time đầu vào `16:00`, trong `Locale.ENGLISH`, output được format là `4:00 PM`.
 
 - **D)** `4:00:00 PM`
-  - This option is incorrect. The `DateTimeFormatter.ofLocalizedTime(FormatStyle.SHORT)` formats the time portion without including seconds. Therefore, the output will not include `4:00:00 PM`.
+  - Đáp án này sai. `DateTimeFormatter.ofLocalizedTime(FormatStyle.SHORT)` format phần time mà không bao gồm second. Do đó, output sẽ không bao gồm `4:00:00 PM`.
 
 
-**15. The correct answer is D.**
+**15. Đáp án đúng là D.**
 
-**Explanation:**
+**Giải thích:**
 
 - **A)** The pattern `HH:mm:ss X` is invalid.
-  - This option is incorrect. The pattern `HH:mm:ss X` is valid. `HH` represents the hour of the day (00-23), `mm` represents the minute of the hour, `ss` represents the second of the minute, and `X` represents the ISO 8601 time zone offset.
+  - Đáp án này sai. Pattern `HH:mm:ss X` hợp lệ. `HH` biểu diễn hour của ngày (00-23), `mm` biểu diễn minute của giờ, `ss` biểu diễn second của phút, và `X` biểu diễn ISO 8601 time zone offset.
 
 - **B)** An `OffsetDateTime` is created successfully. 
-  - This option is incorrect. The pattern `HH:mm:ss X` is valid, but the `OffsetDateTime.parse` method requires a date and time format along with the offset. Since the input string `"11:50:20 Z"` does not contain a date part, this will cause a `DateTimeParseException`.
+  - Đáp án này sai. Pattern `HH:mm:ss X` hợp lệ, nhưng method `OffsetDateTime.parse` yêu cầu một định dạng date và time cùng với offset. Vì chuỗi đầu vào `"11:50:20 Z"` không chứa phần date, điều này sẽ gây ra `DateTimeParseException`.
 
 - **C)** `Z` is an invalid offset.
-  - This option is incorrect. `Z` is a valid offset representing UTC (Coordinated Universal Time).
+  - Đáp án này sai. `Z` là một offset hợp lệ biểu diễn UTC (Coordinated Universal Time).
 
 - **D)** An exception is thrown at runtime.
-  - This option is correct. An exception is thrown at runtime because the input string `"11:50:20 Z"` does not match the expected pattern for an `OffsetDateTime`, which typically includes a date part as well as the time and offset.
+  - Đáp án này đúng. Exception được throw at runtime vì chuỗi đầu vào `"11:50:20 Z"` không khớp với pattern mong đợi cho một `OffsetDateTime`, vốn thường bao gồm cả phần date lẫn time và offset.

@@ -1,107 +1,107 @@
 ---
 layout: answer
 
-title: "Chapter EIGHT"
-subtitle: "Functional Interfaces and Lambda Expressions"
+title: "Chương 8"
+subtitle: "Functional Interface và biểu thức Lambda"
 exam_objectives:
   - "Use Java object and primitive Streams, including lambda expressions implementing functional interfaces, to create, filter, transform, process, and sort data."
 ---
 
-## Answers
-**1. The correct answers are B and D.**
+## Đáp án {#answers}
+**1. Đáp án đúng là B và D.**
 
-**Explanation:**
+**Giải thích:**
 
-- **A)** A functional interface can have multiple `abstract` methods.
-  - This option is incorrect. A functional interface can have only one abstract method. Having multiple abstract methods would disqualify it from being a functional interface.
+- **A)** Một functional interface có thể có nhiều method `abstract`.
+  - Đáp án này sai. Một functional interface chỉ có thể có một abstract method. Việc có nhiều abstract method sẽ khiến nó không còn đủ điều kiện là một functional interface.
 
-- **B)** A functional interface can have default and `static` methods.
-  - This option is correct. A functional interface is allowed to have default and static methods, which are not counted as abstract methods.
+- **B)** Một functional interface có thể có default method và method `static`.
+  - Đáp án này đúng. Một functional interface được phép có default method và static method, những method này không bị tính là abstract method.
 
-- **C)** The `@FunctionalInterface` annotation is mandatory to declare a functional interface. 
-  - This option is incorrect. The `@FunctionalInterface` annotation is not mandatory; it is only a marker to indicate that the interface is intended to be a functional interface. An interface can be a functional interface without this annotation as long as it has exactly one abstract method.
+- **C)** Annotation `@FunctionalInterface` là bắt buộc để khai báo một functional interface. 
+  - Đáp án này sai. Annotation `@FunctionalInterface` không bắt buộc; nó chỉ là một marker để chỉ ra rằng interface này được dự định là một functional interface. Một interface vẫn có thể là functional interface mà không cần annotation này miễn là nó có đúng một abstract method.
 
-- **D)** Lambda expressions can be used to instantiate functional interfaces.
-  - This option is correct. Lambda expressions are used to provide implementations for the single abstract method of a functional interface, making them a key feature for functional programming in Java.
+- **D)** Biểu thức lambda có thể được dùng để khởi tạo functional interface.
+  - Đáp án này đúng. Biểu thức lambda được dùng để cung cấp implementation cho abstract method duy nhất của một functional interface, khiến chúng trở thành một tính năng then chốt cho lập trình hàm (functional programming) trong Java.
 
 
-**2. The correct answer is A.**
+**2. Đáp án đúng là A.**
 
-**Explanation:**
+**Giải thích:**
 
 - **A)** `(s1, s2) -> s1.compareTo(s2)`
-  - This option is correct. This lambda expression correctly implements the `Comparator<String>` interface. It uses the correct syntax for a lambda expression, with parameters enclosed in parentheses and a single expression for the body.
+  - Đáp án này đúng. Biểu thức lambda này implement đúng interface `Comparator<String>`. Nó dùng cú pháp đúng cho một biểu thức lambda, với các parameter được bao trong dấu ngoặc đơn và một biểu thức duy nhất cho phần body.
 
 - **B)** `(String s1, s2) -> s1.compareTo(s2)`
-  - This option is incorrect. The syntax is invalid because if you specify the type of one parameter, you must specify the type for all parameters. It should be `(String s1, String s2)`.
+  - Đáp án này sai. Cú pháp không hợp lệ vì nếu bạn chỉ định type của một parameter, bạn phải chỉ định type cho tất cả các parameter. Đúng ra phải là `(String s1, String s2)`.
 
 - **C)** `s1, s2 -> s1.compareTo(s2)`
-  - This option is incorrect. Parameters must be enclosed in parentheses. The correct syntax is `(s1, s2)`.
+  - Đáp án này sai. Các parameter phải được bao trong dấu ngoặc đơn. Cú pháp đúng là `(s1, s2)`.
 
 - **D)** `(s1, s2) -> return s1.compareTo(s2);`
-  - This option is incorrect. When using a return statement, you must also include curly braces.
+  - Đáp án này sai. Khi dùng câu lệnh return, bạn cũng phải thêm dấu ngoặc nhọn.
 
 - **E)** `(s1, s2) -> { s1.compareTo(s2); }`
-  - This option is incorrect. When using curly braces, you must include a return statement for expressions that return a value. The correct syntax would be `(s1, s2) -> { return s1.compareTo(s2); }`.
+  - Đáp án này sai. Khi dùng dấu ngoặc nhọn, bạn phải thêm câu lệnh return cho những biểu thức trả về giá trị. Cú pháp đúng phải là `(s1, s2) -> { return s1.compareTo(s2); }`.
 
 
-**3. The correct answer is B.**
+**3. Đáp án đúng là B.**
 
-**Explanation:**
+**Giải thích:**
 
 - **A)** `java.util.function.Function`
-  - This option is incorrect. `Function` represents a function that takes one argument and produces a result.
+  - Đáp án này sai. `Function` biểu diễn một function nhận một argument và tạo ra một kết quả.
 
 - **B)** `java.util.function.BiFunction`
-  - This option is correct. `BiFunction` represents a function that takes two arguments and produces a result.
+  - Đáp án này đúng. `BiFunction` biểu diễn một function nhận hai argument và tạo ra một kết quả.
 
 - **C)** `java.util.function.Supplier`
-  - This option is incorrect. `Supplier` represents a function that takes no arguments and produces a result.
+  - Đáp án này sai. `Supplier` biểu diễn một function không nhận argument nào và tạo ra một kết quả.
 
 - **D)** `java.util.function.Consumer`
-  - This option is incorrect. `Consumer` represents a function that takes one argument and does not produce a result.
+  - Đáp án này sai. `Consumer` biểu diễn một function nhận một argument và không tạo ra kết quả.
 
 - **E)** `java.util.function.Predicate`
-  - This option is incorrect. `Predicate` represents a function that takes one argument and returns a `boolean` value.
+  - Đáp án này sai. `Predicate` biểu diễn một function nhận một argument và trả về một giá trị `boolean`.
 
 
-**4. The correct answer is A.**
+**4. Đáp án đúng là A.**
 
-**Explanation:**
+**Giải thích:**
 
 - **A)** `13`
-  - This option is correct. The `combinedFunction` first multiplies 5 by 2 to get 10, then adds 3, resulting in 13.
+  - Đáp án này đúng. `combinedFunction` đầu tiên nhân 5 với 2 để được 10, sau đó cộng 3, cho kết quả là 13.
 
 - **B)** `16`
-  - This option is incorrect. It incorrectly assumes that 5 is added after doubling and doubling again.
+  - Đáp án này sai. Nó giả định sai rằng 5 được cộng vào sau khi nhân đôi và nhân đôi lần nữa.
 
 - **C)** `10`
-  - This option is incorrect. It represents only the result of the first function without applying the second function.
+  - Đáp án này sai. Nó chỉ thể hiện kết quả của function đầu tiên mà không áp dụng function thứ hai.
 
 - **D)** `11`
-  - This option is incorrect. It seems to mistakenly represent 5 plus the first function (double).
+  - Đáp án này sai. Có vẻ nó thể hiện nhầm phép tính 5 cộng với function đầu tiên (double).
 
 - **E)** `8`
-  - This option is incorrect. It seems to incorrectly represent the input value doubled without adding 3.
+  - Đáp án này sai. Có vẻ nó thể hiện sai giá trị input được nhân đôi mà không cộng thêm 3.
 
 
 
-**5. The correct answer is C.**
+**5. Đáp án đúng là C.**
 
-**Explanation:**
+**Giải thích:**
 
 - **A)** `String::valueOf` 
-  - This option is incorrect. `String::valueOf` converts an integer to a string, not a string to an integer.
+  - Đáp án này sai. `String::valueOf` chuyển một integer thành một string, chứ không phải chuyển một string thành một integer.
 
 - **B)** `Integer::valueOf`
-  - This option is incorrect. `Integer::valueOf` returns an `Integer` object, while the lambda returns an `int`.
+  - Đáp án này sai. `Integer::valueOf` trả về một object `Integer`, trong khi lambda trả về một `int`.
 
 - **C)** `Integer::parseInt`
-  - This option is correct. `Integer::parseInt` is a method reference that matches the lambda expression `str -> Integer.parseInt(str)` which converts a string to an integer.
+  - Đáp án này đúng. `Integer::parseInt` là một method reference khớp với biểu thức lambda `str -> Integer.parseInt(str)`, tức là chuyển một string thành một integer.
 
 - **D)** `String::parseInt`
-  - This option is incorrect. `String` class does not have a `parseInt` method.
+  - Đáp án này sai. Class `String` không có method `parseInt`.
 
 - **E)** `Integer::toString`
-  - This option is incorrect. `Integer::toString` converts an integer to a string, not a string to an integer.
+  - Đáp án này sai. `Integer::toString` chuyển một integer thành một string, chứ không phải chuyển một string thành một integer.
 

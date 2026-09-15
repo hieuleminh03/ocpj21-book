@@ -1,189 +1,189 @@
 ---
 layout: answer
 
-title: "Chapter NINE"
+title: "Chương 9"
 subtitle: "Streams"
 exam_objectives:
   - "Use Java object and primitive Streams, including lambda expressions implementing functional interfaces, to create, filter, transform, process, and sort data."
   - "Perform decomposition, concatenation, and reduction, and grouping and partitioning on sequential and parallel streams."
 ---
 
-## Answers
-**1. The correct answer is C.**
+## Đáp án {#answers}
+**1. Đáp án đúng là C.**
 
-**Explanation:**
+**Giải thích:**
 
 - **A)** `Optional<String> optional = new Optional<>(value);`
-  - This option is incorrect because `Optional` does not have a public constructor. Instead, static factory methods like `of` and `ofNullable` should be used.
+  - Đáp án này sai vì `Optional` không có public constructor. Thay vào đó, nên dùng các static factory method như `of` và `ofNullable`.
 
 - **B)** `Optional<String> optional = Optional.of(value);`
-  - This option is incorrect because `Optional.of(value)` throws a `NullPointerException` if `value` is `null`. In this scenario, since `getValue()` can return `null`, this line could lead to an exception.
+  - Đáp án này sai vì `Optional.of(value)` sẽ throw một `NullPointerException` nếu `value` là `null`. Trong tình huống này, vì `getValue()` có thể trả về `null`, dòng code này có thể dẫn đến exception.
 
 - **C)** `Optional<String> optional = Optional.ofNullable(value);`
-  - This option is correct because `Optional.ofNullable(value)` will return an `Optional` describing the specified value if non-null, or an empty `Optional` if the value is `null`. This is the appropriate way to handle a potentially `null` value.
+  - Đáp án này đúng vì `Optional.ofNullable(value)` sẽ trả về một `Optional` mô tả giá trị được chỉ định nếu nó khác null, hoặc một `Optional` rỗng nếu giá trị là `null`. Đây là cách phù hợp để xử lý một giá trị có thể là `null`.
 
 - **D)** `Optional<String> optional = Optional.empty(value);`
-  - This option is incorrect because `Optional.empty()` does not accept any arguments. It simply returns an empty `Optional`.
+  - Đáp án này sai vì `Optional.empty()` không nhận bất kỳ argument nào. Nó chỉ đơn giản trả về một `Optional` rỗng.
 
 - **E)** `Optional<String> optional = Optional.nullable(value);`
-  - This option is incorrect because there is no method `nullable` in the `Optional` class. The correct method for this purpose is `ofNullable`. 
+  - Đáp án này sai vì không có method `nullable` trong class `Optional`. Method đúng cho mục đích này là `ofNullable`. 
 
 
-**2. The correct answer is E.**
+**2. Đáp án đúng là E.**
 
-**Explanation:**
+**Giải thích:**
 
 - **A)** `stream.filter(s -> s.contains("A"));` 
-  - This option is incorrect because `filter` is an intermediate operation. It returns a new stream with elements that match the given predicate.
+  - Đáp án này sai vì `filter` là một intermediate operation. Nó trả về một stream mới chứa các phần tử khớp với predicate đã cho.
 
 - **B)** `stream.map(String::toLowerCase);`
-  - This option is incorrect because `map` is an intermediate operation. It returns a new stream with elements that are the results of applying the given function.
+  - Đáp án này sai vì `map` là một intermediate operation. Nó trả về một stream mới với các phần tử là kết quả của việc áp dụng function đã cho.
 
 - **C)** `stream.distinct();`
-  - This option is incorrect because `distinct` is an intermediate operation. It returns a new stream with distinct elements.
+  - Đáp án này sai vì `distinct` là một intermediate operation. Nó trả về một stream mới chỉ chứa các phần tử không trùng lặp.
 
 - **D)** `stream.limit(2);`
-  - This option is incorrect because `limit` is an intermediate operation. It returns a new stream that is truncated to be no longer than the given size.
+  - Đáp án này sai vì `limit` là một intermediate operation. Nó trả về một stream mới được cắt ngắn để không dài hơn kích thước đã cho.
 
 - **E)** `stream.collect(Collectors.toList());`
-  - This option is correct because `collect` is a terminal operation. It triggers the processing of the stream and collects the elements into a `List`.
+  - Đáp án này đúng vì `collect` là một terminal operation. Nó kích hoạt việc xử lý stream và thu thập các phần tử vào một `List`.
 
 
-**3. The correct answer is D.**
+**3. Đáp án đúng là D.**
 
-**Explanation:**
+**Giải thích:**
 
 - **A)** `int sum = numbers.stream().sum();` 
-  - This option is incorrect because arrays do not have a `stream` method directly on them. You need to use a method from a utility class like `IntStream` to create a stream.
+  - Đáp án này sai vì array không có method `stream` trực tiếp trên nó. Bạn cần dùng một method từ một utility class như `IntStream` để tạo stream.
 
 - **B)** `int sum = IntStream.range(0, numbers.length).sum();` 
-  - This option is incorrect because `IntStream.range(0, numbers.length)` generates a stream of integers from 0 to the length of the array, not the elements of the array itself.
+  - Đáp án này sai vì `IntStream.range(0, numbers.length)` tạo ra một stream các số nguyên từ 0 đến độ dài của array, chứ không phải các phần tử của array.
 
 - **C)** `int sum = IntStream.from(numbers).sum();`
-  - This option is incorrect because `IntStream` does not have a `from` method. The correct method is `of`.
+  - Đáp án này sai vì `IntStream` không có method `from`. Method đúng là `of`.
 
 - **D)** `int sum = IntStream.of(numbers).sum();`
-  - This option is correct because `IntStream.of(numbers).sum()` correctly creates an `IntStream` from the array and calculates the sum of its elements.
+  - Đáp án này đúng vì `IntStream.of(numbers).sum()` tạo đúng một `IntStream` từ array và tính tổng các phần tử của nó.
 
 - **E)** `int sum = IntStream.range(numbers).sum();`
-  - This option is incorrect because `IntStream.range` requires two arguments (a start and an end index) and is used to generate a stream of numbers within a range, not to sum an array.
+  - Đáp án này sai vì `IntStream.range` yêu cầu hai argument (index bắt đầu và index kết thúc) và được dùng để tạo một stream các số trong một khoảng, chứ không phải để tính tổng một array.
 
 
-**4. The correct answer is A.**
+**4. Đáp án đúng là A.**
 
-**Explanation:**
+**Giải thích:**
 
 - **A)** `Stream<String> filteredStream = stream.filter(s -> s.length() > 3);`  
-  - This option is correct because `filter` is the correct intermediate operation to apply a predicate to each element of the stream and return a new stream containing only elements that match the predicate.
+  - Đáp án này đúng vì `filter` là intermediate operation đúng để áp dụng một predicate lên từng phần tử của stream và trả về một stream mới chỉ chứa các phần tử khớp với predicate.
 
 - **B)** `Stream<String> filteredStream = stream.map(s -> s.length() > 3);` 
-  - This option is incorrect because `map` is used to transform elements of the stream and does not filter them. The result would be a stream of `Boolean` values instead of the original strings.
+  - Đáp án này sai vì `map` được dùng để biến đổi các phần tử của stream chứ không filter chúng. Kết quả sẽ là một stream các giá trị `Boolean` thay vì các string ban đầu.
 
 - **C)** `Stream<String> filteredStream = stream.collect(Collectors.filtering(s -> s.length() > 3));` 
-  - This option is incorrect because `Collectors.filtering` is not a valid method. Filtering is done through the `filter` method on the stream itself, not via collectors.
+  - Đáp án này sai vì `Collectors.filtering` không phải là một method hợp lệ. Việc filter được thực hiện thông qua method `filter` trên chính stream, chứ không phải thông qua collectors.
 
 - **D)** `Stream<String> filteredStream = stream.filtering(s -> s.length() > 3);` 
-  - This option is incorrect because there is no `filtering` method on the stream. The correct method is `filter`.
+  - Đáp án này sai vì không có method `filtering` trên stream. Method đúng là `filter`.
 
 - **E)** `Stream<String> filteredStream = stream.filterByLength(3);`
-  - This option is incorrect because there is no `filterByLength` method on the stream. The correct method to use is `filter`.
+  - Đáp án này sai vì không có method `filterByLength` trên stream. Method đúng cần dùng là `filter`.
 
 
-**5. The correct answer is C.**
+**5. Đáp án đúng là C.**
 
-**Explanation:**
+**Giải thích:**
 
 - **A)** `Stream<String> lengthStream = stream.map(s -> s.length());`
-  - This option is incorrect because the `map` method will transform the elements to `Integer`, not `String`. The correct type for the resulting stream should be `Stream<Integer>`.
+  - Đáp án này sai vì method `map` sẽ biến đổi các phần tử thành `Integer`, không phải `String`. Kiểu đúng cho stream kết quả phải là `Stream<Integer>`.
 
 - **B)** `Stream<String> lengthStream = stream.mapToInt(s -> s.length());`
-  - This option is incorrect because `mapToInt` produces an `IntStream`, not a `Stream<String>`. Additionally, the resulting stream type would not be `Stream<String>`.
+  - Đáp án này sai vì `mapToInt` tạo ra một `IntStream`, không phải một `Stream<String>`. Ngoài ra, kiểu của stream kết quả cũng không phải `Stream<String>`.
 
 - **C)** `Stream<Integer> lengthStream = stream.map(s -> s.length());`
-  - This option is correct because `map` transforms each string in the stream to its length, resulting in a `Stream<Integer>`.
+  - Đáp án này đúng vì `map` biến đổi mỗi string trong stream thành độ dài của nó, tạo ra một `Stream<Integer>`.
 
 - **D)** `IntStream lengthStream = stream.map(s -> s.length());` 
-  - This option is incorrect because `map` produces a `Stream<R>`, not an `IntStream`. The correct method for producing an `IntStream` would be `mapToInt`.
+  - Đáp án này sai vì `map` tạo ra một `Stream<R>`, không phải một `IntStream`. Method đúng để tạo ra một `IntStream` sẽ là `mapToInt`.
 
 - **E)** `Stream<String> lengthStream = stream.flatMap(s -> Stream.of(s.length()));`
-  - This option is incorrect because `flatMap` is used to flatten nested streams and not simply map to another type. Additionally, the resulting stream type would not be `Stream<String>`.
+  - Đáp án này sai vì `flatMap` được dùng để làm phẳng các stream lồng nhau chứ không chỉ đơn thuần map sang một kiểu khác. Ngoài ra, kiểu của stream kết quả cũng không phải `Stream<String>`.
 
 
-**6. The correct answer is A.**
+**6. Đáp án đúng là A.**
 
-**Explanation:**
+**Giải thích:**
 
 - **A)** `Stream<String> resultStream = stream.skip(2).limit(3);`
-  - This option is correct because `skip(2)` skips the first 2 elements of the stream, and `limit(3)` limits the stream to the next 3 elements. Therefore, the resulting stream will contain the 3rd, 4th, and 5th elements of the original list.
+  - Đáp án này đúng vì `skip(2)` bỏ qua 2 phần tử đầu tiên của stream, và `limit(3)` giới hạn stream còn 3 phần tử tiếp theo. Do đó, stream kết quả sẽ chứa phần tử thứ 3, 4 và 5 của list ban đầu.
 
 - **B)** `Stream<String> resultStream = stream.limit(3).skip(2);`
-  - This option is incorrect because `limit(3)` first limits the stream to the first 3 elements, and then `skip(2)` skips 2 of those elements, resulting in a stream with only the 3rd element.
+  - Đáp án này sai vì `limit(3)` trước tiên giới hạn stream còn 3 phần tử đầu tiên, và sau đó `skip(2)` bỏ qua 2 trong số các phần tử đó, kết quả là một stream chỉ còn phần tử thứ 3.
 
 - **C)** `Stream<String> resultStream = stream.skip(3).limit(2);`
-  - This option is incorrect because `skip(3)` skips the first 3 elements, and `limit(2)` then limits the stream to the next 2 elements, resulting in a stream with the 4th and 5th elements.
+  - Đáp án này sai vì `skip(3)` bỏ qua 3 phần tử đầu tiên, và `limit(2)` sau đó giới hạn stream còn 2 phần tử tiếp theo, kết quả là một stream chứa phần tử thứ 4 và 5.
 
 - **D)** `Stream<String> resultStream = stream.limit(2).skip(3);`
-  - This option is incorrect because `limit(2)` first limits the stream to the first 2 elements, and then `skip(3)` would attempt to skip more elements than are available, resulting in an empty stream.
+  - Đáp án này sai vì `limit(2)` trước tiên giới hạn stream còn 2 phần tử đầu tiên, và sau đó `skip(3)` sẽ cố bỏ qua nhiều phần tử hơn số hiện có, kết quả là một stream rỗng.
 
 - **E)** `Stream<String> resultStream = stream.slice(2, 5);`
-  - This option is incorrect because there is no `slice` method in the Stream API. The correct methods to achieve the desired result are `skip` and `limit`.
+  - Đáp án này sai vì không có method `slice` trong Stream API. Các method đúng để đạt được kết quả mong muốn là `skip` và `limit`.
 
 
-**7. The correct answer is B.**
+**7. Đáp án đúng là B.**
 
-**Explanation:**
+**Giải thích:**
 
 - **A)** `Stream<String> resultStream = Stream.concat(stream1, stream2.collect(Collectors.toList()));`
-  - This option is incorrect because `Stream.concat` expects two streams as arguments. `stream2.collect(Collectors.toList())` converts `stream2` into a `List`, not a `Stream`.
+  - Đáp án này sai vì `Stream.concat` mong đợi hai stream làm argument. `stream2.collect(Collectors.toList())` chuyển `stream2` thành một `List`, không phải một `Stream`.
 
 - **B)** `Stream<String> resultStream = Stream.concat(stream1, stream2);`
-  - This option is correct because `Stream.concat(stream1, stream2)` correctly concatenates the two streams into a single stream containing all elements from both streams.
+  - Đáp án này đúng vì `Stream.concat(stream1, stream2)` nối đúng hai stream thành một stream duy nhất chứa tất cả phần tử từ cả hai stream.
 
 - **C)** `Stream<String> resultStream = stream1.concat(stream2);`
-  - This option is incorrect because `Stream` does not have an instance method `concat`. The `concat` method is a static method of the `Stream` class.
+  - Đáp án này sai vì `Stream` không có instance method `concat`. Method `concat` là một static method của class `Stream`.
 
 - **D)** `Stream<String> resultStream = stream1.merge(stream2);`
-  - This option is incorrect because there is no `merge` method in the `Stream` API. The correct method for concatenating streams is `Stream.concat`.
+  - Đáp án này sai vì không có method `merge` trong `Stream` API. Method đúng để nối các stream là `Stream.concat`.
 
 - **E)** `Stream<String> resultStream = Stream.of(stream1, stream2);`
-  - This option is incorrect because `Stream.of(stream1, stream2)` creates a stream of streams, resulting in `Stream<Stream<String>>` rather than a single concatenated `Stream<String>`.
+  - Đáp án này sai vì `Stream.of(stream1, stream2)` tạo ra một stream của các stream, kết quả là `Stream<Stream<String>>` thay vì một `Stream<String>` đã được nối duy nhất.
 
 
-**8. The correct answer is E.**
+**8. Đáp án đúng là E.**
 
-**Explanation:**
+**Giải thích:**
 
 - **A)** `int product = stream.reduce(1, (a, b) -> a + b);`
-  - This option is incorrect because the reduction operation is using addition instead of multiplication. The correct operation for calculating the product should be `(a, b) -> a * b`.
+  - Đáp án này sai vì phép reduction đang dùng phép cộng thay vì phép nhân. Phép toán đúng để tính tích phải là `(a, b) -> a * b`.
 
 - **B)** `int product = stream.reduce((a, b) -> a * b);`
-  - This option is incorrect because it does not provide an identity value, which is necessary for the reduction operation when dealing with an empty stream. Without an identity value, the result is an `Optional<Integer>` rather than an `int`.
+  - Đáp án này sai vì nó không cung cấp identity value, vốn cần thiết cho phép reduction khi gặp một stream rỗng. Không có identity value, kết quả là một `Optional<Integer>` thay vì một `int`.
 
 - **C)** `int product = stream.reduce(0, (a, b) -> a * b);`
-  - This option is incorrect because the identity value for multiplication should be `1`, not `0`. Using `0` as the identity value would result in a product of `0` regardless of the stream elements.
+  - Đáp án này sai vì identity value cho phép nhân phải là `1`, không phải `0`. Dùng `0` làm identity value sẽ cho kết quả tích bằng `0` bất kể các phần tử của stream là gì.
 
 - **D)** `Optional<Integer> product = stream.reduce(1, (a, b) -> a * b);`
-  - This option is incorrect because the correct use of the `reduce` method with an identity value does not return an `Optional`. It should return the result directly as `int`.
+  - Đáp án này sai vì cách dùng đúng của method `reduce` với một identity value không trả về `Optional`. Nó phải trả về kết quả trực tiếp dưới dạng `int`.
 
 - **E)** `int product = stream.reduce(1, (a, b) -> a * b, (a, b) -> a * b);`
-  - This option is correct because it correctly uses the `reduce` method with an identity value of `1` and a combiner function that multiplies the results. This form of `reduce` is suitable for parallel processing as well, ensuring the product is correctly calculated across multiple segments of the stream.
+  - Đáp án này đúng vì nó dùng đúng method `reduce` với identity value là `1` và một combiner function nhân các kết quả lại. Dạng `reduce` này cũng phù hợp cho xử lý song song, đảm bảo tích được tính đúng trên nhiều đoạn khác nhau của stream.
 
 
-**9. The correct answer is B.**
+**9. Đáp án đúng là B.**
 
-**Explanation:**
+**Giải thích:**
 
 - **A)** `Set<String> resultSet = stream.collect(Collectors.toSet());` 
-  - This option is incorrect because `Collectors.toSet()` does not guarantee the order of the elements. The implementation returned by this collector does not preserve the order of insertion.
+  - Đáp án này sai vì `Collectors.toSet()` không đảm bảo thứ tự của các phần tử. Implementation mà collector này trả về không giữ nguyên thứ tự chèn.
 
 - **B)** `Set<String> resultSet = stream.collect(Collectors.toCollection(LinkedHashSet::new));`
-  - This option is correct because `Collectors.toCollection(LinkedHashSet::new)` collects the elements into a `LinkedHashSet`, which maintains the order of insertion.
+  - Đáp án này đúng vì `Collectors.toCollection(LinkedHashSet::new)` thu thập các phần tử vào một `LinkedHashSet`, vốn giữ nguyên thứ tự chèn.
 
 - **C)** `Set<String> resultSet = stream.collect(Collectors.toCollection(TreeSet::new));` 
-  - This option is incorrect because `TreeSet` sorts the elements according to their natural ordering (or by a comparator, if provided). This does not necessarily preserve the original order of the stream elements.
+  - Đáp án này sai vì `TreeSet` sắp xếp các phần tử theo natural ordering của chúng (hoặc theo một comparator nếu được cung cấp). Điều này không nhất thiết giữ nguyên thứ tự ban đầu của các phần tử trong stream.
 
 - **D)** `Set<String> resultSet = stream.collect(Collectors.toList());` 
-  - This option is incorrect because `Collectors.toList()` collects the elements into a `List`, not a `Set`.
+  - Đáp án này sai vì `Collectors.toList()` thu thập các phần tử vào một `List`, không phải một `Set`.
 
 - **E)** `Set<String> resultSet = stream.collect(Collectors.toMap());`
-  - This option is incorrect because `Collectors.toMap()` is used to collect the elements into a `Map`, not a `Set`.
+  - Đáp án này sai vì `Collectors.toMap()` được dùng để thu thập các phần tử vào một `Map`, không phải một `Set`.

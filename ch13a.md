@@ -1,263 +1,263 @@
 ---
 layout: answer
 
-title: "Chapter THIRTEEN"
-subtitle: "The Java Platform Module System"
+title: "Chương 13"
+subtitle: "Java Platform Module System"
 exam_objectives:
   - "Define modules and expose module content, including that by reflection, and declare module dependencies, define services, providers, and consumers."
   - "Compile Java code, create modular and non-modular jars, runtime images, and implement migration to modules using unnamed and automatic modules."
 ---
 
-## Answers
-**1. The correct answers are A and C.** 
+## Đáp án {#answers}
+**1. Đáp án đúng là A và C.** 
 
-**Explanation:**
+**Giải thích:**
 
 - **A)** Automatic module
-  - This option is correct. An automatic module is created from a JAR file that is placed on the module path but does not have a module descriptor (`module-info.java`). The module system infers a module name from the JAR file name and exports all packages in the JAR.
+  - Đáp án này đúng. Automatic module được tạo từ một file JAR được đặt trên module path nhưng không có module descriptor (`module-info.java`). Module system suy ra tên module từ tên file JAR và export tất cả package trong JAR.
 
 - **B)** Default module
-  - This option incorrect. There is no concept of a "default module" in JPMS. The term might be confused with unnamed modules or other types of configurations, but it is not a recognized type.
+  - Đáp án này sai. Không có khái niệm "default module" trong JPMS. Thuật ngữ này có thể bị nhầm với unnamed module hoặc các kiểu cấu hình khác, nhưng nó không phải là một loại module được công nhận.
 
 - **C)** Unnamed module
-  - This option is correct. The unnamed module is a special module that includes all classes on the classpath. It does not have a module descriptor and can access other unnamed modules but cannot be required by named modules.
+  - Đáp án này đúng. Unnamed module là một module đặc biệt chứa tất cả class trên classpath. Nó không có module descriptor và có thể truy cập các unnamed module khác nhưng không thể được require bởi named module.
 
 - **D)** Core module
-  - This option is incorrect. There is no specific type called "core module" in JPMS. JPMS does not categorize modules this way.
+  - Đáp án này sai. Không có loại cụ thể nào gọi là "core module" trong JPMS. JPMS không phân loại module theo cách này.
 
 - **E)** Primary module
-  - This option is incorrect. Similar to "core module," there is no type called "primary module" in JPMS.
+  - Đáp án này sai. Tương tự "core module", không có loại nào gọi là "primary module" trong JPMS.
 
 
 
-**2. The correct answer is D.**
+**2. Đáp án đúng là D.**
 
-**Explanation:**
+**Giải thích:**
 
 - **A)** `module com.example { export com.example.api; }`
-  - This option is incorrect. In this case, `exports`is missing an "s". The correct syntax to export a package would be `exports com.example.api;`.
+  - Đáp án này sai. Trong trường hợp này, `exports` bị thiếu chữ "s". Cú pháp đúng để export một package sẽ là `exports com.example.api;`.
 
 - **B)** `declare module com.example { }`
-  - This option is incorrect. There is no `declare` keyword used in the JPMS for defining a module.
+  - Đáp án này sai. Không có keyword `declare` nào được dùng trong JPMS để định nghĩa module.
 
 - **C)** `create module com.example { requires java.base; }`
-  - This option is incorrect. The correct syntax does not use the `create` keyword for module declaration.
+  - Đáp án này sai. Cú pháp đúng không dùng keyword `create` để khai báo module.
 
 - **D)** `module com.example { }`
-  - This option is correct. This is the correct way to declare a module named `com.example` without any additional requirements.
+  - Đáp án này đúng. Đây là cách đúng để khai báo một module tên `com.example` mà không có requires bổ sung nào.
 
 - **E)** `module com.example requires java.base;`
-  - This option is incorrect. The syntax is invalid because it lacks braces `{ }` to define the module body.
+  - Đáp án này sai. Cú pháp không hợp lệ vì thiếu dấu ngoặc nhọn `{ }` để định nghĩa phần thân module.
 
 
 
-**3. The correct answer is A.**
+**3. Đáp án đúng là A.**
 
-**Explanation:**
+**Giải thích:**
 
 - **A)** `module com.example { exports com.example.internal to com.example.client; }`
-  - This option is correct. The `exports` directive with the `to` clause restricts the export of the `com.example.internal` package to only the specified module `com.example.client`.
+  - Đáp án này đúng. Directive `exports` với mệnh đề `to` giới hạn việc export package `com.example.internal` chỉ cho module `com.example.client` được chỉ định.
 
 - **B)** `module com.example { opens com.example.internal to com.example.client; }`
-  - This option is incorrect. The `opens` directive is used for reflection purposes, not for compile-time access control.
+  - Đáp án này sai. Directive `opens` được dùng cho mục đích reflection, không phải để kiểm soát truy cập tại compile-time.
 
 - **C)** `module com.example { requires com.example.internal; }`
-  - This option is incorrect. The `requires` directive is used to specify module dependencies, not to control package accessibility.
+  - Đáp án này sai. Directive `requires` được dùng để chỉ định dependency giữa các module, không phải để kiểm soát khả năng truy cập package.
 
 - **D)** `module com.example { provides com.example.internal to com.example.client; }`
-  - This option is incorrect. The `provides` directive is used to specify service providers in the module system, not for restricting package access.
+  - Đáp án này sai. Directive `provides` được dùng để chỉ định service provider trong module system, không phải để hạn chế quyền truy cập package.
 
 - **E)** `module com.example { uses com.example.internal; }`
-  - This option is incorrect. The `uses` directive is used to specify service consumers in the module system, not for restricting package access.
+  - Đáp án này sai. Directive `uses` được dùng để chỉ định service consumer trong module system, không phải để hạn chế quyền truy cập package.
 
 
 
-**4. The correct answer is B.**
+**4. Đáp án đúng là B.**
 
-**Explanation:**
+**Giải thích:**
 
-- **A)** The `com.example.client` module can access the `com.example.api` package for deep reflection.
-  - This option is incorrect. The `com.example.api` package is exported, not opened, meaning it is available for use but not for deep reflection by other modules.
+- **A)** Module `com.example.client` có thể truy cập package `com.example.api` để deep reflection.
+  - Đáp án này sai. Package `com.example.api` được export, không phải được open, nghĩa là nó khả dụng để sử dụng nhưng không dành cho deep reflection bởi các module khác.
 
-- **B)** The `com.example.client` module cannot access the `com.example.api` package for deep reflection.
-  - This option is correct. The `com.example.api` package is not opened for deep reflection; it is only exported for use by other modules.
+- **B)** Module `com.example.client` không thể truy cập package `com.example.api` để deep reflection.
+  - Đáp án này đúng. Package `com.example.api` không được open cho deep reflection; nó chỉ được export để các module khác sử dụng.
 
-- **C)** The `com.example.api` package is opened to all modules for deep reflection.
-  - This option is incorrect. The `com.example.api` package is exported to all modules, but it is not opened for deep reflection to any module.
+- **C)** Package `com.example.api` được open cho tất cả module để deep reflection.
+  - Đáp án này sai. Package `com.example.api` được export cho tất cả module, nhưng nó không được open cho deep reflection với bất kỳ module nào.
 
-- **D)** The `com.example.internal` package is exported to the `com.example.client` module.
-  - This option is incorrect. The `com.example.internal` package is opened to `com.example.client` for deep reflection but not exported.
+- **D)** Package `com.example.internal` được export cho module `com.example.client`.
+  - Đáp án này sai. Package `com.example.internal` được open cho `com.example.client` để deep reflection nhưng không được export.
 
-- **E)** The `com.example.api` package is exported to the `com.example.client` module for deep reflection.
-  - This option is incorrect. The `com.example.api` package is exported to the `com.example.client` module, but exporting does not include deep reflection capabilities.
-
-
-
-**5. The correct answer is D.**
-
-**Explanation:**
-
-- **A)** The `java.base` module provides the Swing and AWT libraries for building graphical user interfaces.
-  - This option is incorrect. The `java.base` module does not provide the Swing and AWT libraries. These libraries are provided by the `java.desktop` module.
-
-- **B)** The `java.logging` module is responsible for handling collections, including lists, sets, and maps.
-  - This option is incorrect. The `java.logging` module is responsible for the logging framework in Java, not for handling collections. The collections framework is part of the `java.base` module.
-
-- **C)** The `java.desktop` module provides the classes for implementing standard input and output streams.
-  - This option is incorrect. The `java.desktop` module includes classes for building graphical user interfaces (Swing and AWT), not for standard input and output streams. Standard I/O is part of the `java.base` module.
-
-- **D)** The `java.xml` module includes the classes for processing XML documents.
-  - This option is correct. The `java.xml` module includes classes for processing XML documents, such as those for parsing and transforming XML using APIs like DOM, SAX, and StAX.
-
-- **E)** The `java.naming` module provides APIs for accessing and processing annotations.
-  - This option is incorrect. The `java.naming` module provides APIs for accessing naming and directory services (JNDI), not for processing annotations. Annotations are part of the `java.base` module.
+- **E)** Package `com.example.api` được export cho module `com.example.client` để deep reflection.
+  - Đáp án này sai. Package `com.example.api` được export cho module `com.example.client`, nhưng việc export không bao gồm khả năng deep reflection.
 
 
 
-**6. The correct answer is C.**
+**5. Đáp án đúng là D.**
 
-**Explanation:**
+**Giải thích:**
+
+- **A)** Module `java.base` cung cấp các thư viện Swing và AWT để xây dựng giao diện đồ họa.
+  - Đáp án này sai. Module `java.base` không cung cấp các thư viện Swing và AWT. Những thư viện này được cung cấp bởi module `java.desktop`.
+
+- **B)** Module `java.logging` chịu trách nhiệm xử lý collection, bao gồm list, set và map.
+  - Đáp án này sai. Module `java.logging` chịu trách nhiệm về logging framework trong Java, không phải xử lý collection. Collections framework là một phần của module `java.base`.
+
+- **C)** Module `java.desktop` cung cấp các class để implement standard input và output stream.
+  - Đáp án này sai. Module `java.desktop` chứa các class để xây dựng giao diện đồ họa (Swing và AWT), không phải cho standard input và output stream. Standard I/O là một phần của module `java.base`.
+
+- **D)** Module `java.xml` chứa các class để xử lý tài liệu XML.
+  - Đáp án này đúng. Module `java.xml` chứa các class để xử lý tài liệu XML, chẳng hạn các class parse và transform XML bằng những API như DOM, SAX và StAX.
+
+- **E)** Module `java.naming` cung cấp API để truy cập và xử lý annotation.
+  - Đáp án này sai. Module `java.naming` cung cấp API để truy cập naming và directory service (JNDI), không phải để xử lý annotation. Annotation là một phần của module `java.base`.
+
+
+
+**6. Đáp án đúng là C.**
+
+**Giải thích:**
 
 - **A)** `javac -d out src/com.example/module-info.java src/com.example/com/example/*.java`
-  - This option is incorrect. While it correctly specifies the output directory and the source files, it does not use the `--module-source-path` option and does not specify the module name with `-m`.
+  - Đáp án này sai. Mặc dù nó chỉ định đúng output directory và các source file, nó không dùng option `--module-source-path` và không chỉ định tên module bằng `-m`.
 
 - **B)** `javac -sourcepath src -d out com.example/module-info.java com.example/com/example/*.java`
-  - This option is incorrect. The `-sourcepath` option is not used for module compilation. The correct option should be `--module-source-path`.
+  - Đáp án này sai. Option `-sourcepath` không được dùng để compile module. Option đúng phải là `--module-source-path`.
 
 - **C)** `javac -d out --module-source-path src -m com.example`
-  - This option is correct. The `javac -d out --module-source-path src -m com.example` command correctly compiles the module `com.example` located in the `src` directory and outputs the compiled classes to the `out` directory.
+  - Đáp án này đúng. Lệnh `javac -d out --module-source-path src -m com.example` compile đúng module `com.example` nằm trong directory `src` và xuất các compiled class ra directory `out`.
 
 - **D)** `javac -modulepath out -d src src/com.example/module-info.java src/com.example/com/example/*.java`
-  - This option is incorrect. The `-modulepath` option is incorrectly placed, and the source and destination directories are swapped.
+  - Đáp án này sai. Option `-modulepath` được đặt sai vị trí, và directory nguồn với directory đích bị hoán đổi cho nhau.
 
 - **E)** `javac --module-path src --module com.example -d out`
-  - This option is incorrect. The command incorrectly uses `--module-path` instead of `--module-source-path` and the module name is specified with `--module` instead of `-m`.
+  - Đáp án này sai. Lệnh dùng sai `--module-path` thay vì `--module-source-path` và tên module được chỉ định bằng `--module` thay vì `-m`.
 
 
 
-**7. The correct answer is A.**
+**7. Đáp án đúng là A.**
 
-**Explanation:**
+**Giải thích:**
 
 - **A)** `javac --module-source-path src -d out $(find src -name "*.java")`
-  - This option is correct. The command `javac --module-source-path src -d out $(find src -name "*.java")` correctly compiles both modules by specifying the module source path and finding all Java files in the source directory.
+  - Đáp án này đúng. Lệnh `javac --module-source-path src -d out $(find src -name "*.java")` compile đúng cả hai module bằng cách chỉ định module source path và tìm tất cả file Java trong directory nguồn.
 
 - **B)** `javac -d out --module com.foo,com.bar --module-source-path src`
-  - This option is incorrect. The `--module` option does not accept multiple modules separated by commas in this context.
+  - Đáp án này sai. Option `--module` không chấp nhận nhiều module phân tách bằng dấu phẩy trong ngữ cảnh này.
 
 - **C)** `javac -sourcepath src -d out src/com.foo/module-info.java src/com.foo/com/foo/*.java src/com.bar/module-info.java src/com.bar/com/bar/*.java`
-  - This option is incorrect. Although it specifies the source files, it does not use the `--module-source-path` option and is unnecessarily verbose.
+  - Đáp án này sai. Mặc dù nó chỉ định các source file, nó không dùng option `--module-source-path` và dài dòng không cần thiết.
 
 - **D)** `javac -modulepath src -d out src/com.foo/*.java src/com.bar/*.java`
-  - This option is incorrect. The `-modulepath` option is misused, and the path should point to the directory containing the module source code.
+  - Đáp án này sai. Option `-modulepath` bị dùng sai, và path phải trỏ đến directory chứa source code của module.
 
 - **E)** `javac --module-source-path src/com.foo,src/com.bar -d out`
-  - This option is incorrect. The `--module-source-path` option should point to the base directory (`src`), not individual module directories.
+  - Đáp án này sai. Option `--module-source-path` phải trỏ đến directory gốc (`src`), không phải từng directory module riêng lẻ.
 
 
 
-**8. The correct answer is C.**
+**8. Đáp án đúng là C.**
 
-**Explanation:**
+**Giải thích:**
 
 - **A)** `requires com.example.Service with com.provider.ServiceImpl;`
-  - This option is incorrect. The `requires` keyword is used to declare dependencies on other modules, not for specifying service providers.
+  - Đáp án này sai. Keyword `requires` được dùng để khai báo dependency lên các module khác, không phải để chỉ định service provider.
 
 - **B)** `exports com.example.Service with com.provider.ServiceImpl;`
-  - This option is incorrect. The `exports` keyword is used to make packages accessible to other modules, not for specifying service providers.
+  - Đáp án này sai. Keyword `exports` được dùng để cho phép các module khác truy cập package, không phải để chỉ định service provider.
 
 - **C)** `provides com.example.Service with com.provider.ServiceImpl;`
-  - This option is correct. The `provides com.example.Service with com.provider.ServiceImpl;` statement correctly specifies that the `com.provider` module provides an implementation of the `com.example.Service`.
+  - Đáp án này đúng. Câu lệnh `provides com.example.Service with com.provider.ServiceImpl;` chỉ định đúng rằng module `com.provider` cung cấp một implementation của `com.example.Service`.
 
 - **D)** `uses com.example.Service with com.provider.ServiceImpl;`
-  - This option is incorrect. The `uses` keyword is used to declare that the module relies on a service but does not provide an implementation.
+  - Đáp án này sai. Keyword `uses` được dùng để khai báo rằng module phụ thuộc vào một service nhưng không cung cấp implementation.
 
 
 
-**9. The correct answer is D.**
+**9. Đáp án đúng là D.**
 
-**Explanation:**
+**Giải thích:**
 
 - **A)** `java --describe-module com.example/module-info.java`
-  - This option is incorrect. The `--describe-module` option is not used with a specific file path like `module-info.java`; it requires a module name.
+  - Đáp án này sai. Option `--describe-module` không được dùng với một đường dẫn file cụ thể như `module-info.java`; nó yêu cầu tên module.
 
 - **B)** `javac --describe-module com.example`
-  - This option is incorrect. The `--describe-module` option is not valid for the `javac` command; it is used with the `java` command.
+  - Đáp án này sai. Option `--describe-module` không hợp lệ với lệnh `javac`; nó được dùng với lệnh `java`.
 
 - **C)** `jar --describe-module com.example`
-  - This option is incorrect. The `--describe-module` option is not valid for the `jar` command; it is used with the `java` command.
+  - Đáp án này sai. Option `--describe-module` không hợp lệ với lệnh `jar`; nó được dùng với lệnh `java`.
 
 - **D)** `java --describe-module com.example`
-  - This option is correct. The `java --describe-module com.example` command correctly describes the module `com.example` using the `--describe-module` option.
+  - Đáp án này đúng. Lệnh `java --describe-module com.example` mô tả đúng module `com.example` bằng option `--describe-module`.
 
 
 
-**10. The correct answers are B and C.**
+**10. Đáp án đúng là B và C.**
 
-**Explanation:**
+**Giải thích:**
 
 - **A)** `jdeps --list-deps example.jar` 
-  - This option is incorrect. The `--list-deps` option does not exist for `jdeps`.
+  - Đáp án này sai. Option `--list-deps` không tồn tại trong `jdeps`.
 
 - **B)** `jdeps -verbose example.jar`
-  - This option is correct. While `-verbose` is a valid option, it provides more information.
+  - Đáp án này đúng. Mặc dù `-verbose` là một option hợp lệ, nó cung cấp nhiều thông tin hơn.
 
 - **C)** `jdeps -s example.jar`
-  - This option is correct. The `-s` option with `jdeps` provides a summary of the dependencies of the `example.jar` file.
+  - Đáp án này đúng. Option `-s` với `jdeps` cung cấp bản tóm tắt các dependency của file `example.jar`.
 
 - **D)** `jdeps --check example.jar`
-  - This option is incorrect. The `--check` option does not exist for `jdeps`.
+  - Đáp án này sai. Option `--check` không tồn tại trong `jdeps`.
 
 
 
-**11. The correct answer is A.**
+**11. Đáp án đúng là A.**
 
-**Explanation:**
+**Giải thích:**
 
 - **A)** `jmod create --class-path mods/com.example --output com.example.jmod`
-  - This option is correct. It uses the correct syntax for the `jmod` command to create a JMOD file. The `create` operation is specified, followed by the `--class-path` option to indicate the source directory, and finally the name of the output JMOD file. This command will create a JMOD file named `com.example.jmod` using the contents of the `mods/com.example` directory.
+  - Đáp án này đúng. Nó dùng đúng cú pháp của lệnh `jmod` để tạo file JMOD. Operation `create` được chỉ định, theo sau là option `--class-path` để chỉ directory nguồn, và cuối cùng là tên file JMOD output. Lệnh này sẽ tạo một file JMOD tên `com.example.jmod` từ nội dung của directory `mods/com.example`.
 
 - **B)** `jmod --create --class-path mods/com.example --output com.example.jmod`
-  - This option is incorrect. The `create` operation in the `jmod` command should not be prefixed with `--`. The correct format is `jmod create`, not `jmod --create`. The rest of the command is correct, but this syntax error makes the entire command invalid.
+  - Đáp án này sai. Operation `create` trong lệnh `jmod` không nên có tiền tố `--`. Định dạng đúng là `jmod create`, không phải `jmod --create`. Phần còn lại của lệnh đúng, nhưng lỗi cú pháp này khiến toàn bộ lệnh không hợp lệ.
 
 - **C)** `jmod --create --dir mods/com.example --output com.example.jmod`
-  - This option is incorrect. First, like option B, it incorrectly uses `--create` instead of `create`. Second, it uses the `--dir` option, which is not used for creating JMOD files, but for specifying the output directory when extracting files from a JMOD. When creating a JMOD file, we use `--class-path` to specify the source directory. The `--output` option is also not a valid option for the `jmod` command.
+  - Đáp án này sai. Thứ nhất, giống option B, nó dùng sai `--create` thay vì `create`. Thứ hai, nó dùng option `--dir`, vốn không được dùng để tạo file JMOD mà để chỉ định output directory khi extract file từ một JMOD. Khi tạo file JMOD, chúng ta dùng `--class-path` để chỉ định directory nguồn. Option `--output` cũng không phải option hợp lệ của lệnh `jmod`.
 
 - **D)** `jmod create --dir mods/com.example --output com.example.jmod`
-  - This option is incorrect. It uses the `--dir` option instead of `--class-path` for specifying the source directory, and it incorrectly includes an `--output` option, which is not valid for the `jmod` command. When creating a JMOD file, the output file name is simply specified as the last argument, not with an `--output` option.
+  - Đáp án này sai. Nó dùng option `--dir` thay vì `--class-path` để chỉ định directory nguồn, và nó còn bao gồm một option `--output` không hợp lệ với lệnh `jmod`. Khi tạo file JMOD, tên file output chỉ đơn giản được chỉ định như argument cuối cùng, không dùng option `--output`.
 
 
 
-**12. The correct answer is B.**
+**12. Đáp án đúng là B.**
 
-**Explanation:**
+**Giải thích:**
 
 - **A)** `jlink --module-path java.base:com.example --output myimage`
-  - This option is incorrect. The `--module-path` option should specify the directory containing the modules, not the module names directly.
+  - Đáp án này sai. Option `--module-path` phải chỉ định directory chứa các module, không phải chỉ định trực tiếp tên module.
 
 - **B)** `jlink --module-path mods --add-modules java.base,com.example --output myimage`
-  - This option is correct. The command `jlink --module-path mods --add-modules java.base,com.example --output myimage` correctly specifies the module path and adds the necessary modules, outputting the custom runtime image to the `myimage` directory.
+  - Đáp án này đúng. Lệnh `jlink --module-path mods --add-modules java.base,com.example --output myimage` chỉ định đúng module path và thêm các module cần thiết, xuất custom runtime image ra directory `myimage`.
 
 - **C)** `jlink --add-modules java.base,com.example --image myimage` 
-  - This option is incorrect. The `--image` option is not valid; the correct option is `--output`.
+  - Đáp án này sai. Option `--image` không hợp lệ; option đúng là `--output`.
 
 - **D)** `jlink --modules java.base,com.example --dir myimage`
-  - This option is incorrect. The `--modules` option is incorrect; the correct option is `--add-modules`, and `--dir` should be `--output`.
+  - Đáp án này sai. Option `--modules` không đúng; option đúng là `--add-modules`, và `--dir` phải là `--output`.
 
 
 
-**13. The correct answer is D.**
+**13. Đáp án đúng là D.**
 
-**Explanation:**
+**Giải thích:**
 
-- **A)** An unnamed module can depend on named modules and other unnamed modules.
-  - This option is incorrect. An unnamed module can depend on named modules, which is true. However, unnamed modules cannot depend on other unnamed modules. Unnamed modules are created when classes are loaded from the classpath, and they cannot read other unnamed modules. They can only read the named modules of the platform and other modules explicitly added to the module path.
+- **A)** Một unnamed module có thể phụ thuộc vào named module và các unnamed module khác.
+  - Đáp án này sai. Unnamed module có thể phụ thuộc vào named module, điều này đúng. Tuy nhiên, unnamed module không thể phụ thuộc vào các unnamed module khác. Unnamed module được tạo khi class được load từ classpath, và chúng không thể đọc các unnamed module khác. Chúng chỉ có thể đọc các named module của platform và các module khác được thêm tường minh vào module path.
 
-- **B)** Automatic modules must have a `module-info.java` file to be placed on the module path.
-  - This option is incorrect. Automatic modules do not require a `module-info.java` file. Their module name is inferred from the JAR file name.
+- **B)** Automatic module phải có file `module-info.java` để được đặt trên module path.
+  - Đáp án này sai. Automatic module không yêu cầu file `module-info.java`. Tên module của chúng được suy ra từ tên file JAR.
 
-- **C)** Unnamed modules can export their packages to named modules using `module-info.java`. 
-  - This option is incorrect. Unnamed modules cannot export packages because they do not use `module-info.java`.
+- **C)** Unnamed module có thể export package của nó cho named module bằng `module-info.java`. 
+  - Đáp án này sai. Unnamed module không thể export package vì chúng không dùng `module-info.java`.
 
-- **D)** An automatic module is created when a JAR file without a `module-info.java` is placed on the module path, and it can read all other modules.
-  - This option is correct. An automatic module is created by placing a JAR file without a `module-info.java` on the module path. This automatic module can read all other modules, both named and unnamed.
+- **D)** Một automatic module được tạo khi một file JAR không có `module-info.java` được đặt trên module path, và nó có thể đọc tất cả các module khác.
+  - Đáp án này đúng. Automatic module được tạo bằng cách đặt một file JAR không có `module-info.java` lên module path. Automatic module này có thể đọc tất cả các module khác, cả named lẫn unnamed.

@@ -1,233 +1,233 @@
 ---
 layout: answer
 
-title: "Chapter ONE"
-subtitle: "Utilizing Java Object-Oriented Approach - Part 1"
+title: "Chương 1"
+subtitle: "Sử dụng lập trình hướng đối tượng trong Java - Phần 1"
 exam_objectives:
   - "Declare and instantiate Java objects including nested class objects, and explain the object life-cycle including creation, reassigning references, and garbage collection."
   - "Create classes and records, and define and use instance and static fields and methods, constructors, and instance and static initializers."
   - "Implement overloading, including var-arg methods."
 ---
 
-## Answers
+## Đáp án {#answers}
 
-**1. The correct answer is B.**
+**1. Đáp án đúng là B.**
 
-**Explanation:**
+**Giải thích:**
 
-- **A)** Both `sb1` and `sb2` are eligible for garbage collection.
-  - This option is incorrect because `sb2` still holds a reference to the `StringBuilder` object it was initially assigned. Therefore, it is not eligible for garbage collection.
+- **A)** Cả `sb1` và `sb2` đều đủ điều kiện bị garbage collection.
+  - Đáp án này sai vì `sb2` vẫn giữ reference tới object `StringBuilder` mà nó được gán ban đầu. Do đó, nó không đủ điều kiện bị garbage collection.
 
-- **B)** Only the `StringBuilder` object initially referenced by `sb1` is eligible for garbage collection.
-  - This option is correct. After `sb1` is reassigned to reference the same object as `sb2`, the original `StringBuilder` object created with `new StringBuilder("Java")` and initially referenced by `sb1` is no longer accessible. Since there are no references pointing to it, it becomes eligible for garbage collection.
+- **B)** Chỉ object `StringBuilder` được `sb1` reference ban đầu là đủ điều kiện bị garbage collection.
+  - Đáp án này đúng. Sau khi `sb1` được gán lại để reference cùng object với `sb2`, object `StringBuilder` gốc được tạo bằng `new StringBuilder("Java")` và được `sb1` reference ban đầu không còn truy cập được nữa. Vì không còn reference nào trỏ tới nó, nó trở nên đủ điều kiện bị garbage collection.
 
-- **C)** Only the `StringBuilder` object initially referenced by `sb2` is eligible for garbage collection.
-  - This option is incorrect because after the assignment `sb1 = sb2;`, both `sb1` and `sb2` reference the same object (`new StringBuilder("Python")`). This object is still accessible through `sb2` (and now `sb1` as well), so it is not eligible for garbage collection.
+- **C)** Chỉ object `StringBuilder` được `sb2` reference ban đầu là đủ điều kiện bị garbage collection.
+  - Đáp án này sai vì sau phép gán `sb1 = sb2;`, cả `sb1` và `sb2` đều reference cùng một object (`new StringBuilder("Python")`). Object này vẫn truy cập được qua `sb2` (và giờ cả `sb1` nữa), nên nó không đủ điều kiện bị garbage collection.
 
-- **D)** Neither of the `StringBuilder` objects are eligible for garbage collection.
-  - This option is incorrect because, as explained, the object initially referenced by `sb1` becomes eligible for garbage collection after `sb1` is reassigned to `sb2`.
-
-
-
-**2. The correct answers are C and D.**
-
-**Explanation:**
-
-- **A)** `implement` is incorrect. The correct keyword for implementing an interface in Java is `implements`.
-
-- **B)** `array` is incorrect. Java does not have a reserved keyword named `array`. Arrays are declared with square brackets `[ ]`.
-
-- **C)** `volatile` is correct. `volatile` is a reserved keyword that is used to indicate that a variable's value will be modified by different threads.
-
-- **D)** `extends` is correct. `extends` is a reserved keyword used in class declarations to inherit from a superclass.
+- **D)** Không object `StringBuilder` nào đủ điều kiện bị garbage collection.
+  - Đáp án này sai vì, như đã giải thích, object được `sb1` reference ban đầu trở nên đủ điều kiện bị garbage collection sau khi `sb1` được gán lại cho `sb2`.
 
 
 
-**3. The correct answers are A and E.**
+**2. Đáp án đúng là C và D.**
 
-**Explanation:**
+**Giải thích:**
 
-- **A)** Line 1 is an example of a single-line comment.
-  - This option is correct. Line 1 uses `//` to start a single-line comment, which is a common way to add notes or explain a part of code that does not affect the execution.
+- **A)** `implement` sai. Keyword đúng để implement một interface trong Java là `implements`.
 
-- **B)** Lines 3-7 demonstrate the use of a javadoc comment.
-  - This option is incorrect. Lines 3-7 use a block comment. Javadoc comments start with `/**` and end with `*/`.
+- **B)** `array` sai. Java không có reserved keyword nào tên là `array`. Array được khai báo bằng dấu ngoặc vuông `[ ]`.
 
-- **C)** Line 9 uses a javadoc comment to explain the `add` method.
-  - This option is incorrect. Line 9 is a single-line comment, not a javadoc comment. Javadoc comments in Java are defined with `/**` at the beginning and `*/` at the end, and are specifically used to describe classes, methods, and fields.
+- **C)** `volatile` đúng. `volatile` là một reserved keyword được dùng để chỉ ra rằng giá trị của một biến sẽ bị thay đổi bởi các thread khác nhau.
 
-- **D)** Line 12 uses a special `TODO` comment, different from a single-line comment.
-  - This option is incorrect. Line 12 uses a `TODO` comment, which is a convention many developers follow to mark parts of the code that require further development or attention but is still a single-line comment.
-
-- **E)** Lines 3-7 is a block comment that is used as if it were a javadoc comment.
-  - This option is correct. Lines 3-7 use a block comment, which is not processed by javadoc tools and therefore not suitable for generating official documentation.
+- **D)** `extends` đúng. `extends` là reserved keyword được dùng trong khai báo class để kế thừa từ một superclass.
 
 
 
-**4. The correct answers are B and D.** 
+**3. Đáp án đúng là A và E.**
 
-**Explanation:**
+**Giải thích:**
 
-- **A)** The `import` statement in `Application.java` is unnecessary because both classes are in the same directory.
-  - This option is incorrect. In Java, the `import` statement is used to bring a class or an entire package into visibility, and its necessity is determined by the package membership of the classes, not their directory location. Even if classes are in the same directory, if they belong to different packages, the `import` statement is required to use one in the other.
+- **A)** Dòng 1 là ví dụ của single-line comment.
+  - Đáp án này đúng. Dòng 1 dùng `//` để bắt đầu single-line comment, một cách phổ biến để thêm ghi chú hoặc giải thích một phần code mà không ảnh hưởng đến việc thực thi.
 
-- **B)** The `import` statement in `Application.java` is necessary for using the `Calculator` class because they belong to different packages.
-  - This is the correct answer. The `Calculator` class is in the `math` package, and the `Application` class is in the `app` package. Despite being in the same directory, the different packages require an `import` statement to use `Calculator` in `Application`.
+- **B)** Dòng 3-7 minh họa việc dùng javadoc comment.
+  - Đáp án này sai. Dòng 3-7 dùng block comment. Javadoc comment bắt đầu bằng `/**` và kết thúc bằng `*/`.
 
-- **C)** The `Calculator` class will not be accessible in `Application.java` due to being in a different directory.
-  - This option is incorrect. Java's access control is not based on the directory structure but on the `package` and `import` declarations. As long as the classes are correctly packaged and imported, they can be accessed across different directories.
+- **C)** Dòng 9 dùng javadoc comment để giải thích method `add`.
+  - Đáp án này sai. Dòng 9 là single-line comment, không phải javadoc comment. Javadoc comment trong Java được định nghĩa với `/**` ở đầu và `*/` ở cuối, và được dùng riêng để mô tả class, method và field.
 
-- **D)** Removing the `package` statement from both files will allow `Application.java` to use `Calculator` without an `import` statement, regardless of directory structure.
-  - This option is correct. Removing the `package` statement from both files will place them in the default package, and they will be able to access each other without an `import` statement. However, this is not recommended for anything beyond very simple or temporary code due to namespace management and readability concerns.
+- **D)** Dòng 12 dùng comment `TODO` đặc biệt, khác với single-line comment.
+  - Đáp án này sai. Dòng 12 dùng comment `TODO`, một quy ước nhiều developer tuân theo để đánh dấu những phần code cần phát triển hoặc chú ý thêm, nhưng nó vẫn là single-line comment.
 
-
-
-**5. The correct answers are A, B, and C.** 
-
-**Explanation:**
-
-- **A)** A `public` class or member can be accessed by any other class in the same package or in any other package.
-  - This is correct. The `public` modifier grants the highest level of access. A `public` class or member is accessible from any other class, regardless of the packages they belong to.
-
-- **B)** A `protected` member can be accessed by any class in its own package, but from outside the package, only by classes that extend the class containing the protected member.
-  - This is correct. The `protected` access level allows a member to be accessed within its own package and by subclasses in any package. It offers a more restrictive level of access than `public`.
-
-- **C)** A member with `default` (no modifier) access can be accessed by any class in the same package but not from a class in a different package.
-  - This is correct. If no access modifier (also known as `default` access level) is specified, the member is accessible only within classes in the same package. This is more restrictive than `protected` and `public`.
-
-- **D)** A `private` member can be accessed only by methods that are members of the same class or within the same file.
-  - This option is incorrect because `private` members can be accessed only within the same class. It's not about being within the same file, as Java allows only one public top-level class per file.
-
-- **E)** A `protected` member can be accessed by any class in the Java program, regardless of package.
-  - This is incorrect. `Protected` access does not grant universal access across all classes in a program. Access from outside the package is limited to subclasses only.
+- **E)** Dòng 3-7 là block comment được dùng như thể nó là javadoc comment.
+  - Đáp án này đúng. Dòng 3-7 dùng block comment, vốn không được các công cụ javadoc xử lý và do đó không phù hợp để tạo tài liệu chính thức.
 
 
 
-**6. The correct answer is D:** 
+**4. Đáp án đúng là B và D.** 
 
-**Explanation:**
+**Giải thích:**
+
+- **A)** Câu lệnh `import` trong `Application.java` là không cần thiết vì cả hai class nằm trong cùng thư mục.
+  - Đáp án này sai. Trong Java, câu lệnh `import` được dùng để đưa một class hoặc cả một package vào phạm vi hiển thị, và sự cần thiết của nó được quyết định bởi package chứa các class, không phải vị trí thư mục của chúng. Kể cả khi các class nằm trong cùng thư mục, nếu chúng thuộc các package khác nhau, câu lệnh `import` là bắt buộc để dùng class này trong class kia.
+
+- **B)** Câu lệnh `import` trong `Application.java` là cần thiết để dùng class `Calculator` vì chúng thuộc các package khác nhau.
+  - Đây là đáp án đúng. Class `Calculator` nằm trong package `math`, và class `Application` nằm trong package `app`. Dù ở cùng thư mục, các package khác nhau đòi hỏi phải có câu lệnh `import` để dùng `Calculator` trong `Application`.
+
+- **C)** Class `Calculator` sẽ không truy cập được trong `Application.java` do nằm ở thư mục khác.
+  - Đáp án này sai. Kiểm soát truy cập của Java không dựa trên cấu trúc thư mục mà dựa trên khai báo `package` và `import`. Miễn là các class được đóng gói và import đúng, chúng có thể được truy cập xuyên qua các thư mục khác nhau.
+
+- **D)** Xóa câu lệnh `package` khỏi cả hai file sẽ cho phép `Application.java` dùng `Calculator` mà không cần câu lệnh `import`, bất kể cấu trúc thư mục.
+  - Đáp án này đúng. Xóa câu lệnh `package` khỏi cả hai file sẽ đặt chúng vào default package, và chúng có thể truy cập lẫn nhau mà không cần câu lệnh `import`. Tuy nhiên, điều này không được khuyến khích cho bất cứ thứ gì ngoài code rất đơn giản hoặc tạm thời, do các vấn đề về quản lý namespace và khả năng đọc hiểu.
+
+
+
+**5. Đáp án đúng là A, B và C.** 
+
+**Giải thích:**
+
+- **A)** Một class hoặc member `public` có thể được truy cập bởi bất kỳ class nào khác trong cùng package hoặc trong bất kỳ package nào khác.
+  - Điều này đúng. Modifier `public` cấp mức truy cập cao nhất. Một class hoặc member `public` có thể truy cập được từ bất kỳ class nào khác, bất kể chúng thuộc package nào.
+
+- **B)** Một member `protected` có thể được truy cập bởi bất kỳ class nào trong package của nó, nhưng từ bên ngoài package, chỉ bởi các class extend class chứa member protected đó.
+  - Điều này đúng. Mức truy cập `protected` cho phép một member được truy cập trong package của nó và bởi các subclass ở bất kỳ package nào. Nó cung cấp mức truy cập hạn chế hơn so với `public`.
+
+- **C)** Một member với mức truy cập `default` (không có modifier) có thể được truy cập bởi bất kỳ class nào trong cùng package nhưng không từ một class ở package khác.
+  - Điều này đúng. Nếu không có access modifier nào được chỉ định (còn gọi là mức truy cập `default`), member chỉ truy cập được trong các class cùng package. Mức này hạn chế hơn `protected` và `public`.
+
+- **D)** Một member `private` chỉ có thể được truy cập bởi các method là member của cùng class hoặc trong cùng file.
+  - Đáp án này sai vì member `private` chỉ có thể được truy cập trong cùng class. Không phải chuyện nằm trong cùng file, vì Java chỉ cho phép một public top-level class mỗi file.
+
+- **E)** Một member `protected` có thể được truy cập bởi bất kỳ class nào trong chương trình Java, bất kể package.
+  - Điều này sai. Truy cập `protected` không cấp quyền truy cập phổ quát cho mọi class trong chương trình. Truy cập từ ngoài package chỉ giới hạn cho các subclass.
+
+
+
+**6. Đáp án đúng là D:** 
+
+**Giải thích:**
 
 - **A)** `class public Vehicle { }`
-  - This option is incorrect because the syntax is wrong. The correct order is the access modifier followed by the `class` keyword, and then the class name.
+  - Đáp án này sai vì cú pháp sai. Thứ tự đúng là access modifier, tiếp theo là keyword `class`, rồi đến tên class.
 
 - **B)** `public class vehicle { }`
-  - This option is incorrect mainly due to the class naming convention. In Java, class names should start with an uppercase letter, so `vehicle` should be `Vehicle`.
+  - Đáp án này sai chủ yếu do quy ước đặt tên class. Trong Java, tên class nên bắt đầu bằng chữ hoa, nên `vehicle` phải là `Vehicle`.
 
 - **C)** `Public class Vehicle { }`
-  - This option is incorrect because `Public` is incorrectly capitalized. Java is case-sensitive, and the correct keyword is `public`.
+  - Đáp án này sai vì `Public` viết hoa không đúng. Java phân biệt chữ hoa chữ thường, và keyword đúng là `public`.
 
 - **D)** `public class Vehicle { }`
-  - This is the correct answer. The syntax follows the proper order: the access modifier (`public`), followed by the `class` keyword, and then the class name (`Vehicle`), which correctly starts with an uppercase letter as per Java naming conventions.
+  - Đây là đáp án đúng. Cú pháp theo đúng thứ tự: access modifier (`public`), tiếp theo là keyword `class`, rồi đến tên class (`Vehicle`), bắt đầu bằng chữ hoa đúng theo quy ước đặt tên của Java.
 
 - **E)** `classVehicle public { }`
-  - This option is incorrect due to several reasons: the syntax order is wrong, there is no space between `class` and the class name, and the access modifier's position is incorrect.
+  - Đáp án này sai vì nhiều lý do: thứ tự cú pháp sai, không có dấu cách giữa `class` và tên class, và vị trí của access modifier không đúng.
 
 
 
-**7. The correct answers are A, C, and D.** 
+**7. Đáp án đúng là A, C và D.** 
 
-**Explanation:**
+**Giải thích:**
 
-- **A)** The `COUNT` variable can be accessed directly using the class name without creating an instance of `Counter`.
-  - This option is correct. Static variables belong to the class and can be accessed directly with the class name, such as `Counter.COUNT`, without needing to instantiate the class.
+- **A)** Biến `COUNT` có thể được truy cập trực tiếp bằng tên class mà không cần tạo instance của `Counter`.
+  - Đáp án này đúng. Static variable thuộc về class và có thể được truy cập trực tiếp bằng tên class, như `Counter.COUNT`, mà không cần khởi tạo class.
 
-- **B)** The `getCount()` method is an example of a static method because it returns the value of a static variable.
-  - This option is incorrect. Although `getCount()` returns a static variable's value, it is not defined as a static method. Static methods are declared using the `static` modifier. The method's instance or non-static nature does not change based on the variables it accesses or returns.
+- **B)** Method `getCount()` là ví dụ của static method vì nó trả về giá trị của một static variable.
+  - Đáp án này sai. Dù `getCount()` trả về giá trị của một static variable, nó không được định nghĩa là static method. Static method được khai báo bằng modifier `static`. Bản chất instance hay non-static của method không thay đổi dựa trên các biến mà nó truy cập hay trả về.
 
-- **C)** Every time a new instance of `Counter` is created, the `COUNT` variable is incremented.
-  - This option is correct. The constructor increments the `COUNT` variable by 1 each time a new instance of `Counter` is created, demonstrating the shared nature of static variables across all instances.
+- **C)** Mỗi khi một instance mới của `Counter` được tạo, biến `COUNT` được tăng lên.
+  - Đáp án này đúng. Constructor tăng biến `COUNT` thêm 1 mỗi khi instance mới của `Counter` được tạo, minh họa tính chất chia sẻ của static variable giữa tất cả instance.
 
-- **D)** The `resetCount()` method resets the `COUNT` variable to 0 for all instances of `Counter`.
-  - This option is correct. The `resetCount()` static method sets the `COUNT` variable to zero. Since `COUNT` is static, this change affects all instances of the class, as there is only one `COUNT` variable shared among them.
-
-
-
-**8. The correct answers are A, C, and D.**
-
-**Explanation:**
-
-- **A)** `int _age;` is correct. Identifiers in Java can begin with a letter, an underscore (_), or a dollar sign ($). Therefore, `_age` is a valid identifier.
-
-- **B)** `double 2ndValue;` is incorrect. Identifiers cannot start with a digit. The correct format would be to start with a letter or a non-digit character such as an underscore or a dollar sign.
-
-- **C)** `boolean is_valid;` is correct. Similar to `_age`, `is_valid` is a valid identifier because it starts with a letter and can contain underscores.
-
-- **D)** `String $name;` is correct. Identifiers can also start with a dollar sign ($), making `$name` a valid identifier.
-
-- **E)** `char #char;` is incorrect. The hash (#) character is not allowed as a starting character in identifiers. Identifiers can only start with letters, `$`, or `_`.
+- **D)** Method `resetCount()` đặt lại biến `COUNT` về 0 cho tất cả instance của `Counter`.
+  - Đáp án này đúng. Static method `resetCount()` đặt biến `COUNT` về 0. Vì `COUNT` là static, thay đổi này ảnh hưởng đến tất cả instance của class, do chỉ có một biến `COUNT` duy nhất được chia sẻ giữa chúng.
 
 
 
-**9. The correct answer is B.** 
+**8. Đáp án đúng là A, C và D.**
 
-**Explanation:**
+**Giải thích:**
 
-- **A)** `int public static final computeSum(int num1, int num2)  { return num1 + num2 }` is incorrect because the return type in method declarations goes right before the name of the method, not at the beginning.
+- **A)** `int _age;` đúng. Identifier trong Java có thể bắt đầu bằng chữ cái, dấu gạch dưới (_) hoặc dấu đô la ($). Do đó, `_age` là identifier hợp lệ.
 
-- **B)** `private void updateRecord(int id) throws IOException {}` is correct. This method declaration is syntactically correct in Java. It uses the `private` access modifier, specifies a return type (`void`), includes an exception (`IOException`) that this method might throw, and correctly defines the parameter list.
+- **B)** `double 2ndValue;` sai. Identifier không thể bắt đầu bằng chữ số. Định dạng đúng là bắt đầu bằng chữ cái hoặc ký tự không phải chữ số như dấu gạch dưới hay dấu đô la.
 
-- **C)** `synchronized boolean checkStatus [int status] { return status == 1; }` Correct syntax requires parentheses for the parameter list, even when there are no parameters, making the correct declaration `synchronized boolean checkStatus(int status)`.
+- **C)** `boolean is_valid;` đúng. Tương tự `_age`, `is_valid` là identifier hợp lệ vì nó bắt đầu bằng chữ cái và có thể chứa dấu gạch dưới.
 
-- **D)** `float calculateArea() {}` is incorrect because a method that returns `float` cannot have an empty method body.
+- **D)** `String $name;` đúng. Identifier cũng có thể bắt đầu bằng dấu đô la ($), khiến `$name` là identifier hợp lệ.
+
+- **E)** `char #char;` sai. Ký tự hash (#) không được phép làm ký tự bắt đầu của identifier. Identifier chỉ có thể bắt đầu bằng chữ cái, `$` hoặc `_`.
 
 
 
-**10. The correct answers are (A and B) and (C and D).**
+**9. Đáp án đúng là B.** 
 
-**Explanation:**
+**Giải thích:**
 
-In Java, a method signature consists of the method name and the parameter list. The return type, access modifier, and exception list are not considered part of the method signature.
+- **A)** `int public static final computeSum(int num1, int num2)  { return num1 + num2 }` sai vì return type trong khai báo method nằm ngay trước tên method, không phải ở đầu.
+
+- **B)** `private void updateRecord(int id) throws IOException {}` đúng. Khai báo method này đúng cú pháp trong Java. Nó dùng access modifier `private`, chỉ định return type (`void`), bao gồm một exception (`IOException`) mà method này có thể throw, và định nghĩa parameter list đúng cách.
+
+- **C)** `synchronized boolean checkStatus [int status] { return status == 1; }` Cú pháp đúng yêu cầu dấu ngoặc đơn cho parameter list, kể cả khi không có parameter nào, nên khai báo đúng là `synchronized boolean checkStatus(int status)`.
+
+- **D)** `float calculateArea() {}` sai vì method trả về `float` không thể có thân method rỗng.
+
+
+
+**10. Đáp án đúng là (A và B) và (C và D).**
+
+**Giải thích:**
+
+Trong Java, method signature bao gồm tên method và parameter list. Return type, access modifier và exception list không được coi là một phần của method signature.
 
 - **A)** (`public void update(int id, String value)`) 
 - **B)** (`private void update(int identifier, String data)`) 
-  - The above options have the same method signature (`update(int, String)`) because they both have the same method name and parameter list (an `int` and a `String`, in that order). The difference in parameter names (`id` vs. `identifier` and `value` vs. `data`) does not affect the method signature.
+  - Hai đáp án trên có cùng method signature (`update(int, String)`) vì cả hai đều có cùng tên method và parameter list (một `int` và một `String`, theo thứ tự đó). Sự khác biệt về tên parameter (`id` so với `identifier` và `value` so với `data`) không ảnh hưởng đến method signature.
 
 - **C)** `public boolean update(String value, int id)` 
 - **D)** `void update(String value, int id)`
-  - This option has the same method signature (`update(String, int)`) as C because they both have the same method name and parameter list (a `String` and an `int`, in that order). The different access modifier and return type does not affect the method signature.
+  - Đáp án này có cùng method signature (`update(String, int)`) với C vì cả hai đều có cùng tên method và parameter list (một `String` và một `int`, theo thứ tự đó). Access modifier và return type khác nhau không ảnh hưởng đến method signature.
 
 - **E)** `protected void update(int id, int value) throws IOException`
-  - This option also has a different parameter list (`update(int, int)`).
+  - Đáp án này cũng có parameter list khác (`update(int, int)`).
 
 
 
-**11. The correct answers are C and D.** 
+**11. Đáp án đúng là C và D.** 
 
-**Explanation:**
+**Giải thích:**
 
-- **A)** The `resetAccountPassword` method can be accessed from any class within the same package but not from a class in a different package.
-  - This option is incorrect. The `resetAccountPassword` method has `private` access, which means it is accessible only within the `AccountManager` class itself, not from any class, even within the same package. The initial statement was slightly incorrect in suggesting package-level access for a `private` method.
+- **A)** Method `resetAccountPassword` có thể được truy cập từ bất kỳ class nào trong cùng package nhưng không từ một class ở package khác.
+  - Đáp án này sai. Method `resetAccountPassword` có truy cập `private`, nghĩa là nó chỉ truy cập được trong chính class `AccountManager`, không từ bất kỳ class nào, kể cả trong cùng package. Phát biểu ban đầu hơi sai khi ngụ ý mức truy cập cấp package cho một method `private`.
 
-- **B)** The `auditTrail` method can be accessed from any class within the same package and from subclasses in different packages.
-  - This option is incorrect because the `auditTrail` method has package-private access (no access modifier), which means it is accessible from any class within the same package but not from subclasses in different packages unless they are also within the same package.
+- **B)** Method `auditTrail` có thể được truy cập từ bất kỳ class nào trong cùng package và từ các subclass ở package khác.
+  - Đáp án này sai vì method `auditTrail` có truy cập package-private (không có access modifier), nghĩa là nó truy cập được từ bất kỳ class nào trong cùng package nhưng không từ các subclass ở package khác trừ khi chúng cũng nằm trong cùng package.
 
-- **C)** The `notifyAccountChanges` method can be accessed from any class within the same package and from subclasses in different packages.
-  - This option is correct. The `notifyAccountChanges` method has `protected` access, meaning it can be accessed within the same package and by subclasses, even if the subclasses are in different packages.
+- **C)** Method `notifyAccountChanges` có thể được truy cập từ bất kỳ class nào trong cùng package và từ các subclass ở package khác.
+  - Đáp án này đúng. Method `notifyAccountChanges` có truy cập `protected`, nghĩa là nó có thể được truy cập trong cùng package và bởi các subclass, kể cả khi các subclass ở package khác.
 
-- **D)** The `updateAccountInformation` method can be accessed from any class, regardless of its package.
-  - This option is correct. The `updateAccountInformation` method is `public`, so it can be accessed from any class, regardless of the package it belongs to.
+- **D)** Method `updateAccountInformation` có thể được truy cập từ bất kỳ class nào, bất kể package của nó.
+  - Đáp án này đúng. Method `updateAccountInformation` là `public`, nên nó có thể được truy cập từ bất kỳ class nào, bất kể package mà nó thuộc về.
 
 
 
-**12. The correct answer is B.**
+**12. Đáp án đúng là B.**
 
-**Explanation:**
+**Giải thích:**
 
-Java is strictly pass-by-value. This means that when passing a variable to a method, Java passes a copy of the variable's value, not the variable itself. Changes to the parameter inside the method do not affect the original variable.
+Java hoàn toàn là pass-by-value. Điều này có nghĩa là khi truyền một biến vào method, Java truyền một bản sao giá trị của biến, không truyền chính biến đó. Thay đổi parameter bên trong method không ảnh hưởng đến biến gốc.
 
 - **A)** 
 ```
 Before calling changeValue: 10  
 After calling changeValue: 20  
  ```
-  - This option is incorrect because, although the `changeValue` method changes the `value` parameter to 20, this change does not affect the original variable `originalValue` outside the method. The change to `value` is made on its copy, not on `originalValue` itself.
+  - Đáp án này sai vì dù method `changeValue` đổi parameter `value` thành 20, thay đổi này không ảnh hưởng đến biến gốc `originalValue` bên ngoài method. Thay đổi trên `value` được thực hiện trên bản sao của nó, không phải trên chính `originalValue`.
 
 - **B)** 
 ```
 Before calling changeValue: 10  
 After calling changeValue: 10  
 ```
-  - This is the correct answer. `originalValue` is passed by value to the `changeValue` method. Thus, modifications to `value` inside `changeValue` do not affect `originalValue`. The output confirms that `originalValue` remains unchanged after the method call.
+  - Đây là đáp án đúng. `originalValue` được truyền theo giá trị (passed by value) vào method `changeValue`. Do đó, các thay đổi trên `value` bên trong `changeValue` không ảnh hưởng đến `originalValue`. Output xác nhận rằng `originalValue` không đổi sau lời gọi method.
 
 - **C)**
 ```
@@ -239,116 +239,116 @@ After calling changeValue: 20
 Before calling changeValue: 20  
 After calling changeValue: 10  
 ```
-  - These options are incorrect as they suggest changes to the method parameters can affect the original variables, which is not how Java's pass-by-value semantics work.
+  - Các đáp án này sai vì chúng cho rằng thay đổi method parameter có thể ảnh hưởng đến biến gốc, điều không đúng với cách hoạt động của pass-by-value semantics trong Java.
 
 
 
-**13. The correct answer is B.**
+**13. Đáp án đúng là B.**
 
-**Explanation:**
+**Giải thích:**
 
 - **A)** `Object`
-  - This option is incorrect because Java uses the most specific method that is applicable to the parameters. In this case, `String` is more specific than `Object`, so the `print(String s)` method is called.
+  - Đáp án này sai vì Java dùng method cụ thể nhất có thể áp dụng cho các parameter. Trong trường hợp này, `String` cụ thể hơn `Object`, nên method `print(String s)` được gọi.
 
 - **B)** `String`
-  - This option is correct. Even though `null` can be assigned to any reference type, Java prefers the most specific method applicable to the method parameters. Since `String` is a more specific type than `Object`, the `print(String s)` method is chosen over the `print(Object o)` method.
+  - Đáp án này đúng. Dù `null` có thể được gán cho bất kỳ reference type nào, Java ưu tiên method cụ thể nhất có thể áp dụng cho method parameter. Vì `String` là type cụ thể hơn `Object`, method `print(String s)` được chọn thay vì method `print(Object o)`.
 
 - **C)** Compilation fails
-  - Compilation does not fail because both `print` methods are correctly defined and can potentially match the call `print(null)`. Java's method overloading mechanism allows this to compile without any issues.
+  - Compilation không thất bại vì cả hai method `print` đều được định nghĩa đúng và đều có khả năng khớp với lời gọi `print(null)`. Cơ chế method overloading của Java cho phép đoạn code này compile mà không gặp vấn đề gì.
 
 - **D)** A runtime exception is thrown
-  - No runtime exception is thrown because the method call to `print` successfully resolves to the `print(String s)` method at compile time. Since the method is correctly invoked, and there is no other code that could cause a runtime exception, this program runs successfully.
+  - Không có runtime exception nào bị throw vì lời gọi method `print` được resolve thành công thành method `print(String s)` tại compile time. Vì method được gọi đúng và không có code nào khác có thể gây runtime exception, chương trình này chạy thành công.
 
 
 
-**14. The correct answers are B and D.**
+**14. Đáp án đúng là B và D.**
 
-**Explanation:**
+**Giải thích:**
 
 - **A)** `public void print(String... messages, int count)`
-  - This option is incorrect because varargs (variable arguments) must be the last parameter in a method's parameter list. Having `int count` after `String... messages` violates this rule.
+  - Đáp án này sai vì varargs (variable arguments) phải là parameter cuối cùng trong parameter list của method. Việc đặt `int count` sau `String... messages` vi phạm quy tắc này.
 
 - **B)** `public void print(int count, String... messages)`
-  - This option is correct. It correctly places the varargs parameter `String... messages` at the end of the method's parameter list, which is the required syntax for using varargs.
+  - Đáp án này đúng. Nó đặt parameter varargs `String... messages` ở cuối parameter list của method, đúng cú pháp bắt buộc khi dùng varargs.
 
 - **C)** `public void print(String messages...)`
-  - This option is incorrect because the syntax `String messages...` is invalid. The correct syntax for varargs is to place the ellipsis (`...`) after the type and before the variable name, like `String... messages`.
+  - Đáp án này sai vì cú pháp `String messages...` không hợp lệ. Cú pháp đúng cho varargs là đặt dấu ellipsis (`...`) sau type và trước tên biến, như `String... messages`.
 
 - **D)** `public void print(String[]... messages)`
-  - This option is correct. It demonstrates the use of varargs with an array type, which is allowed. Here, each argument passed to `messages` can itself be an array of `String`, and `messages` will be treated as an array of arrays (`String[][]`).
+  - Đáp án này đúng. Nó minh họa việc dùng varargs với array type, điều được cho phép. Ở đây, mỗi argument truyền cho `messages` có thể tự nó là một array các `String`, và `messages` sẽ được xử lý như một array của các array (`String[][]`).
 
 - **E)** `public void print(String... messages, String lastMessage)`
-  - This option is incorrect, similar to option A, because varargs must be the last parameter in the method's parameter list. Having another parameter after the varargs parameter is not allowed.
+  - Đáp án này sai, tương tự đáp án A, vì varargs phải là parameter cuối cùng trong parameter list của method. Không được phép có parameter khác sau parameter varargs.
 
 
 
-**15. The correct answer is A.** 
+**15. Đáp án đúng là A.** 
 
-**Explanation:**
+**Giải thích:**
 
-- **A)** The class `Vehicle` demonstrates constructor overloading by having multiple constructors with different parameter lists.
-  - This option is correct. Constructor overloading in Java is a technique of having more than one constructor with different parameter lists in the same class. It allows objects of the class to be initialized in different ways. The `Vehicle` class has two constructors, one that takes a `String` (for the vehicle type) and another that takes an `int` (for the max speed), which is a perfect example of constructor overloading.
+- **A)** Class `Vehicle` minh họa constructor overloading bằng cách có nhiều constructor với parameter list khác nhau.
+  - Đáp án này đúng. Constructor overloading trong Java là kỹ thuật có nhiều hơn một constructor với parameter list khác nhau trong cùng một class. Nó cho phép object của class được khởi tạo theo nhiều cách khác nhau. Class `Vehicle` có hai constructor, một constructor nhận `String` (cho vehicle type) và một constructor nhận `int` (cho max speed), đây là ví dụ hoàn hảo của constructor overloading.
 
-- **B)** The class `Vehicle` will compile with an error because it does not provide a default constructor.
-  - This option is incorrect. Java does not require an explicit default constructor if the class provides any other constructors. The absence of a default constructor (one that takes no arguments) is not a compilation error; it simply means that the programmer cannot instantiate the class using a no-argument constructor unless it's explicitly defined.
+- **B)** Class `Vehicle` sẽ compile với lỗi vì nó không cung cấp default constructor.
+  - Đáp án này sai. Java không yêu cầu default constructor tường minh nếu class cung cấp bất kỳ constructor nào khác. Việc thiếu default constructor (constructor không nhận argument nào) không phải là compile error; nó chỉ có nghĩa là lập trình viên không thể khởi tạo class bằng no-argument constructor trừ khi constructor đó được định nghĩa tường minh.
 
-- **C)** It is possible to create an instance of `Vehicle` with both `type` and `maxSpeed` set to specific values through a single constructor call.
-  - This option is incorrect because none of the existing constructors accept both a `String` and an `int` parameter. Each constructor only sets one field to a caller-specified value; the other field retains its default value (`null` or `0`).
+- **C)** Có thể tạo một instance của `Vehicle` với cả `type` và `maxSpeed` được đặt thành giá trị cụ thể thông qua một lời gọi constructor duy nhất.
+  - Đáp án này sai vì không constructor nào hiện có nhận cả parameter `String` lẫn `int`. Mỗi constructor chỉ đặt một field thành giá trị do caller chỉ định; field còn lại giữ default value (`null` hoặc `0`).
 
-- **D)** Calling either constructor will initialize both `type` and `maxSpeed` fields of the `Vehicle` class.
-  - This option is incorrect. Calling either constructor only initializes the parameter that is provided to it. The first constructor initializes the `type`, and the second initializes the `maxSpeed`. Without additional code, such as a constructor that accepts both parameters or setter methods, there's no way for either constructor alone to initialize both fields.
-
-
-
-**16. The correct answer are A and D.** 
-
-**Explanation:**
-
-- **A)** The instance initializer block is executed before the constructor, initializing the `books` list and adding two books to it.
-  - This option is correct. The instance initializer block is executed each time an instance of the class is created, before the constructor code runs. It initializes the `books` list and adds two books to it.
-
-- **B)** The instance initializer block replaces the need for a constructor in the `Library` class.
-  - This option is incorrect. The instance initializer block does not replace the need for a constructor. It is used in addition to constructors, often to initialize common parts of various constructors in a class.
-
-- **C)** Instance initializer blocks cannot initialize instance variables like `books`. 
-  - This option is incorrect. Instance initializer blocks can indeed initialize instance variables. In this case, the `books` list is an instance variable that is being initialized and populated within the instance initializer block.
-
-- **D)** If multiple instances of `Library` are created, the instance initializer block will execute each time before the constructor, ensuring the `books` list is initialized and populated for each object.
-  - This option is correct. For each new instance of the `Library` class, the instance initializer block runs before the constructor is invoked. This ensures that the `books` list is initialized and populated with `"Book 1"` and `"Book 2"` for every `Library` object created.
+- **D)** Gọi một trong hai constructor sẽ khởi tạo cả hai field `type` và `maxSpeed` của class `Vehicle`.
+  - Đáp án này sai. Gọi một trong hai constructor chỉ khởi tạo parameter được truyền cho nó. Constructor đầu tiên khởi tạo `type`, constructor thứ hai khởi tạo `maxSpeed`. Nếu không có thêm code, chẳng hạn constructor nhận cả hai parameter hoặc setter method, thì không cách nào để chỉ một constructor khởi tạo cả hai field.
 
 
 
-**17. The correct answer is A.** 
+**16. Đáp án đúng là A và D.** 
 
-**Explanation:**
+**Giải thích:**
 
-- **A)** The `static` initializer block is executed only once when the class is first loaded into memory, initializing the `settings` map with default values.
-  - This option is correct. Static initializer blocks are executed a single time, when the class is first loaded into the JVM memory. In this case, it initializes the `settings` map with default configuration values.
+- **A)** Instance initializer block được thực thi trước constructor, khởi tạo list `books` và thêm hai cuốn sách vào đó.
+  - Đáp án này đúng. Instance initializer block được thực thi mỗi khi một instance của class được tạo, trước khi code của constructor chạy. Nó khởi tạo list `books` và thêm hai cuốn sách vào đó.
 
-- **B)** The `static` initializer block allows instance methods to modify the `settings` map without creating an instance of the `Configuration` class.
-  - This option is misleading. While static methods like `getSetting` can access and modify static fields like `settings` without needing an instance of the class, this capability is not due to the static initializer block itself but rather the nature of static fields and methods.
+- **B)** Instance initializer block thay thế nhu cầu về constructor trong class `Library`.
+  - Đáp án này sai. Instance initializer block không thay thế nhu cầu về constructor. Nó được dùng cùng với constructor, thường để khởi tạo những phần chung của nhiều constructor khác nhau trong một class.
 
-- **C)** `static` initializer blocks are executed each time a new instance of the `Configuration` class is created.
-  - This option is incorrect. Static initializer blocks are not executed each time a new instance of the class is created. They are executed only once: when the class is first loaded.
+- **C)** Instance initializer block không thể khởi tạo instance variable như `books`. 
+  - Đáp án này sai. Instance initializer block thực sự có thể khởi tạo instance variable. Trong trường hợp này, list `books` là một instance variable được khởi tạo và thêm phần tử bên trong instance initializer block.
 
-- **D)** The `static` initializer block is executed before any instance initializer blocks or constructors, when an instance of the class is created.
-  - This statement is partially correct in that static initializer blocks are executed before any instance initializer blocks or constructors, but it's misleading as it implies a sequence with instance creation. The key point is that static initializer blocks run once upon class loading, irrespective of the creation of any instances.
+- **D)** Nếu nhiều instance của `Library` được tạo, instance initializer block sẽ thực thi mỗi lần trước constructor, đảm bảo list `books` được khởi tạo và thêm phần tử cho mỗi object.
+  - Đáp án này đúng. Với mỗi instance mới của class `Library`, instance initializer block chạy trước khi constructor được gọi. Điều này đảm bảo list `books` được khởi tạo và thêm `"Book 1"` cùng `"Book 2"` cho mọi object `Library` được tạo.
 
 
 
-**18. The correct answer is B.** 
+**17. Đáp án đúng là A.** 
 
-**Explanation:**
+**Giải thích:**
 
-In Java, the order of initialization when a class is loaded and an instance of that class is created is as follows:
+- **A)** Static initializer block chỉ được thực thi một lần khi class được load vào bộ nhớ lần đầu, khởi tạo map `settings` với các default value.
+  - Đáp án này đúng. Static initializer block được thực thi một lần duy nhất, khi class được load vào bộ nhớ JVM lần đầu. Trong trường hợp này, nó khởi tạo map `settings` với các giá trị cấu hình mặc định.
 
-1. **Static fields and static initializers** are processed in the order they appear in the class definition. First, the static initializer block prints `"1. Static initializer"`. Then, the static field `staticValue` is initialized by calling `initializeStaticValue()`, which prints `"2. Static value initializer".`
+- **B)** Static initializer block cho phép instance method thay đổi map `settings` mà không cần tạo instance của class `Configuration`.
+  - Đáp án này gây nhầm lẫn. Mặc dù static method như `getSetting` có thể truy cập và thay đổi static field như `settings` mà không cần instance của class, khả năng này không phải nhờ static initializer block mà là do bản chất của static field và static method.
 
-2. **Instance fields and instance initializers** are processed in the order they appear when an instance of the class is created. First, the instance field `instanceValue` is initialized by calling `initializeInstanceValue()`, which prints `"3. Instance value initializer"`. Then, the instance initializer block prints `"3. Instance initializer"`.
+- **C)** Static initializer block được thực thi mỗi khi một instance mới của class `Configuration` được tạo.
+  - Đáp án này sai. Static initializer block không được thực thi mỗi khi instance mới của class được tạo. Chúng chỉ được thực thi một lần: khi class được load lần đầu.
 
-3. **Constructors** are executed after all fields and instance initializers have been processed. The constructor in this case prints `"4. Constructor"`.
+- **D)** Static initializer block được thực thi trước mọi instance initializer block hoặc constructor, khi một instance của class được tạo.
+  - Phát biểu này đúng một phần ở chỗ static initializer block được thực thi trước mọi instance initializer block hoặc constructor, nhưng nó gây nhầm lẫn vì ngụ ý một trình tự gắn với việc tạo instance. Điểm mấu chốt là static initializer block chạy một lần khi class được load, bất kể việc tạo instance.
 
-The numbering of the output for `"3. Instance initializer"` and `"3. Instance value initializer"` in the question might seem to suggest they are executed simultaneously or out of order, but it's important to remember that instance fields and instance initializers execute in the order they appear in the class, before the constructor is executed. The duplicate numbering means that instance field initializers run first, followed by instance initializers, and finally, the constructor runs.
+
+
+**18. Đáp án đúng là B.** 
+
+**Giải thích:**
+
+Trong Java, thứ tự khởi tạo khi một class được load và một instance của class đó được tạo ra như sau:
+
+1. **Static field và static initializer** được xử lý theo thứ tự chúng xuất hiện trong định nghĩa class. Đầu tiên, static initializer block in ra `"1. Static initializer"`. Sau đó, static field `staticValue` được khởi tạo bằng cách gọi `initializeStaticValue()`, in ra `"2. Static value initializer".`
+
+2. **Instance field và instance initializer** được xử lý theo thứ tự chúng xuất hiện khi một instance của class được tạo. Đầu tiên, instance field `instanceValue` được khởi tạo bằng cách gọi `initializeInstanceValue()`, in ra `"3. Instance value initializer"`. Sau đó, instance initializer block in ra `"3. Instance initializer"`.
+
+3. **Constructor** được thực thi sau khi tất cả field và instance initializer đã được xử lý. Constructor trong trường hợp này in ra `"4. Constructor"`.
+
+Cách đánh số của output cho `"3. Instance initializer"` và `"3. Instance value initializer"` trong câu hỏi có thể khiến bạn nghĩ rằng chúng được thực thi đồng thời hoặc không theo thứ tự, nhưng điều quan trọng cần nhớ là instance field và instance initializer thực thi theo thứ tự chúng xuất hiện trong class, trước khi constructor được thực thi. Việc đánh số trùng nhau có nghĩa là instance field initializer chạy trước, tiếp theo là instance initializer, và cuối cùng, constructor chạy.
 
 - **A)**
 ```
@@ -358,7 +358,7 @@ The numbering of the output for `"3. Instance initializer"` and `"3. Instance va
 3. Instance value initializer
 4. Constructor 
 ```
-  - This option is incorrect.
+  - Đáp án này sai.
 
 - **B)** 
 ```
@@ -368,7 +368,7 @@ The numbering of the output for `"3. Instance initializer"` and `"3. Instance va
 3. Instance initializer
 4. Constructor
 ```
-  - This option is correct.
+  - Đáp án này đúng.
 
 - **C)** 
 ```
@@ -378,7 +378,7 @@ The numbering of the output for `"3. Instance initializer"` and `"3. Instance va
 3. Instance value initializer
 4. Constructor
 ``` 
-  - This option is incorrect. 
+  - Đáp án này sai. 
 
 - **D)** 
 ```
@@ -388,112 +388,112 @@ The numbering of the output for `"3. Instance initializer"` and `"3. Instance va
 3. Instance initializer
 4. Constructor 
 ```
-  - This option is incorrect.
+  - Đáp án này sai.
 
 
 
-**19. The correct answers are A and C.** 
+**19. Đáp án đúng là A và C.** 
 
-**Explanation:**
+**Giải thích:**
 
-- **A)** Invoking `toString()` on an instance of `CustomObject` will return a `String` that includes the class name followed by the `@` symbol and the object's hashcode.
-  - This option is correct. The `toString()` method in `java.lang.Object` returns a string that includes the class name, the `@` symbol, and the object's hashcode in hexadecimal. If `CustomObject` does not override `toString()`, this default format is used.
+- **A)** Gọi `toString()` trên một instance của `CustomObject` sẽ trả về một `String` bao gồm tên class, theo sau là ký hiệu `@` và hashcode của object.
+  - Đáp án này đúng. Method `toString()` trong `java.lang.Object` trả về một string bao gồm tên class, ký hiệu `@` và hashcode của object ở dạng thập lục phân. Nếu `CustomObject` không override `toString()`, định dạng mặc định này được dùng.
 
-- **B)** Calling `equals(Object obj)` on two different instances of `CustomObject` that have identical content will return `true` because they are instances of the same class. 
-  - This option is incorrect. The default implementation of `equals(Object obj)` in `java.lang.Object` checks for reference equality, meaning it returns `true` only if both references point to the exact same object. Without overriding `equals`, two different instances of `CustomObject`, even with identical content, would not be considered equal.
+- **B)** Gọi `equals(Object obj)` trên hai instance khác nhau của `CustomObject` có nội dung giống hệt nhau sẽ trả về `true` vì chúng là instance của cùng một class. 
+  - Đáp án này sai. Implementation mặc định của `equals(Object obj)` trong `java.lang.Object` kiểm tra reference equality, nghĩa là nó chỉ trả về `true` nếu cả hai reference trỏ đến đúng cùng một object. Nếu không override `equals`, hai instance khác nhau của `CustomObject`, dù nội dung giống hệt nhau, cũng không được coi là bằng nhau.
 
-- **C)** Using `hashCode()` on any instance of `CustomObject` will generate a unique integer that remains consistent across multiple invocations within the same execution of a program.  
-  - This option is correct. The `hashCode()` method is designed to return an integer representation of the object's memory address or a value derived from it. While the exact implementation is not specified and can vary, it is consistent during the execution of a program for any given object.
+- **C)** Dùng `hashCode()` trên bất kỳ instance nào của `CustomObject` sẽ tạo ra một số nguyên duy nhất, nhất quán qua nhiều lần gọi trong cùng một lần thực thi chương trình.  
+  - Đáp án này đúng. Method `hashCode()` được thiết kế để trả về biểu diễn số nguyên của địa chỉ bộ nhớ của object hoặc một giá trị dẫn xuất từ đó. Mặc dù implementation chính xác không được quy định cụ thể và có thể khác nhau, nó vẫn nhất quán trong suốt quá trình thực thi chương trình đối với bất kỳ object nào.
 
-- **D)** The `clone()` method can be used to create a shallow copy of an instance of `CustomObject` without the need for `CustomObject` to implement the `Cloneable` interface. 
-  - This option is incorrect. The `clone()` method in `java.lang.Object` is protected, and it throws a `CloneNotSupportedException` unless the class implements the `Cloneable` interface. Without `CustomObject` explicitly implementing `Cloneable` and overriding `clone()` to make it `public`, it cannot be used to clone instances of `CustomObject`.
-
-
-
-**20. The correct answer is B.**
-
-**Explanation:**
-
-- **A)** A static nested class can access both static and non-static members of its enclosing class directly. 
-  - This option is incorrect because a static nested class cannot directly access non-static members of its enclosing class. It can only access static members directly.
-
-- **B)** Instances of a static nested class can exist without an instance of its enclosing class.
-  - This is the correct answer. A static nested class is associated with its outer class, and unlike inner classes, it does not need an instance of the outer class to be instantiated. This makes it useful for grouping classes that will be used in a static context.
-
-- **C)** A static nested class can only be instantiated within the static method of its enclosing class.
-  - This option is incorrect. A static nested class can be instantiated from any context (static or non-static) as long as it is accessible (i.e., visibility allows it).
-
-- **D)** Static nested classes are not considered members of their enclosing class and cannot access any members of the enclosing class.
-  - This option is incorrect. Static nested classes are indeed considered members of their enclosing class and can access its static members and static methods. However, they do not have access to non-static members of the enclosing class unless they instantiate the enclosing class.
+- **D)** Method `clone()` có thể được dùng để tạo shallow copy của một instance `CustomObject` mà không cần `CustomObject` implement interface `Cloneable`. 
+  - Đáp án này sai. Method `clone()` trong `java.lang.Object` là protected, và nó throw `CloneNotSupportedException` trừ khi class implement interface `Cloneable`. Nếu `CustomObject` không implement tường minh `Cloneable` và không override `clone()` để biến nó thành `public`, method này không thể dùng để clone instance của `CustomObject`.
 
 
 
-**21. The correct answer is A.** 
+**20. Đáp án đúng là B.**
 
-**Explanation:**
+**Giải thích:**
 
-- **A)** A non-static nested class can directly access both static and non-static members of its enclosing clas
-  - This option is correct. A non-static nested class, or inner class, has access to all members (including both static and non-static) of its enclosing class, as demonstrated in the code snippet where `InnerClass` accesses the non-static `message` field of `OuterClass`.
+- **A)** Một static nested class có thể truy cập trực tiếp cả static lẫn non-static member của enclosing class. 
+  - Đáp án này sai vì static nested class không thể truy cập trực tiếp non-static member của enclosing class. Nó chỉ có thể truy cập trực tiếp static member.
 
-- **B)** Instances of a non-static nested class can exist independently of an instance of its enclosing class. 
-  - This option is incorrect. Instances of a non-static nested class (inner class) are implicitly associated with an instance of the enclosing class. Therefore, they cannot exist independently of an instance of the enclosing class. In the provided code snippet, the `InnerClass` instance is created through an instance of `OuterClass`.
+- **B)** Instance của static nested class có thể tồn tại mà không cần instance của enclosing class.
+  - Đây là đáp án đúng. Static nested class gắn với outer class của nó, và không giống inner class, nó không cần instance của outer class để được khởi tạo. Điều này khiến nó hữu ích để nhóm các class sẽ được dùng trong static context.
 
-- **C)** A non-static nested class cannot access the non-static members of its enclosing class directly.
-  - This option is incorrect. As stated above, an inner class can directly access both static and non-static members of its enclosing class.
+- **C)** Static nested class chỉ có thể được khởi tạo bên trong static method của enclosing class.
+  - Đáp án này sai. Static nested class có thể được khởi tạo từ bất kỳ context nào (static hoặc non-static) miễn là nó truy cập được (tức là visibility cho phép).
 
-- **D)** Non-static nested classes must be declared static to access the static members of their enclosing class.
-  - This option is incorrect. Non-static nested classes (inner classes) are designed to access members of their enclosing class directly without needing to be declared static. Declaring a nested class as static changes its type to a static nested class, which has different access properties from an inner class.
-
-
-
-**22. The correct answers are A and D.** 
-
-**Explanation:**
-
-- **A)** Local classes can be declared within any block that precedes a statement.
-  - This option is correct. Local classes in Java can indeed be declared within any block that precedes a statement, such as a method body, a `for` loop, or an `if` statement.
-
-- **B)** Instances of a local class can be created and used outside of the block where the local class is defined.
-  - This option is incorrect. Instances of local classes cannot be created and used outside the block where they are defined. Their scope is limited to the block in which they are declared.
-
-- **C)** Local classes are a type of static nested class and can access both static and non-static members of the enclosing class directly.
-  - This option is incorrect. Local classes are not static; they are associated with an instance of the enclosing class and have access to its instance members. They do not have the static context that static nested classes have, and thus they can access both static and non-static members of the enclosing class.
-
-- **D)** Local classes can access local variables and parameters of the enclosing block only if they are declared `final` or effectively final.
-  - This is correct. Local classes can access local variables and parameters of the method (or any enclosing block) in which they are defined, but those variables must be declared `final` or effectively final (which means their values do not change after they are initialized).
+- **D)** Static nested class không được coi là member của enclosing class và không thể truy cập bất kỳ member nào của enclosing class.
+  - Đáp án này sai. Static nested class thực sự được coi là member của enclosing class và có thể truy cập static member cùng static method của nó. Tuy nhiên, chúng không có quyền truy cập non-static member của enclosing class trừ khi chúng khởi tạo enclosing class.
 
 
 
-**23. The correct answer is A.** 
+**21. Đáp án đúng là A.** 
 
-**Explanation:**
+**Giải thích:**
 
-- **A)** Anonymous classes can implement interfaces and extend classes without the need to declare a named class.
-  - This option is correct. Anonymous classes are a way to extend existing classes or implement interfaces on the spot without the need for a formal class declaration. This makes them useful for creating quick, one-off implementations.
+- **A)** Một non-static nested class có thể truy cập trực tiếp cả static lẫn non-static member của enclosing class
+  - Đáp án này đúng. Non-static nested class, hay inner class, có quyền truy cập tất cả member (bao gồm cả static lẫn non-static) của enclosing class, như được minh họa trong đoạn code nơi `InnerClass` truy cập field non-static `message` của `OuterClass`.
 
-- **B)** An anonymous class must override all methods in the superclass or interface it declares it is implementing or extending.
-  - This option is incorrect. An anonymous class only needs to override abstract methods of the superclass or interface it extends or implements. If the superclass or interface has no abstract methods, then the anonymous class does not need to override any methods.
+- **B)** Instance của non-static nested class có thể tồn tại độc lập với instance của enclosing class. 
+  - Đáp án này sai. Instance của non-static nested class (inner class) được gắn ngầm với một instance của enclosing class. Do đó, chúng không thể tồn tại độc lập với instance của enclosing class. Trong đoạn code được cung cấp, instance `InnerClass` được tạo thông qua một instance của `OuterClass`.
 
-- **C)** Anonymous classes can have constructors as named classes do.
-  - This option is incorrect. Anonymous classes do not have named constructors because they do not have names themselves. Instead, any initialization is done through an instance initializer block.
+- **C)** Non-static nested class không thể truy cập trực tiếp non-static member của enclosing class.
+  - Đáp án này sai. Như đã nói ở trên, inner class có thể truy cập trực tiếp cả static lẫn non-static member của enclosing class.
 
-- **D)** Instances of anonymous classes cannot be passed as arguments to methods.
-  - This option is incorrect. Instances of anonymous classes can indeed be passed as arguments to methods. They are useful for creating on-the-fly implementations for interfaces or subclasses that are required for a method call.
+- **D)** Non-static nested class phải được khai báo static để truy cập static member của enclosing class.
+  - Đáp án này sai. Non-static nested class (inner class) được thiết kế để truy cập trực tiếp member của enclosing class mà không cần khai báo static. Khai báo một nested class là static sẽ biến nó thành static nested class, vốn có các thuộc tính truy cập khác với inner class.
 
 
 
-**24. The correct answer is C.** 
+**22. Đáp án đúng là A và D.** 
 
-**Explanation:**
+**Giải thích:**
 
-- **A)** A source file can contain multiple public classes.
-  - This option is incorrect. A Java source file cannot contain more than one `public` class. If a class is declared `public`, it must be the only `public` class in the file, and the file name must match the class name.
+- **A)** Local class có thể được khai báo trong bất kỳ block nào đứng trước một statement.
+  - Đáp án này đúng. Local class trong Java thực sự có thể được khai báo trong bất kỳ block nào đứng trước một statement, chẳng hạn thân method, vòng lặp `for` hay câu lệnh `if`.
 
-- **B)** Private classes can be declared at the top level in a source file.
-  - This option is incorrect. Java does not allow classes to be declared as `private` at the top level. Only `public`, or package-private (no access modifier) classes can be defined at the top level. Inner classes can be `private`.
+- **B)** Instance của local class có thể được tạo và dùng bên ngoài block nơi local class được định nghĩa.
+  - Đáp án này sai. Instance của local class không thể được tạo và dùng bên ngoài block nơi chúng được định nghĩa. Scope của chúng chỉ giới hạn trong block mà chúng được khai báo.
 
-- **C)** A `public` class must be declared in a source file that has the same name as the class.
-  - This is correct. According to Java's rules, if a class is declared `public`, the source file in which it is defined must have the same name as the class, followed by the `.java` extension. This is a strict rule that helps the Java compiler easily locate source files.
+- **C)** Local class là một loại static nested class và có thể truy cập trực tiếp cả static lẫn non-static member của enclosing class.
+  - Đáp án này sai. Local class không phải static; chúng gắn với một instance của enclosing class và có quyền truy cập instance member của nó. Chúng không có static context như static nested class, và do đó chúng có thể truy cập cả static lẫn non-static member của enclosing class.
 
-- **D)** If a source file contains more than one class, none of the classes can be `public`.
-  - This is incorrect. While it is true that if a source file contains a `public` class, the source file must be named after that `public` class, it is not true that none of the classes can be `public` if a source file contains more than one class. A source file can contain multiple classes, but only one of them can be `public`, and the source file must be named after that `public` class. The statement could imply that multiple non-public top-level classes are a common scenario without the context of the `public` class naming rule.
+- **D)** Local class có thể truy cập local variable và parameter của enclosing block chỉ khi chúng được khai báo `final` hoặc effectively final.
+  - Điều này đúng. Local class có thể truy cập local variable và parameter của method (hoặc bất kỳ enclosing block nào) nơi chúng được định nghĩa, nhưng những biến đó phải được khai báo `final` hoặc effectively final (nghĩa là giá trị của chúng không thay đổi sau khi được khởi tạo).
+
+
+
+**23. Đáp án đúng là A.** 
+
+**Giải thích:**
+
+- **A)** Anonymous class có thể implement interface và extend class mà không cần khai báo một class có tên.
+  - Đáp án này đúng. Anonymous class là cách extend class hoặc implement interface ngay tại chỗ mà không cần khai báo class chính thức. Điều này khiến chúng hữu ích để tạo các implementation nhanh, dùng một lần.
+
+- **B)** Anonymous class phải override tất cả method trong superclass hoặc interface mà nó khai báo là đang implement hoặc extend.
+  - Đáp án này sai. Anonymous class chỉ cần override các abstract method của superclass hoặc interface mà nó extend hoặc implement. Nếu superclass hoặc interface không có abstract method nào, thì anonymous class không cần override method nào cả.
+
+- **C)** Anonymous class có thể có constructor như các class có tên.
+  - Đáp án này sai. Anonymous class không có constructor có tên vì bản thân chúng không có tên. Thay vào đó, mọi khởi tạo được thực hiện qua instance initializer block.
+
+- **D)** Instance của anonymous class không thể được truyền làm argument cho method.
+  - Đáp án này sai. Instance của anonymous class thực sự có thể được truyền làm argument cho method. Chúng hữu ích để tạo implementation ngay lập tức cho interface hoặc subclass cần thiết cho một lời gọi method.
+
+
+
+**24. Đáp án đúng là C.** 
+
+**Giải thích:**
+
+- **A)** Một source file có thể chứa nhiều public class.
+  - Đáp án này sai. Một source file Java không thể chứa nhiều hơn một class `public`. Nếu một class được khai báo `public`, nó phải là class `public` duy nhất trong file, và tên file phải khớp với tên class.
+
+- **B)** Private class có thể được khai báo ở top level trong một source file.
+  - Đáp án này sai. Java không cho phép khai báo class là `private` ở top level. Chỉ class `public` hoặc package-private (không có access modifier) mới có thể được định nghĩa ở top level. Inner class có thể là `private`.
+
+- **C)** Một class `public` phải được khai báo trong source file có cùng tên với class.
+  - Điều này đúng. Theo quy tắc của Java, nếu một class được khai báo `public`, source file chứa nó phải có cùng tên với class, theo sau là phần mở rộng `.java`. Đây là quy tắc nghiêm ngặt giúp Java compiler dễ dàng tìm thấy source file.
+
+- **D)** Nếu một source file chứa nhiều hơn một class, không class nào có thể là `public`.
+  - Điều này sai. Dù đúng là nếu một source file chứa một class `public`, source file phải được đặt tên theo class `public` đó, nhưng không đúng khi nói rằng không class nào có thể là `public` nếu source file chứa nhiều hơn một class. Một source file có thể chứa nhiều class, nhưng chỉ một trong số đó có thể là `public`, và source file phải được đặt tên theo class `public` đó. Phát biểu này có thể ngụ ý rằng nhiều non-public top-level class là kịch bản phổ biến mà bỏ qua ngữ cảnh của quy tắc đặt tên class `public`.

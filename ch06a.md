@@ -1,49 +1,49 @@
 ---
 layout: answer
 
-title: "Chapter SIX"
-subtitle: "Arrays, Generics, and Collections"
+title: "Chương 6"
+subtitle: "Mảng, Generics và Collections"
 exam_objectives:
   - "Create arrays, List, Set, Map and Deque collections, and add, remove, update, retrieve and sort their elements."
 ---
 
-## Answers
-**1. The correct answer is D.**
+## Đáp án {#answers}
+**1. Đáp án đúng là D.**
 
-**Explanation:**
+**Giải thích:**
 
 - **A)** 
 ```
 0 0 0 
 0 0 0 
 ```
-  - This option is incorrect because the array elements are initialized and modified within the loops. The values are not all zeros.
+  - Đáp án này sai vì các element của array được khởi tạo và thay đổi bên trong các vòng lặp. Các giá trị không phải đều bằng 0.
 
 - **B)** 
 ```
 0 1 2 
 0 1 2 
 ```
-  - This option is incorrect because each row is initialized with incremental values based on the sum of indices, not identical for both rows.
+  - Đáp án này sai vì mỗi hàng được khởi tạo với các giá trị tăng dần dựa trên tổng của các index, không giống nhau ở cả hai hàng.
 
 - **C)** 
 ```
 0 0 0 
 1 1 1 
 ```
-  - This option is incorrect because the values should be the sum of the row index and the column index, not all zeros or all ones for the second row.
+  - Đáp án này sai vì các giá trị phải là tổng của row index và column index, không phải toàn số 0 hay toàn số 1 ở hàng thứ hai.
 
 - **D)** 
 ```
 0 1 2 
 1 2 3 
 ```
-  - This is the correct answer. Each element of the array is set to the sum of its indices. So, `arr[0][0] = 0 + 0 = 0`, `arr[0][1] = 0 + 1 = 1`, `arr[0][2] = 0 + 2 = 2`, `arr[1][0] = 1 + 0 = 1`, `arr[1][1] = 1 + 1 = 2`, `arr[1][2] = 1 + 2 = 3`.
+  - Đây là đáp án đúng. Mỗi element của array được gán bằng tổng hai index của nó. Vậy, `arr[0][0] = 0 + 0 = 0`, `arr[0][1] = 0 + 1 = 1`, `arr[0][2] = 0 + 2 = 2`, `arr[1][0] = 1 + 0 = 1`, `arr[1][1] = 1 + 1 = 2`, `arr[1][2] = 1 + 2 = 3`.
 
 
-**2. The correct answer is B.**
+**2. Đáp án đúng là B.**
 
-**Explanation:**
+**Giải thích:**
 
 - **A)** 
 ```java
@@ -51,7 +51,7 @@ public static T getFirstElement(T[] array) {
     return array[0];
 }
 ```
-  - This option is incorrect because the generic type `<T>` is missing before the return type `T`.
+  - Đáp án này sai vì generic type `<T>` bị thiếu trước return type `T`.
 
 - **B)** 
 ```java
@@ -59,7 +59,7 @@ public static <T> T getFirstElement(T[] array) {
     return array[0];
 }
 ```
-  - This is the correct answer. The generic type `<T>` is correctly declared before the return type `T`.
+  - Đây là đáp án đúng. Generic type `<T>` được khai báo đúng trước return type `T`.
 
 - **C)** 
 ```java
@@ -67,7 +67,7 @@ public static <T> getFirstElement(T[] array) {
     return array[0];
 }
 ```
-  - This option is incorrect because the return type `T` is missing.
+  - Đáp án này sai vì return type `T` bị thiếu.
 
 - **D)** 
 ```java
@@ -75,121 +75,121 @@ public static <T> T[] getFirstElement(T[] array) {
     return array[0];
 }
 ```
-  - This option is incorrect because the return type is `T[]`, which does not match the intended method return type.
+  - Đáp án này sai vì return type là `T[]`, không khớp với return type dự định của method.
 
 
-**3. The correct answer is D.**
+**3. Đáp án đúng là D.**
 
-**Explanation:**
+**Giải thích:**
 
-**A)** The code compiles and prints:
+**A)** Đoạn code compile và in ra:
 ```
 1 2 3
 1.1 2.2 3.3
 one two three
 ```
-  - This option is incorrect. The code does not compile, so it cannot produce any output.
+  - Đáp án này sai. Đoạn code không compile, nên nó không thể tạo ra output nào.
 
-**B)** The code compiles and prints:
+**B)** Đoạn code compile và in ra:
 ```
 1 2 3
 1.1 2.2 3.3
 ```
-  - This option is incorrect. While this would be the output if the `printList(strings)` line were removed, the code as written does not compile.
+  - Đáp án này sai. Mặc dù đây sẽ là output nếu dòng `printList(strings)` bị xóa, đoạn code như đã viết vẫn không compile.
 
-**C)** The code does not compile due to an error in the `printList` method.
-  - This option is incorrect. The `printList` method is correctly defined using an upper bound wildcard `<? extends Number>`.
+**C)** Đoạn code không compile do lỗi trong method `printList`.
+  - Đáp án này sai. Method `printList` được định nghĩa đúng, dùng upper bound wildcard `<? extends Number>`.
 
-**D)** The code does not compile due to an error in the `main` method.
-  - This option is correct. The code fails to compile due to an error in the `main` method. `printList(strings)` causes a compilation error because `String` is not a subclass of `Number`.
+**D)** Đoạn code không compile do lỗi trong method `main`.
+  - Đáp án này đúng. Đoạn code compile thất bại do lỗi trong method `main`. `printList(strings)` gây ra compilation error vì `String` không phải là subclass của `Number`.
 
-**E)** The code compiles but throws a runtime exception when executed.
-  - This option is incorrect. The code fails to compile so it cannot be executed.
+**E)** Đoạn code compile nhưng throw runtime exception khi thực thi.
+  - Đáp án này sai. Đoạn code compile thất bại nên nó không thể được thực thi.
   
   
-**4. The correct answer is A.** 
+**4. Đáp án đúng là A.** 
 
-**Explanation:**
+**Giải thích:**
 
 - **A)** `[A, B, E, C, D]`
-  - This option is correct. The `add` method with an index parameter inserts the specified element at the specified position in the list. All elements after the specified position are shifted to the right. Hence, `"E"` is inserted at index 2, pushing `"C"` and `"D"` to the right.
+  - Đáp án này đúng. Method `add` với tham số index chèn element được chỉ định vào vị trí được chỉ định trong list. Mọi element sau vị trí đó được dịch sang phải. Do đó, `"E"` được chèn tại index 2, đẩy `"C"` và `"D"` sang phải.
 
 - **B)** `[A, E, B, C, D]`
-  - This option is incorrect. This would be the result if `"E"` were added at index 1, not index 2.
+  - Đáp án này sai. Đây sẽ là kết quả nếu `"E"` được thêm tại index 1, không phải index 2.
 
 - **C)** `[A, B, C, E, D]`
-  - This option is incorrect. This would be the result if `"E"` were added at index 3, not index 2.
+  - Đáp án này sai. Đây sẽ là kết quả nếu `"E"` được thêm tại index 3, không phải index 2.
 
 - **D)** `[A, B, C, D, E]`
-  - This option is incorrect. This would be the result if `"E"` were added at the end of the list, not at index 2.
+  - Đáp án này sai. Đây sẽ là kết quả nếu `"E"` được thêm vào cuối list, không phải tại index 2.
 
 - **E)** `[A, C, B, E, D]`
-  - This option is incorrect. This sequence does not follow the proper behavior of the `add` method with index 2. It seems like a random shuffle and doesn't correspond to how elements are shifted when a new element is added.
+  - Đáp án này sai. Chuỗi kết quả này không tuân theo hành vi đúng của method `add` với index 2. Nó có vẻ như một sự xáo trộn ngẫu nhiên và không tương ứng với cách các element được dịch khi một element mới được thêm vào.
   
   
-**5. The correct answers are C and D.**.
+**5. Đáp án đúng là C và D.**
 
-**Explanation:**
+**Giải thích:**
 
-- **A)** A `Set` allows duplicate elements.
-  - This option is incorrect. One of the primary characteristics of a `Set` is that it does not allow duplicate elements. Each element must be unique.
+- **A)** Một `Set` cho phép các element trùng lặp.
+  - Đáp án này sai. Một trong những đặc điểm chính của `Set` là nó không cho phép các element trùng lặp. Mỗi element phải là duy nhất.
 
-- **B)** Elements in a `Set` are maintained in the order they were inserted.
-  - This option is incorrect. The ordering of elements depends on the specific implementation of the `Set` interface. For example, `HashSet` does not maintain any order, while `LinkedHashSet` maintains insertion order, and `TreeSet` maintains a sorted order.
+- **B)** Các element trong một `Set` được duy trì theo thứ tự chúng được chèn vào.
+  - Đáp án này sai. Thứ tự của các element phụ thuộc vào implementation cụ thể của interface `Set`. Ví dụ, `HashSet` không duy trì thứ tự nào, trong khi `LinkedHashSet` duy trì insertion order, và `TreeSet` duy trì thứ tự đã sắp xếp.
 
-- **C)** The `Set` interface includes methods for adding, removing, and checking the presence of elements.
-  - This option is correct. The `Set` interface provides methods such as `add()`, `remove()`, and `contains()` to manage its elements.
+- **C)** Interface `Set` bao gồm các method để thêm, xóa và kiểm tra sự tồn tại của element.
+  - Đáp án này đúng. Interface `Set` cung cấp các method như `add()`, `remove()` và `contains()` để quản lý các element của nó.
 
-- **D)** The `Set` interface is implemented by classes like `HashSet`, `LinkedHashSet`, and `TreeSet`.
-  - This option is correct. `HashSet`, `LinkedHashSet`, and `TreeSet` are all concrete implementations of the `Set` interface, each with different characteristics regarding order and performance.
+- **D)** Interface `Set` được implement bởi các class như `HashSet`, `LinkedHashSet` và `TreeSet`.
+  - Đáp án này đúng. `HashSet`, `LinkedHashSet` và `TreeSet` đều là các implementation cụ thể của interface `Set`, mỗi loại có những đặc điểm khác nhau về thứ tự và hiệu năng.
 
-- **E)** A `Set` guarantees constant-time performance for the basic operations (add, remove, contains).
-  - This option is incorrect. This statement is true for `HashSet` specifically, which provides average constant-time performance for these operations. However, it is not true for all `Set` implementations. For example, `TreeSet` provides logarithmic time performance for these operations because it is based on a Red-Black tree.
+- **E)** Một `Set` đảm bảo hiệu năng constant-time cho các thao tác cơ bản (add, remove, contains).
+  - Đáp án này sai. Câu này đúng với riêng `HashSet`, vốn cung cấp hiệu năng constant-time trung bình cho các thao tác này. Tuy nhiên, nó không đúng với mọi implementation của `Set`. Ví dụ, `TreeSet` cung cấp hiệu năng logarithmic time cho các thao tác này vì nó dựa trên cây Red-Black.
 
 
-**6. The correct answer is C.**
+**6. Đáp án đúng là C.**
 
-**Explanation:**
+**Giải thích:**
 
 - **A)** `[A, B, C, D]`
-  - This option is incorrect.This option ignores the order in which elements are added to the deque. It simply lists elements in the order they appear to be added without considering the `addFirst` and `addLast` methods.
+  - Đáp án này sai. Đáp án này bỏ qua thứ tự các element được thêm vào deque. Nó chỉ liệt kê các element theo thứ tự như thể chúng được thêm vào mà không xét đến các method `addFirst` và `addLast`.
 
 - **B)** `[C, B, A, D]`
-  - This option is incorrect. This option incorrectly assumes `"A"` is added after `"B"`, howerver, `addFirst("A")` puts `"A"` at the second position.
+  - Đáp án này sai. Đáp án này giả định sai rằng `"A"` được thêm sau `"B"`, tuy nhiên `addFirst("A")` đặt `"A"` ở vị trí thứ hai.
 
 - **C)** `[C, A, B, D]`
-  - This option is correct. This is indeed the correct output. The method `addFirst("C")` puts "C" at the front, `addFirst("A")` puts `"A"` at the second position, `addLast("B")` adds `"B"` after `"A"`, and `addLast("D")` adds `"D"` at the end. Thus, the final order is `[C, A, B, D]`.
+  - Đáp án này đúng. Đây thực sự là output đúng. Method `addFirst("C")` đặt "C" ở đầu, `addFirst("A")` đặt `"A"` ở vị trí thứ hai, `addLast("B")` thêm `"B"` sau `"A"`, và `addLast("D")` thêm `"D"` vào cuối. Vậy thứ tự cuối cùng là `[C, A, B, D]`.
 
 - **D)** `[D, B, A, C]`
-  - This option is incorrect. This option shows the reverse order, which does not match how elements are actually added to the deque.
+  - Đáp án này sai. Đáp án này cho thấy thứ tự đảo ngược, không khớp với cách các element thực sự được thêm vào deque.
 
 - **E)** `[A, C, B, D]`
-  - This option is incorrect. This option incorrectly assumes `"A"` is added before `"C"` despite `addFirst("C")` being called after `addFirst("A")`.
+  - Đáp án này sai. Đáp án này giả định sai rằng `"A"` được thêm trước `"C"` mặc dù `addFirst("C")` được gọi sau `addFirst("A")`.
 
 
-**7. The correct answer is D.**
+**7. Đáp án đúng là D.**
 
-**Explanation:**
+**Giải thích:**
 
 - **A)** `{1=A, 2=B, 3=C, 2=D}`
-  - This option is incorrect. This option suggests that the map would keep duplicate keys, which is not true for a `Map`. A key can only have one value associated with it at a time.
+  - Đáp án này sai. Đáp án này cho rằng map sẽ giữ các key trùng lặp, điều không đúng với một `Map`. Một key chỉ có thể có một value gắn với nó tại một thời điểm.
 
 - **B)** `{1=A, 2=B, 3=C}`
-  - This option is incorrect. This option ignores the fact that the value associated with key `2` is updated from `"B"` to `"D"`.
+  - Đáp án này sai. Đáp án này bỏ qua việc value gắn với key `2` được cập nhật từ `"B"` thành `"D"`.
 
 - **C)** `{1=A, 2=D, 3=C, 2=D}`
-  - This option is incorrect. This option again suggests that the map can have duplicate keys, which it cannot.
+  - Đáp án này sai. Đáp án này một lần nữa cho rằng map có thể có các key trùng lặp, điều không thể xảy ra.
 
 - **D)** `{1=A, 2=D, 3=C}`
-  - This option is correct. The `put` method updates the value associated with a key if the key already exists in the map. Therefore, the value associated with key `2` is updated from `"B"` to `"D"`.
+  - Đáp án này đúng. Method `put` cập nhật value gắn với một key nếu key đó đã tồn tại trong map. Do đó, value gắn với key `2` được cập nhật từ `"B"` thành `"D"`.
 
 - **E)** `{1=A, 3=C, 2=B}`
-  - This option is incorrect. This option ignores the update to the value associated with key `2` from `"B"` to `"D"`.
+  - Đáp án này sai. Đáp án này bỏ qua việc cập nhật value gắn với key `2` từ `"B"` thành `"D"`.
 
 
-**8. The correct answer is C.** 
+**8. Đáp án đúng là C.** 
 
-**Explanation:**
+**Giải thích:**
 
 - **A)**
 ```
@@ -197,7 +197,7 @@ Alice 30
 Bob 25  
 Charlie 35
 ```
-  - This option is incorrect. This option lists the elements in their original order, not the sorted order based on age.
+  - Đáp án này sai. Đáp án này liệt kê các element theo thứ tự ban đầu, không phải thứ tự đã sắp xếp theo age.
 
 - **B)** 
 ```
@@ -205,7 +205,7 @@ Charlie 35
 Alice 30  
 Bob 25
 ```
-  - This option is incorrect. This option lists the elements in descending order of age, but the `compareTo` method sorts in ascending order of age.
+  - Đáp án này sai. Đáp án này liệt kê các element theo thứ tự giảm dần của age, nhưng method `compareTo` sắp xếp theo thứ tự tăng dần của age.
 
 - **C)** 
 ```
@@ -213,7 +213,7 @@ Bob 25
 Alice 30  
 Charlie 35
 ```
-  - This option is correct. The `compareTo` method sorts the `Person` objects in ascending order based on their age. Hence, the sorted order is `Bob (25)`, `Alice (30)`, and `Charlie (35)`.
+  - Đáp án này đúng. Method `compareTo` sắp xếp các object `Person` theo thứ tự tăng dần dựa trên age của chúng. Do đó, thứ tự đã sắp xếp là `Bob (25)`, `Alice (30)` và `Charlie (35)`.
 
 - **D)** 
 ```
@@ -221,7 +221,7 @@ Bob 25
 Charlie 35  
 Alice 30
 ```
-  - This option is incorrect. This option does not correctly follow the ascending order of age.
+  - Đáp án này sai. Đáp án này không tuân theo đúng thứ tự tăng dần của age.
 
 - **E)** 
 ```
@@ -229,13 +229,13 @@ Alice 30
 Charlie 35  
 Bob 25
 ```
-  - This option is incorrect. This option does not correctly follow the ascending order of age.
+  - Đáp án này sai. Đáp án này không tuân theo đúng thứ tự tăng dần của age.
 
 
-**9 .The correct answer is A.**
+**9. Đáp án đúng là A.**
 
 
-**Explanation:**
+**Giải thích:**
 
 - **A)** 
 ```
@@ -243,7 +243,7 @@ Bob 25
 Alice 30  
 Charlie 35
 ```
-  - This option is incorrect. The `AgeComparator` sorts the `Person` objects in ascending order based on their age. Hence, the sorted order is `Bob (25)`, `Alice (30)`, and `Charlie (35)`.
+  - Đáp án này sai. `AgeComparator` sắp xếp các object `Person` theo thứ tự tăng dần dựa trên age của chúng. Do đó, thứ tự đã sắp xếp là `Bob (25)`, `Alice (30)` và `Charlie (35)`.
 
 - **B)** 
 ```
@@ -251,7 +251,7 @@ Charlie 35
 Alice 30  
 Bob 25
 ```
-  - This option is incorrect. This option lists the elements in descending order of age, but the `AgeComparator` sorts in ascending order of age.
+  - Đáp án này sai. Đáp án này liệt kê các element theo thứ tự giảm dần của age, nhưng `AgeComparator` sắp xếp theo thứ tự tăng dần của age.
 
 - **C)** 
 ```
@@ -259,7 +259,7 @@ Alice 30
 Bob 25  
 Charlie 35
 ```
-  - This option is incorrect. This option does not correctly follow the ascending order of age.
+  - Đáp án này sai. Đáp án này không tuân theo đúng thứ tự tăng dần của age.
 
 - **D)** 
 ```
@@ -267,7 +267,7 @@ Bob 25
 Charlie 35  
 Alice 30
 ```
-  - This option is incorrect. This option does not correctly follow the ascending order of age.
+  - Đáp án này sai. Đáp án này không tuân theo đúng thứ tự tăng dần của age.
 
 - **E)** 
 ```
@@ -275,5 +275,5 @@ Alice 30
 Charlie 35  
 Bob 25
 ```
-  - This option is incorrect. This option does not correctly follow the ascending order of age.
+  - Đáp án này sai. Đáp án này không tuân theo đúng thứ tự tăng dần của age.
 

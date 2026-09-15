@@ -1,87 +1,87 @@
 ---
 layout: answer
 
-title: "Chapter THREE"
-subtitle: "Working with Records and Enums"
+title: "Chương 3"
+subtitle: "Làm việc với Records và Enums"
 exam_objectives:
   - "Create classes and records, and define and use instance and static fields and methods, constructors, and instance and static initializers."
   - "Create and use enum types with fields, methods, and constructors."
 ---
 
-## Answers
+## Đáp án {#answers}
 
-**1. The correct answer is C.**
+**1. Đáp án đúng là C.**
 
-**Explanation:**
+**Giải thích:**
 
-- **A)** The `Employee` record explicitly defines a public constructor that initializes its fields. 
-  - This option is incorrect because the record `Employee` does not explicitly define a `public` constructor. Records automatically generate a `public` constructor with the same parameters as the record's declaration.
+- **A)** Record `Employee` định nghĩa tường minh một public constructor để khởi tạo các field của nó.
+  - Đáp án này sai vì record `Employee` không định nghĩa tường minh một constructor `public`. Record tự động sinh ra một constructor `public` với cùng các tham số như trong khai báo của record.
 
-- **B)** The fields `name` and `age` can be reassigned to new values after an `Employee` object is created.
-  - This option is incorrect as the fields within a record are `final`, which means they cannot be reassigned to new values after an `Employee` object has been created. This immutability is one of the key characteristics of records.
+- **B)** Các field `name` và `age` có thể được gán lại giá trị mới sau khi một object `Employee` được tạo ra.
+  - Đáp án này sai vì các field trong record là `final`, nghĩa là chúng không thể được gán lại giá trị mới sau khi object `Employee` đã được tạo. Tính bất biến (immutability) này là một trong những đặc điểm quan trọng của record.
 
-- **C)** The `Employee` record implicitly creates a `public` constructor and `private` `final` fields for `name` and `age`.
-  - This is the correct option. Records implicitly create a public constructor for the record's fields and also make these fields `private` and `final`. This means you don't have to manually write boilerplate code for constructor, getters, or to ensure immutability.
+- **C)** Record `Employee` ngầm tạo ra một constructor `public` cùng các field `private` `final` cho `name` và `age`.
+  - Đây là đáp án đúng. Record ngầm tạo ra một public constructor cho các field của record và cũng biến các field này thành `private` và `final`. Nghĩa là bạn không phải tự tay viết code boilerplate cho constructor, getter hay để đảm bảo tính bất biến.
 
-- **D)** It is mandatory to define getters for the fields `name` and `age` in the `Employee` record.
-  - This option is incorrect because records automatically generate public methods to access the fields, known as accessor methods, which essentially act as getters. Therefore, it is not mandatory (or even possible) to define separate getters for the fields.
-
-
-
-**2. The correct answer is B.**
-
-**Explanation:**
-
-- **A)** The `balance` field can be modified using a public setter method within the `Account` record.
-  - This option is incorrect because records in Java do not support public setter methods for their fields. The fields of a record are `final` and cannot be modified after the object's construction, which is a key aspect of their design to enforce immutability.
-
-- **B)** Once an `Account` object is created, its `id` and `balance` cannot be changed.
-  - This is the correct option. Records are immutable by design, meaning that once a record object is created, the values of its fields (`id` and `balance` in this case) cannot be changed. This immutability is ensured by making the fields `private` and `final`, and by not providing setter methods.
-
-- **C)** Immutability of records can be bypassed by you define custom setter methods for the `id` and `balance` fields. 
-  - This option is incorrect. Custom setter methods cannot be defined for the record fields because records do not allow defining mutators for their components.
-
-- **D)** Records allow field values to be modified if accessed directly, without using setter methods.
-  - This option is incorrect because the fields in a record are implicitly `final` and private, which means they cannot be modified directly or through setter methods. The design of records enforces this immutability to ensure that instances of records act as true carriers of immutable data.
+- **D)** Việc định nghĩa getter cho các field `name` và `age` trong record `Employee` là bắt buộc.
+  - Đáp án này sai vì record tự động sinh ra các public method để truy cập field, gọi là accessor method, về bản chất đóng vai trò như getter. Do đó, việc định nghĩa getter riêng cho các field là không bắt buộc (thậm chí là không thể).
 
 
-**3. The correct answer is D.** 
 
-**Explanation:**
+**2. Đáp án đúng là B.**
+
+**Giải thích:**
+
+- **A)** Field `balance` có thể bị sửa đổi bằng một public setter method bên trong record `Account`.
+  - Đáp án này sai vì record trong Java không hỗ trợ public setter method cho các field của chúng. Các field của record là `final` và không thể bị sửa đổi sau khi object được khởi tạo, đây là một khía cạnh then chốt trong thiết kế của chúng để thực thi tính bất biến.
+
+- **B)** Sau khi object `Account` được tạo, `id` và `balance` của nó không thể bị thay đổi.
+  - Đây là đáp án đúng. Record bất biến theo thiết kế, nghĩa là khi một record object đã được tạo, giá trị các field của nó (`id` và `balance` trong trường hợp này) không thể thay đổi. Tính bất biến này được đảm bảo bằng cách để các field là `private` và `final`, và không cung cấp setter method.
+
+- **C)** Tính bất biến của record có thể bị vượt qua nếu bạn định nghĩa setter method tùy chỉnh cho các field `id` và `balance`.
+  - Đáp án này sai. Không thể định nghĩa setter method tùy chỉnh cho các field của record vì record không cho phép định nghĩa mutator cho các component của nó.
+
+- **D)** Record cho phép sửa đổi giá trị field nếu được truy cập trực tiếp, không dùng setter method.
+  - Đáp án này sai vì các field trong record ngầm định là `final` và private, nghĩa là chúng không thể bị sửa đổi trực tiếp hay thông qua setter method. Thiết kế của record thực thi tính bất biến này để đảm bảo các instance của record thực sự là những data carrier bất biến.
+
+
+**3. Đáp án đúng là D.**
+
+**Giải thích:**
 
 - **A)** `Product p = new Product();`
-  - This option is incorrect because the default constructor without parameters does not exist for records in Java. Records require all their fields to be specified at the time of instantiation.
+  - Đáp án này sai vì constructor mặc định không tham số không tồn tại đối với record trong Java. Record yêu cầu tất cả field của nó phải được chỉ định tại thời điểm khởi tạo.
 
 - **B)** `Product p = Product(101, "Coffee", 15.99);`
-  - This option is incorrect because the syntax used here is not valid for creating a new instance of a record in Java. The correct syntax for instantiating a record involves using the `new` keyword followed by the record name and the parameters in parentheses.
+  - Đáp án này sai vì cú pháp dùng ở đây không hợp lệ để tạo một instance mới của record trong Java. Cú pháp đúng để khởi tạo một record là dùng keyword `new` theo sau là tên record và các tham số trong ngoặc đơn.
 
 - **C)** `Product p = {101, "Coffee", 15.99};`
-  - This option is incorrect as it mistakenly uses the syntax for array initialization. In Java, objects, including records, cannot be instantiated using curly braces without the `new` keyword and proper constructor.
+  - Đáp án này sai vì nó nhầm với cú pháp khởi tạo array. Trong Java, object, bao gồm record, không thể được khởi tạo bằng cặp ngoặc nhọn mà không có keyword `new` và constructor phù hợp.
 
 - **D)** `Product p = new Product(101, "Coffee", 15.99);`
-  - This is the correct option. Records in Java are instantiated using the `new` keyword followed by the record's constructor, which requires passing all the fields defined in the record. This syntax correctly creates a new `Product` record with the given `id`, `name`, and `price`.
+  - Đây là đáp án đúng. Record trong Java được khởi tạo bằng keyword `new` theo sau là constructor của record, đòi hỏi phải truyền tất cả field được định nghĩa trong record. Cú pháp này tạo đúng một record `Product` mới với `id`, `name` và `price` đã cho.
 
 
-**4. The correct answer is B.**
+**4. Đáp án đúng là B.**
 
-**Explanation:**
+**Giải thích:**
 
-- **A)** Records cannot implement interfaces because they are `final` and immutable by design, which prevents any form of behavior customization.
-  - This option is incorrect. Records in Java can implement interfaces. The finality and immutability of records do not preclude them from implementing interfaces, which can be used to add behaviors or contractual obligations to a record.
+- **A)** Record không thể implement interface vì chúng là `final` và bất biến theo thiết kế, điều này ngăn cản mọi hình thức tùy biến hành vi.
+  - Đáp án này sai. Record trong Java có thể implement interface. Tính final và bất biến của record không ngăn chúng implement interface, vốn có thể được dùng để thêm hành vi hoặc ràng buộc hợp đồng cho một record.
 
-- **B)** This record correctly implements the `Comparable` interface, allowing `Item` objects to be sorted based on their `price`.
-  - This is the correct option. The provided record definition correctly implements the `Comparable<Item>` interface by overriding the `compareTo` method. This customization allows instances of the `Item` record to be sorted based on the `price` field, demonstrating that records can indeed implement interfaces and override their methods as needed.
+- **B)** Record này implement đúng interface `Comparable`, cho phép các object `Item` được sắp xếp dựa trên `price` của chúng.
+  - Đây là đáp án đúng. Định nghĩa record được cho implement đúng interface `Comparable<Item>` bằng cách override method `compareTo`. Việc tùy biến này cho phép các instance của record `Item` được sắp xếp dựa trên field `price`, cho thấy record thực sự có thể implement interface và override method khi cần.
 
-- **C)** Implementing interfaces in records is restricted only to functional interfaces due to their immutable nature.
-  - This option is incorrect. There is no such restriction that limits records to implementing only functional interfaces. Records can implement any interface, including those with multiple abstract methods, as long as the record provides implementations for the abstract methods defined in the interface.
+- **C)** Việc implement interface trong record chỉ được giới hạn cho functional interface do bản chất bất biến của chúng.
+  - Đáp án này sai. Không có giới hạn nào như vậy khiến record chỉ được implement functional interface. Record có thể implement bất kỳ interface nào, kể cả những interface có nhiều abstract method, miễn là record cung cấp phần triển khai cho các abstract method được định nghĩa trong interface đó.
 
-- **D)** The `compareTo` method cannot be overridden in records because method overriding is not supported in record types.
-  - This option is incorrect. Records can override methods from the interfaces they implement, including the `compareTo` method from the `Comparable` interface in this example. Method overriding is a key aspect of implementing interfaces and is fully supported by record types in Java.
+- **D)** Method `compareTo` không thể bị override trong record vì method overriding không được hỗ trợ trong record type.
+  - Đáp án này sai. Record có thể override các method từ interface mà chúng implement, bao gồm method `compareTo` từ interface `Comparable` trong ví dụ này. Method overriding là một khía cạnh then chốt của việc implement interface và được record type trong Java hỗ trợ đầy đủ.
 
 
-**5. The correct answers are A and D.**
+**5. Đáp án đúng là A và D.**
 
-**Explanation:**
+**Giải thích:**
 
 - **A)** 
 ```java
@@ -89,7 +89,7 @@ public enum Day {
     MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY, SATURDAY, SUNDAY
 }
 ```
-  - This option is correct. It demonstrates a valid declaration of an enum in Java. Enums are used to define a set of named constants, and this syntax is the standard way to declare them. The `public` access modifier makes this enum accessible from any other class.
+  - Đáp án này đúng. Nó minh họa một khai báo enum hợp lệ trong Java. Enum được dùng để định nghĩa một tập các hằng số có tên, và cú pháp này là cách chuẩn để khai báo chúng. Access modifier `public` khiến enum này có thể được truy cập từ bất kỳ class nào khác.
 
 - **B)** 
 ```java
@@ -97,7 +97,7 @@ enum Month {
     private JANUARY, FEBRUARY, MARCH, APRIL, MAY, JUNE, JULY, AUGUST, SEPTEMBER, OCTOBER, NOVEMBER, DECEMBER;
 }
 ```
-  - This option is incorrect. Enums cannot have `private` access modifiers for their constants. Enum constants are implicitly `public`, `static`, and `final` and should be declared without access modifiers.
+  - Đáp án này sai. Enum không thể có access modifier `private` cho các hằng số của nó. Enum constant ngầm định là `public`, `static` và `final` và phải được khai báo mà không có access modifier.
 
 - **C)** 
 ```java
@@ -105,7 +105,7 @@ protected enum Season {
     WINTER, SPRING, SUMMER, FALL
 }
 ```
-  - This option is incorrect because enums cannot be declared with `protected` or `private` access levels. Enums are implicitly `public` if they are defined outside of a class. If defined within a class, they can have any access level, but the `protected` keyword cannot be used at the enum level itself.
+  - Đáp án này sai vì enum không thể được khai báo với mức truy cập `protected` hoặc `private`. Enum ngầm định là `public` nếu chúng được định nghĩa bên ngoài một class. Nếu được định nghĩa bên trong một class, chúng có thể có bất kỳ mức truy cập nào, nhưng keyword `protected` không thể được dùng ở cấp độ của chính enum.
 
 - **D)** 
 ```java
@@ -117,29 +117,29 @@ enum Status {
     }
 }
 ```
-  - This option is correct. It shows an enum `Status` with a method `printStatus()`. Enums in Java can contain methods, fields, constructors, and implement interfaces. This demonstrates the ability of enums to have methods, making this declaration valid.
+  - Đáp án này đúng. Nó cho thấy một enum `Status` với method `printStatus()`. Enum trong Java có thể chứa method, field, constructor và implement interface. Điều này minh họa khả năng có method của enum, khiến khai báo này hợp lệ.
 
 
-**6. The correct answer is A.**
+**6. Đáp án đúng là A.**
 
-**Explanation:**
+**Giải thích:**
 
 - **A)** `1`
-   - This option is correct. The `ordinal()` method returns the ordinal of this enumeration constant (its position in its enum declaration, where the initial constant is assigned an ordinal of zero). Since `GREEN` is the second enum constant declared in the `Color` enum, its ordinal value is 1.
+   - Đáp án này đúng. Method `ordinal()` trả về ordinal của enum constant này (vị trí của nó trong khai báo enum, trong đó hằng số đầu tiên có ordinal bằng 0). Vì `GREEN` là enum constant thứ hai được khai báo trong enum `Color`, giá trị ordinal của nó là 1.
 
 - **B)** `2`
-  - This option is incorrect. The ordinal value of `BLUE` would be 2, not `GREEN`, because `BLUE` is the third declared constant in the `Color` enum.
+  - Đáp án này sai. Giá trị ordinal của `BLUE` mới là 2, không phải `GREEN`, vì `BLUE` là hằng số được khai báo thứ ba trong enum `Color`.
 
 - **C)** `0`
-  - This option is incorrect. The ordinal value of `RED` is 0, as it is the first declared constant in the `Color` enum.
+  - Đáp án này sai. Giá trị ordinal của `RED` là 0, vì nó là hằng số được khai báo đầu tiên trong enum `Color`.
 
 - **D)** `Color.GREEN`
-  - This option is incorrect. The `ordinal()` method returns an integer representing the position of the enum constant in the declaration, not the enum constant itself.
+  - Đáp án này sai. Method `ordinal()` trả về một số nguyên biểu thị vị trí của enum constant trong khai báo, chứ không phải chính enum constant.
 
 
-**7. The correct answer is D.**
+**7. Đáp án đúng là D.**
 
-**Explanation:**
+**Giải thích:**
 
 - **A)** 
 ```java
@@ -150,7 +150,7 @@ public enum Size {
     }
 }
 ```
-  - This option is incorrect because the method `printSize()` is defined as `static`, which means it cannot access the `this` reference. Static methods in enums can't directly access the enum constants without specifying the constant explicitly or being passed a reference.
+  - Đáp án này sai vì method `printSize()` được định nghĩa là `static`, nghĩa là nó không thể truy cập tham chiếu `this`. Static method trong enum không thể truy cập trực tiếp các enum constant mà không chỉ định rõ hằng số hoặc được truyền tham chiếu.
 
 - **B)** 
 ```java
@@ -161,7 +161,7 @@ enum Flavor {
     }
 }
 ```
-  - This option is incorrect because the `name` property of an enum constant is `private`. You can only access it using the `this` reference and the `name()` method (`this.name()`).
+  - Đáp án này sai vì thuộc tính `name` của một enum constant là `private`. Bạn chỉ có thể truy cập nó thông qua tham chiếu `this` và method `name()` (`this.name()`).
 
 - **C)** 
 ```java
@@ -172,7 +172,7 @@ protected enum Direction {
     }
 }
 ```
-  - This option is incorrect for two reasons. First, `protected` is not a valid access modifier for a top-level enum, top-level enums can only be `public` or package-private (no modifier). Second, `printDirection()` method is missing a return type (e.g., `void`).
+  - Đáp án này sai vì hai lý do. Thứ nhất, `protected` không phải là access modifier hợp lệ cho top-level enum, top-level enum chỉ có thể là `public` hoặc package-private (không có modifier). Thứ hai, method `printDirection()` thiếu kiểu giá trị trả về (ví dụ `void`).
 
 - **D)** 
 ```java
@@ -183,4 +183,4 @@ public enum Season {
     }
 }
 ```
-  - This is the correct option. The `printSeason()` method is properly defined: it's `public`, non-static, and utilizes the `this` reference to access the name of the current enum constant. This method correctly provides custom behavior for each enum constant, allowing it to print a message indicating the current season.
+  - Đây là đáp án đúng. Method `printSeason()` được định nghĩa đúng chuẩn: nó là `public`, non-static và dùng tham chiếu `this` để truy cập tên của enum constant hiện tại. Method này cung cấp đúng hành vi tùy chỉnh cho mỗi enum constant, cho phép in ra thông báo thể hiện mùa hiện tại.

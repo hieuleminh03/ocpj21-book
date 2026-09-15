@@ -1,72 +1,72 @@
 ---
 layout: answer
 
-title: "Chapter TWELVE"
-subtitle: "File I/O and Serialization"
+title: "Chương 12"
+subtitle: "File I/O và Serialization"
 exam_objectives:
   - "Read and write console and file data using I/O streams."
   - "Serialize and de-serialize Java objects."
   - "Construct, traverse, create, read, and write Path objects and their properties using the java.nio.file API."
 ---
 
-## Answers
-**1. The correct answer is D.**
+## Đáp án {#answers}
+**1. Đáp án đúng là D.**
 
-**Explanation:**
+**Giải thích:**
 
 - **A)** `/home/user`
-  - This option is incorrect. The `resolve` method appends the given path to the base path. It does not return the base path alone.
+  - Đáp án này sai vì method `resolve` nối path đã cho vào base path. Nó không trả về riêng base path.
 
 - **B)** `/home/user/documents` 
-  - This option is incorrect. The `resolve` method includes the entire relative path provided as an argument, not just part of it.
+  - Đáp án này sai vì method `resolve` bao gồm toàn bộ relative path được truyền vào làm tham số, không chỉ một phần của nó.
 
 - **C)** `/documents/notes.txt`
-  - This option is incorrect. The `resolve` method combines the base path with the given relative path; it does not replace the base path with the relative path.
+  - Đáp án này sai vì method `resolve` kết hợp base path với relative path đã cho; nó không thay thế base path bằng relative path.
 
 - **D)** `/home/user/documents/notes.txt`
-  - This option is correct. The `resolve` method appends the relative path to the base path, resulting in `/home/user/documents/notes.txt`.
+  - Đáp án này đúng vì method `resolve` nối relative path vào base path, cho kết quả là `/home/user/documents/notes.txt`.
 
 
 
-**2. The correct answer is C.**
+**2. Đáp án đúng là C.**
 
-**Explanation:**
+**Giải thích:**
 
 - **A)** `/home/user/../documents/./notes.txt` 
-  - This option is incorrect. The `normalize` method removes redundant `.` and `..` elements, so it wouldn't leave the path as is.
+  - Đáp án này sai vì method `normalize` loại bỏ các phần tử `.` và `..` dư thừa, nên nó sẽ không giữ nguyên path như vậy.
 
 - **B)** `/home/user/documents/notes.txt`
-  - This option is incorrect. While the `.` is removed, the `..` navigates one directory up, resulting in an incorrect final path.
+  - Đáp án này sai vì dù `.` đã bị loại bỏ, `..` lại đi lên một directory, dẫn đến final path không đúng.
 
 - **C)** `/home/documents/notes.txt`
-  - This option is correct. The `normalize` method processes the path by removing the `.` and moving one directory up due to `..`, resulting in `/home/documents/notes.txt`.
+  - Đáp án này đúng vì method `normalize` xử lý path bằng cách loại bỏ `.` và đi lên một directory do `..`, cho kết quả là `/home/documents/notes.txt`.
 
 - **D)** `/documents/notes.txt`
-  - This option is incorrect. The `normalize` method does not completely remove the leading part of the path up to `documents`. It only processes the `.` and `..` elements.
+  - Đáp án này sai vì method `normalize` không loại bỏ hoàn toàn phần đầu của path cho đến tận `documents`. Nó chỉ xử lý các phần tử `.` và `..`.
 
 
 
-**3. The correct answer is B.**
+**3. Đáp án đúng là B.**
 
-**Explanation:**
+**Giải thích:**
 
 - **A)** `FileOutputStream`
-  - This option is incorrect. `FileOutputStream` is used for writing binary data to a file, not for reading character streams.
+  - Đáp án này sai vì `FileOutputStream` được dùng để ghi dữ liệu nhị phân vào file, không dùng để đọc character stream.
 
 - **B)** `FileReader`
-  - This option is correct. `FileReader` is designed for reading character streams from a file, making it the appropriate class for this purpose.
+  - Đáp án này đúng vì `FileReader` được thiết kế để đọc character stream từ file, khiến nó trở thành class phù hợp cho mục đích này.
 
 - **C)** `BufferedOutputStream`
-  - This option is incorrect. `BufferedOutputStream` is used to write binary data to an output stream, buffering the data for efficient writing. It is not used for reading character streams.
+  - Đáp án này sai vì `BufferedOutputStream` được dùng để ghi dữ liệu nhị phân vào một output stream, buffer dữ liệu để ghi hiệu quả. Nó không được dùng để đọc character stream.
 
 - **D)** `ObjectInputStream`
-  - This option is incorrect. `ObjectInputStream` is used for deserializing objects from an input stream, not for reading character streams.
+  - Đáp án này sai vì `ObjectInputStream` được dùng để deserialize object từ một input stream, không dùng để đọc character stream.
 
 
 
-**4. The correct answer is C.**
+**4. Đáp án đúng là C.**
 
-**Explanation:**
+**Giải thích:**
 
 - **A)** 
 ```java
@@ -74,7 +74,7 @@ Path source = Paths.get("source.txt");
 Path target = Paths.get("target.txt");
 Files.copy(source, target, StandardCopyOption.ATOMIC_MOVE);
 ```
-  - This option is incorrect. `StandardCopyOption.ATOMIC_MOVE` is used for moving files atomically, not for copying. It does not ensure that an existing file is overwritten.
+  - Đáp án này sai vì `StandardCopyOption.ATOMIC_MOVE` được dùng để di chuyển file một cách atomic, không dùng để copy. Nó không đảm bảo rằng file đã tồn tại sẽ bị ghi đè.
 
 - **B)** 
 ```java
@@ -82,7 +82,7 @@ Path source = Paths.get("source.txt");
 Path target = Paths.get("target.txt");
 Files.move(source, target, StandardCopyOption.REPLACE_EXISTING);
 ```
-  - This option is incorrect. `Files.move` is used to move or rename a file, not to copy it. `StandardCopyOption.REPLACE_EXISTING` ensures the target file is overwritten during a move, not a copy.
+  - Đáp án này sai vì `Files.move` được dùng để di chuyển hoặc đổi tên file, không phải để copy nó. `StandardCopyOption.REPLACE_EXISTING` đảm bảo file đích bị ghi đè trong thao tác move, chứ không phải trong thao tác copy.
 
 - **C)** 
 ```java
@@ -90,7 +90,7 @@ Path source = Paths.get("source.txt");
 Path target = Paths.get("target.txt");
 Files.copy(source, target, StandardCopyOption.REPLACE_EXISTING);
 ```
-  - This option is correct. `Files.copy` with `StandardCopyOption.REPLACE_EXISTING` ensures the target file is overwritten if it exists, which is the correct way to copy a file with overwriting.
+  - Đáp án này đúng vì `Files.copy` với `StandardCopyOption.REPLACE_EXISTING` đảm bảo file đích bị ghi đè nếu nó tồn tại, đây là cách đúng để copy file kèm ghi đè.
 
 - **D)** 
 ```java
@@ -98,47 +98,47 @@ Path source = Paths.get("source.txt");
 Path target = Paths.get("target.txt");
 Files.copy(source, target, StandardCopyOption.APPEND);
 ```
-  - This option is incorrect. `StandardCopyOption.APPEND` does not exist in the `StandardCopyOption` enum, making this code snippet invalid.
+  - Đáp án này sai vì `StandardCopyOption.APPEND` không tồn tại trong enum `StandardCopyOption`, khiến đoạn code này không hợp lệ.
 
 
 
-**5. The correct answer is D.**
+**5. Đáp án đúng là D.**
 
-**Explanation:**
+**Giải thích:**
 
 - **A)** 
 ```java
 Path path = Paths.get("file.txt");
 List<String> lines = Files.readAllBytes(path);
 ```
-  - This option is incorrect. `Files.readAllBytes(path)` returns a byte array, not a `List<String>`.
+  - Đáp án này sai vì `Files.readAllBytes(path)` trả về một byte array, không phải một `List<String>`.
 
 - **B)** 
 ```java
 Path path = Paths.get("file.txt");
 List<String> lines = Files.readString(path);
 ```
-  - This option is incorrect. `Files.readString(path)` returns a single `String` containing the entire content of the file, not a `List<String>`.
+  - Đáp án này sai vì `Files.readString(path)` trả về một `String` duy nhất chứa toàn bộ nội dung của file, không phải một `List<String>`.
 
 - **C)** 
 ```java
 Path path = Paths.get("file.txt");
 List<String> lines = Files.lines(path);
 ```
-  - This option is incorrect. `Files.lines(path)` returns a `Stream<String>`, not a `List<String>`. It provides a lazy-loaded stream of lines.
+  - Đáp án này sai vì `Files.lines(path)` trả về một `Stream<String>`, không phải một `List<String>`. Nó cung cấp một stream các dòng được load lazy.
 
 - **D)** 
 ```java
 Path path = Paths.get("file.txt");
 List<String> lines = Files.readAllLines(path);
 ```
-  - This option is correct. `Files.readAllLines(path)` reads all lines from the file and returns them as a `List<String>`, which is the desired behavior.
+  - Đáp án này đúng vì `Files.readAllLines(path)` đọc tất cả các dòng từ file và trả về chúng dưới dạng một `List<String>`, đây chính là hành vi mong muốn.
 
 
 
-**6. The correct answer is A.**
+**6. Đáp án đúng là A.**
 
-**Explanation:**
+**Giải thích:**
 
 - **A)** 
 ```java
@@ -146,7 +146,7 @@ Path path = Paths.get("output.txt");
 List<String> lines = Arrays.asList("line1", "line2", "line3");
 Files.write(path, lines);
 ```
-  - This option is correct. `Files.write(path, lines)` writes the given list of strings to the file at the specified path, creating the file if it does not exist.
+  - Đáp án này đúng vì `Files.write(path, lines)` ghi danh sách string đã cho vào file tại path được chỉ định, tạo file nếu nó chưa tồn tại.
 
 - **B)** 
 ```java
@@ -154,7 +154,7 @@ Path path = Paths.get("output.txt");
 List<String> lines = Arrays.asList("line1", "line2", "line3");
 Files.writeString(path, lines);
 ```
-  - This option is incorrect. `Files.writeString(path, lines)` does not exist. `Files.writeString` expects a single `String` as the second argument, not a `List<String>`.
+  - Đáp án này sai vì `Files.writeString(path, lines)` không tồn tại. `Files.writeString` yêu cầu tham số thứ hai là một `String` duy nhất, không phải một `List<String>`.
 
 - **C)** 
 ```java
@@ -162,7 +162,7 @@ Path path = Paths.get("output.txt");
 List<String> lines = Arrays.asList("line1", "line2", "line3");
 Files.writeLines(path, lines);
 ```
-  - This option is incorrect. `Files.writeLines(path, lines)` does not exist. There is no such method in the `Files` class.
+  - Đáp án này sai vì `Files.writeLines(path, lines)` không tồn tại. Không có method nào như vậy trong class `Files`.
 
 - **D)** 
 ```java
@@ -170,46 +170,46 @@ Path path = Paths.get("output.txt");
 List<String> lines = Arrays.asList("line1", "line2", "line3");
 Files.write(path, lines, StandardOpenOption.READ);
 ```
-  - This option is incorrect. `StandardOpenOption.READ` is not a valid option for writing files. It is used for reading files.
+  - Đáp án này sai vì `StandardOpenOption.READ` không phải là option hợp lệ để ghi file. Nó được dùng để đọc file.
 
 
 
-**7. The correct answer is B.**
+**7. Đáp án đúng là B.**
 
-**Explanation:**
+**Giải thích:**
 
 - **A)** 
 ```java
 BasicFileAttributes attrs = Files.readAttributes(path, BasicFileAttributes.class);
 attrs.lastModifiedTime();
 ```
-  - This option is incorrect. `attrs.lastModifiedTime()` retrieves the last modified time of the file, not the creation time.
+  - Đáp án này sai vì `attrs.lastModifiedTime()` lấy thời gian sửa đổi lần cuối của file, không phải thời gian tạo.
 
 - **B)** 
 ```java
 BasicFileAttributes attrs = Files.readAttributes(path, BasicFileAttributes.class);
 attrs.creationTime();
 ```
-  - This option is correct. `attrs.creationTime()` retrieves the creation time of the file, which is the correct method from `BasicFileAttributes` for this purpose.
+  - Đáp án này đúng vì `attrs.creationTime()` lấy thời gian tạo của file, đây là method đúng của `BasicFileAttributes` cho mục đích này.
 
 - **C)** 
 ```java
 BasicFileAttributes attrs = Files.readAttributes(path, BasicFileAttributes.class);
 attrs.lastAccessTime();
 ```
-  - This option is incorrect. `attrs.lastAccessTime()` retrieves the last access time of the file, not the creation time.
+  - Đáp án này sai vì `attrs.lastAccessTime()` lấy thời gian truy cập lần cuối của file, không phải thời gian tạo.
 
 - **D)** 
 ```java
 BasicFileAttributes attrs = Files.readAttributes(path, BasicFileAttributes.class);
 attrs.size();
 ```
-  - This option is incorrect. `attrs.size()` retrieves the size of the file, not the creation time.
+  - Đáp án này sai vì `attrs.size()` lấy kích thước của file, không phải thời gian tạo.
 
 
-**8. The correct answer is D.**
+**8. Đáp án đúng là D.**
 
-**Explanation:**
+**Giải thích:**
 
 - **A)** 
 ```java
@@ -221,7 +221,7 @@ Files.walkFileTree(start, new SimpleFileVisitor<Path>() {
     }
 });
 ```
-  - This option is incorrect. `FileVisitResult.SKIP_SUBTREE` will skip the traversal of the entire subtree, not allowing the complete traversal of the directory tree.
+  - Đáp án này sai vì `FileVisitResult.SKIP_SUBTREE` sẽ bỏ qua việc duyệt toàn bộ subtree, không cho phép duyệt hoàn toàn cây directory.
 
 - **B)** 
 ```java
@@ -233,7 +233,7 @@ Files.walkFileTree(start, new SimpleFileVisitor<Path>() {
     }
 });
 ```
-  - This option is incorrect. Throwing an `IOException` inside `visitFile` will stop the traversal due to an unhandled exception.
+  - Đáp án này sai vì việc throw một `IOException` bên trong `visitFile` sẽ dừng quá trình duyệt do exception không được xử lý.
 
 - **C)** 
 ```java
@@ -246,7 +246,7 @@ Files.walkFileTree(start, new SimpleFileVisitor<Path>() {
     }
 });
 ```
-  - This option is incorrect. The use of `FileVisitResult.TERMINATE` will stop the traversal after visiting the first file, not allowing the complete traversal of the directory tree.
+  - Đáp án này sai vì việc dùng `FileVisitResult.TERMINATE` sẽ dừng quá trình duyệt sau khi thăm file đầu tiên, không cho phép duyệt hoàn toàn cây directory.
 
 - **D)** 
 ```java
@@ -274,13 +274,13 @@ Files.walkFileTree(start, EnumSet.noneOf(FileVisitOption.class), Integer.MAX_VAL
     }
 });
 ```
-  - This option is correct. It uses `Files.walkFileTree` with `SimpleFileVisitor`, specifying no special `FileVisitOption` and setting the maximum depth to `Integer.MAX_VALUE`, ensuring full traversal of the directory tree. Additionally, it correctly handles directory pre-visit, file visit, file visit failure, and directory post-visit events.
+  - Đáp án này đúng vì nó dùng `Files.walkFileTree` với `SimpleFileVisitor`, chỉ định không có `FileVisitOption` đặc biệt và đặt độ sâu tối đa là `Integer.MAX_VALUE`, đảm bảo duyệt đầy đủ cây directory. Ngoài ra, nó còn xử lý đúng các sự kiện pre-visit directory, visit file, visit file thất bại và post-visit directory.
 
 
 
-**9. The correct answer is B.**
+**9. Đáp án đúng là B.**
 
-**Explanation:**
+**Giải thích:**
 
 - **A)** 
 
@@ -303,7 +303,7 @@ Files.walkFileTree(start, EnumSet.noneOf(FileVisitOption.class), Integer.MAX_VAL
         e.printStackTrace();
     }
     ```
-  - This option is incorrect. `ObjectInputStream` is used for deserialization (reading objects from a stream), not serialization. It should be `ObjectOutputStream`.
+  - Đáp án này sai vì `ObjectInputStream` được dùng để deserialization (đọc object từ stream), không phải serialization. Nó nên là `ObjectOutputStream`.
 
 - **B)** 
 
@@ -326,7 +326,7 @@ Files.walkFileTree(start, EnumSet.noneOf(FileVisitOption.class), Integer.MAX_VAL
         e.printStackTrace();
     }
     ```
-  - This option is correct. `ObjectOutputStream` is used to serialize an object to a file, which is what this code snippet does correctly.
+  - Đáp án này đúng vì `ObjectOutputStream` được dùng để serialize một object ra file, và đoạn code này làm điều đó một cách chính xác.
 
 - **C)** 
 
@@ -348,7 +348,7 @@ Files.walkFileTree(start, EnumSet.noneOf(FileVisitOption.class), Integer.MAX_VAL
         e.printStackTrace();
     }
     ```
-  - This option is incorrect. The `Animal` class does not implement `Serializable`, so it cannot be serialized using `ObjectOutputStream`.
+  - Đáp án này sai vì class `Animal` không implements `Serializable`, nên nó không thể được serialize bằng `ObjectOutputStream`.
 
 - **D)** 
 
@@ -371,4 +371,4 @@ Files.walkFileTree(start, EnumSet.noneOf(FileVisitOption.class), Integer.MAX_VAL
         e.printStackTrace();
     }
     ```
-  - This option is incorrect. `BufferedOutputStream` cannot be used to write objects directly; `ObjectOutputStream` should be used for serialization.
+  - Đáp án này sai vì `BufferedOutputStream` không thể được dùng để ghi object trực tiếp; nên dùng `ObjectOutputStream` để serialization.

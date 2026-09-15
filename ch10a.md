@@ -1,75 +1,75 @@
 ---
 layout: answer
 
-title: "Chapter TEN"
-subtitle: "Concurrency and Multithreading"
+title: "Chương 10"
+subtitle: "Concurrency và Multithreading"
 exam_objectives:
   - "Create both platform and virtual threads. Use both Runnable and Callable objects, manage the thread lifecycle, and use different Executor services and concurrent API to run tasks."
   - "Develop thread-safe code, using locking mechanisms and concurrent API."
   - "Process Java collections concurrently and utilize parallel streams."
 ---
 
-## Answers
-**1. The correct answer is C.**
+## Đáp án {#answers}
+**1. Đáp án đúng là C.**
 
-**Explanation:**
+**Giải thích:**
 
 - **A)** `Thread thread = Thread.ofVirtual(); thread.start(task);`
-  - This option is incorrect because `Thread.ofVirtual()` returns a `Thread.Builder`, not a `Thread`. The `start()` method on `Thread.Builder` takes a `Runnable`, but this syntax is incorrect.
+  - Đáp án này sai vì `Thread.ofVirtual()` trả về một `Thread.Builder`, không phải một `Thread`. Method `start()` trên `Thread.Builder` nhận một `Runnable`, nhưng cú pháp này là không đúng.
 
 - **B)** `Thread thread = Thread.ofVirtual().unstarted(task).run();`
-  - This option is incorrect because calling `run()` directly does not start a new thread. It executes the task in the current thread.
+  - Đáp án này sai vì gọi trực tiếp `run()` không khởi động một thread mới. Nó thực thi task trên thread hiện tại.
 
 - **C)** `Thread thread = Thread.ofVirtual().start(task);`
-  - This option is correct. It uses the new thread builder API in Java 21 to create and start a virtual thread in one step.
+  - Đáp án này đúng. Nó dùng thread builder API mới trong Java 21 để tạo và khởi động một virtual thread chỉ trong một bước.
 
 - **D)** `Thread thread = Thread.ofVirtual(); task.run();`
-  - This option is incorrect because it doesn't actually start a new thread. It creates a thread builder but doesn't use it, and then runs the task in the current thread.
+  - Đáp án này sai vì nó không thực sự khởi động một thread mới. Nó tạo một thread builder nhưng không sử dụng, rồi chạy task trên thread hiện tại.
 
 - **E)** `Thread thread = Thread.start(task);`
-  - This option is incorrect because `Thread.start(task)` is not a valid static method in Java 21.
+  - Đáp án này sai vì `Thread.start(task)` không phải là một static method hợp lệ trong Java 21.
 
 
-**2. The correct answer is B.**
+**2. Đáp án đúng là B.**
 
-**Explanation:**
+**Giải thích:**
 - **A)** `synchronized (this) { counter++; }`
-  - This option is incorrect because `this` cannot be used in a static context. In the `main` method, `this` is not available. For a static field like `counter`, you need to synchronize on a static object or class.
+  - Đáp án này sai vì `this` không thể được dùng trong ngữ cảnh static. Trong method `main`, `this` không khả dụng. Với một static field như `counter`, bạn cần đồng bộ hóa trên một static object hoặc class.
 
 - **B)** `synchronized (Main.class) { counter++; }`
-  - This option is correct because synchronizing on `Main.class` ensures that only one thread can enter the synchronized block at a time for all instances of `Main`, which is appropriate for protecting static fields like `counter`.
+  - Đáp án này đúng vì đồng bộ hóa trên `Main.class` đảm bảo chỉ một thread có thể vào block synchronized tại một thời điểm cho tất cả các instance của `Main`, điều này phù hợp để bảo vệ các static field như `counter`.
 
 - **C)** `synchronized (task) { counter++; }`
-  - This option is incorrect because `task` is a `Runnable` object, and synchronizing on it does not effectively control access to the shared static field `counter`.
+  - Đáp án này sai vì `task` là một object `Runnable`, và đồng bộ hóa trên nó không kiểm soát hiệu quả việc truy cập vào static field chia sẻ `counter`.
 
 - **D)** `synchronized (counter) { counter++; }`
-  - This option is incorrect because `counter` is a primitive type (`int`), and you cannot synchronize on a primitive type. Synchronization requires an object.
+  - Đáp án này sai vì `counter` là một primitive type (`int`), và bạn không thể đồng bộ hóa trên một primitive type. Đồng bộ hóa đòi hỏi một object.
 
 - **E)** `synchronized (System.out) { counter++; }`
-  - This option is incorrect because synchronizing on `System.out` is not related to controlling access to `counter`. It would also interfere with other potential uses of `System.out`.
+  - Đáp án này sai vì đồng bộ hóa trên `System.out` không liên quan đến việc kiểm soát truy cập vào `counter`. Nó cũng sẽ gây ảnh hưởng đến những chỗ sử dụng `System.out` khác.
 
 
-**3. The correct answers are B and C.**   
+**3. Đáp án đúng là B và C.**   
 
-**Explanation:**
+**Giải thích:**
 
-- **A)** `AtomicInteger` is part of the `java.util.concurrent.atomic` package, but it does not provide atomic operations for increment and decrement.
-  - This statement is incorrect. `AtomicInteger` provides atomic operations for increment and decrement, such as `incrementAndGet()` and `decrementAndGet()`.
+- **A)** `AtomicInteger` là một phần của package `java.util.concurrent.atomic`, nhưng nó không cung cấp các atomic operation cho việc tăng và giảm.
+  - Phát biểu này sai. `AtomicInteger` cung cấp các atomic operation cho việc tăng và giảm, chẳng hạn như `incrementAndGet()` và `decrementAndGet()`.
 
-- **B)** `AtomicReference` can only be used with reference types, not primitive types.
-  - This statement is correct. `AtomicReference` is designed to work with reference types and cannot be used with primitive types directly.
+- **B)** `AtomicReference` chỉ có thể được dùng với reference type, không dùng với primitive type.
+  - Phát biểu này đúng. `AtomicReference` được thiết kế để làm việc với reference type và không thể dùng trực tiếp với primitive type.
 
-- **C)** `AtomicLong` supports atomic operations on `long` values, including `getAndIncrement()` and `compareAndSet()` methods. 
-  - This statement is correct. `AtomicLong` provides atomic operations on `long` values, including `getAndIncrement()` and `compareAndSet()` methods.
+- **C)** `AtomicLong` hỗ trợ các atomic operation trên giá trị `long`, bao gồm các method `getAndIncrement()` và `compareAndSet()`. 
+  - Phát biểu này đúng. `AtomicLong` cung cấp các atomic operation trên giá trị `long`, bao gồm các method `getAndIncrement()` và `compareAndSet()`.
 
-- **D)** `AtomicBoolean` can be used to perform atomic arithmetic operations on `boolean` values.
-  - This statement is incorrect. `AtomicBoolean` is used for atomic updates to `boolean` values, but it does not support atomic arithmetic operations.
+- **D)** `AtomicBoolean` có thể được dùng để thực hiện các phép toán số học atomic trên giá trị `boolean`.
+  - Phát biểu này sai. `AtomicBoolean` được dùng cho các cập nhật atomic trên giá trị `boolean`, nhưng nó không hỗ trợ các phép toán số học atomic.
 
 
 
-**4. The correct answer is A.**
+**4. Đáp án đúng là A.**
 
-**Explanation:**
+**Giải thích:**
 
 - **A)** 
 ```java
@@ -80,7 +80,7 @@ try {
     lock.unlock();
 }
 ```
-  - This option correctly acquires the lock before modifying the shared resource and ensures the lock is released in the `finally` block, which is the proper use of the `Lock` interface.
+  - Đáp án này đúng. Nó lấy lock trước khi sửa đổi tài nguyên chia sẻ và đảm bảo lock được giải phóng trong block `finally`, đây là cách dùng đúng interface `Lock`.
 
 - **B)** 
 ```java
@@ -88,7 +88,7 @@ lock.lock();
 count++;
 lock.unlock();
 ```
-  - This option is incorrect because if an exception occurs between `lock.lock()` and `lock.unlock()`, the lock will not be released, potentially causing a deadlock.
+  - Đáp án này sai vì nếu một exception xảy ra giữa `lock.lock()` và `lock.unlock()`, lock sẽ không được giải phóng, có thể gây ra deadlock.
 
 - **C)** 
 ```java
@@ -100,7 +100,7 @@ try {
     lock.unlock();
 }
 ```
-  - This option is incorrect because that's not a valid `lock.lock()` call.
+  - Đáp án này sai vì đó không phải là một lệnh gọi `lock.lock()` hợp lệ.
 
 - **D)** 
 ```java
@@ -108,13 +108,13 @@ synchronized(lock) {
     count++;
 }
 ```
-  - This option is incorrect because the `synchronized` block is used with the `lock` object itself, which is not the correct usage of the `Lock` interface and does not provide the intended functionality.
+  - Đáp án này sai vì block `synchronized` được dùng với chính object `lock`, đây không phải cách dùng đúng interface `Lock` và không mang lại chức năng như mong muốn.
 
 
 
-**5. The correct answer is A.**
+**5. Đáp án đúng là A.**
 
-**Explanation:**
+**Giải thích:**
 
 - **A)** 
 ```java
@@ -122,7 +122,7 @@ try (ExecutorService executor = Executors.newVirtualThreadPerTaskExecutor()) {
     executor.submit(() -> System.out.println("Task executed"));
 }
 ```
-  - This option is correct. It uses the `try-with-resources` block with the new `Executors.newVirtualThreadPerTaskExecutor()` method introduced in Java 21. The `ExecutorService` will be automatically closed when the `try` block exits, eliminating the need for explicit shutdown calls.
+  - Đáp án này đúng. Nó dùng block `try-with-resources` với method `Executors.newVirtualThreadPerTaskExecutor()` mới được giới thiệu trong Java 21. `ExecutorService` sẽ tự động được đóng khi block `try` kết thúc, loại bỏ nhu cầu gọi shutdown tường minh.
 
 - **B)** 
 ```java
@@ -132,7 +132,7 @@ try (ExecutorService executor = Executors.newVirtualThreadPerTaskExecutor()) {
     executor.shutdown();
 }
 ```
-  - This option is incorrect because it unnecessarily calls `shutdown()` in the finally block. With `try-with-resources`, the `ExecutorService` is automatically closed, making the explicit `shutdown()` call redundant and potentially harmful.
+  - Đáp án này sai vì nó gọi `shutdown()` không cần thiết trong block finally. Với `try-with-resources`, `ExecutorService` tự động được đóng, khiến lệnh gọi `shutdown()` tường minh trở nên thừa và có thể gây hại.
 
 - **C)** 
 ```java
@@ -143,7 +143,7 @@ try {
     executor.close();
 }
 ```
-  - This option is incorrect because it doesn't use `the try-with-resources` syntax. While it does correctly close the `ExecutorService`, it doesn't take advantage of the automatic resource management provided by `try-with-resources`.
+  - Đáp án này sai vì nó không dùng cú pháp `try-with-resources`. Mặc dù nó đóng `ExecutorService` đúng cách, nó không tận dụng việc quản lý tài nguyên tự động mà `try-with-resources` mang lại.
 
 - **D)** 
 ```java
@@ -152,13 +152,13 @@ try (var executor = Executors.newVirtualThreadPerTaskExecutor()) {
     executor.awaitTermination(1, TimeUnit.SECONDS);
 }
 ```
-  - This option is incorrect because it unnecessarily calls `awaitTermination()`. In a `try-with-resources` block, the `ExecutorService` is automatically closed when the block exits, making the explicit wait for termination unnecessary and potentially causing the thread to block for 1 second.
+  - Đáp án này sai vì nó gọi `awaitTermination()` không cần thiết. Trong block `try-with-resources`, `ExecutorService` tự động được đóng khi block kết thúc, khiến việc chờ termination tường minh trở nên không cần thiết và có thể khiến thread bị block trong 1 giây.
 
 
 
-**6. The correct answer is D.**
+**6. Đáp án đúng là D.**
 
-**Explanation:**
+**Giải thích:**
 
 - **A)** 
 ```java
@@ -167,7 +167,7 @@ try (ExecutorService executor = Executors.newVirtualThreadPerTaskExecutor()) {
     System.out.println(future.get());
 }
 ```
-  - This option is incorrect because it doesn't handle the potential `InterruptedException` and `ExecutionException` that `future.get()` can throw.
+  - Đáp án này sai vì nó không xử lý `InterruptedException` và `ExecutionException` tiềm ẩn mà `future.get()` có thể throw.
 
 - **B)**
 ```java
@@ -177,7 +177,7 @@ try (var executor = Executors.newVirtualThreadPerTaskExecutor()) {
     System.out.println(result);
 }
 ```
-  - This option is incorrect because it doesn't handle the potential exceptions (`InterruptedException`, `ExecutionException`, and `TimeoutException`) that `future.get(long, TimeUnit)` can throw.
+  - Đáp án này sai vì nó không xử lý các exception tiềm ẩn (`InterruptedException`, `ExecutionException` và `TimeoutException`) mà `future.get(long, TimeUnit)` có thể throw.
 
 - **C)**
 ```java
@@ -187,7 +187,7 @@ try (ExecutorService executor = Executors.newVirtualThreadPerTaskExecutor()) {
     System.out.println(future.get());
 }
 ```
-  - This option is incorrect because it unnecessarily calls `executor.shutdown()`. In a `try-with-resources` block, the `ExecutorService` is automatically closed when the block exits. Also, it doesn't handle the potential exceptions from `future.get()`.
+  - Đáp án này sai vì nó gọi `executor.shutdown()` không cần thiết. Trong block `try-with-resources`, `ExecutorService` tự động được đóng khi block kết thúc. Ngoài ra, nó không xử lý các exception tiềm ẩn từ `future.get()`.
 
 - **D)**
 ```java
@@ -201,74 +201,74 @@ try (var executor = Executors.newVirtualThreadPerTaskExecutor()) {
     }
 }
 ```
-  - This option is correct. It uses `try-with-resources` to automatically close the `ExecutorService`, properly submits the `Callable` task, retrieves the result using `Future.get()`, and handles the potential `InterruptedException` and `ExecutionException` that might be thrown.
+  - Đáp án này đúng. Nó dùng `try-with-resources` để tự động đóng `ExecutorService`, submit task `Callable` đúng cách, lấy kết quả bằng `Future.get()`, và xử lý `InterruptedException` cùng `ExecutionException` tiềm ẩn có thể được throw.
 
 
 
-**7. The correct answer is A.**
+**7. Đáp án đúng là A.**
 
-**Explanation:**
+**Giải thích:**
 
-- **A)** `ConcurrentHashMap` allows concurrent read and write operations, and retrieval operations do not block even when updates are being made.
-  - This statement is correct. `ConcurrentHashMap` is designed to handle concurrent access, allowing multiple threads to read and write simultaneously without blocking read operations during updates.
+- **A)** `ConcurrentHashMap` cho phép các operation đọc và ghi đồng thời, và các operation truy xuất không bị block ngay cả khi đang có các cập nhật.
+  - Phát biểu này đúng. `ConcurrentHashMap` được thiết kế để xử lý truy cập đồng thời, cho phép nhiều thread đọc và ghi cùng lúc mà không block các operation đọc trong khi cập nhật.
 
-- **B)** `CopyOnWriteArrayList` is optimized for scenarios with a high number of write operations compared to read operations. 
-  - This statement is incorrect. `CopyOnWriteArrayList` is optimized for scenarios where read operations are far more frequent than write operations because it creates a new copy of the array on each write, which can be costly if writes are frequent.
+- **B)** `CopyOnWriteArrayList` được tối ưu cho các tình huống có số lượng operation ghi lớn hơn so với operation đọc. 
+  - Phát biểu này sai. `CopyOnWriteArrayList` được tối ưu cho các tình huống mà operation đọc diễn ra thường xuyên hơn nhiều so với operation ghi, vì nó tạo một bản sao mới của array trên mỗi lần ghi, điều này có thể tốn kém nếu việc ghi diễn ra thường xuyên.
 
-- **C)** `ConcurrentSkipListSet` does not kept elements sorted.
-  - This statement is incorrect. `ConcurrentSkipListSet` keep elements according to their natural ordering, or by a `Comparator` provided at set creation time.
+- **C)** `ConcurrentSkipListSet` không giữ các phần tử được sắp xếp.
+  - Phát biểu này sai. `ConcurrentSkipListSet` giữ các phần tử theo natural ordering của chúng, hoặc theo một `Comparator` được cung cấp tại thời điểm tạo set.
 
-- **D)** `BlockingQueue` implementations like `LinkedBlockingQueue` allow elements to be added and removed concurrently without any internal locking mechanisms.
-  - This statement is incorrect. `BlockingQueue` implementations like `LinkedBlockingQueue` do use internal locking mechanisms to handle concurrent access safely.
-
-
-
-**8. The correct answer is B.**
-
-**Explanation:**
-
-- **A)** Parallel streams always improve the performance of a program by utilizing multiple threads.
-  - This statement is incorrect because parallel streams do not always improve performance. The overhead of managing multiple threads can sometimes outweigh the benefits, especially for small datasets or simple operations.
-
-- **B)** Parallel streams can lead to incorrect results if the operations performed are not thread-safe.
-  - This statement is correct. When using parallel streams, care must be taken to ensure that the operations performed on the elements are thread-safe. Failure to do so can lead to race conditions and incorrect results.
-
-- **C)** The order of elements in a parallel stream is always preserved compared to the original stream.
-  - This statement is incorrect. The order of elements in a parallel stream is not guaranteed to be the same as in the original stream unless special care is taken to preserve the order, such as using ordered stream operations.
-
-- **D)** Using parallel streams guarantees that the operations on elements will execute in a fixed order.
-  - This statement is incorrect because parallel streams do not guarantee the order of execution of operations on elements. The operations may execute in a non-deterministic order due to the concurrent nature of parallel processing.
+- **D)** Các implementation của `BlockingQueue` như `LinkedBlockingQueue` cho phép thêm và xóa phần tử đồng thời mà không cần bất kỳ cơ chế khóa nội bộ nào.
+  - Phát biểu này sai. Các implementation của `BlockingQueue` như `LinkedBlockingQueue` có sử dụng cơ chế khóa nội bộ để xử lý truy cập đồng thời một cách an toàn.
 
 
 
-**9. The correct answer is B.**
+**8. Đáp án đúng là B.**
 
-**Explanation:**
+**Giải thích:**
+
+- **A)** Parallel stream luôn cải thiện hiệu năng của chương trình nhờ tận dụng nhiều thread.
+  - Phát biểu này sai vì parallel stream không phải lúc nào cũng cải thiện hiệu năng. Chi phí quản lý nhiều thread đôi khi có thể lớn hơn lợi ích, đặc biệt với dataset nhỏ hoặc các operation đơn giản.
+
+- **B)** Parallel stream có thể dẫn đến kết quả sai nếu các operation được thực hiện không thread-safe.
+  - Phát biểu này đúng. Khi dùng parallel stream, phải cẩn thận đảm bảo các operation thực hiện trên các phần tử là thread-safe. Nếu không, có thể dẫn đến race condition và kết quả sai.
+
+- **C)** Thứ tự các phần tử trong parallel stream luôn được giữ nguyên so với stream gốc.
+  - Phát biểu này sai. Thứ tự các phần tử trong parallel stream không được đảm bảo giống với stream gốc trừ khi có biện pháp đặc biệt để giữ thứ tự, chẳng hạn dùng các stream operation có thứ tự.
+
+- **D)** Dùng parallel stream đảm bảo rằng các operation trên các phần tử sẽ thực thi theo một thứ tự cố định.
+  - Phát biểu này sai vì parallel stream không đảm bảo thứ tự thực thi các operation trên các phần tử. Các operation có thể thực thi theo thứ tự không xác định do tính chất đồng thời của xử lý song song.
+
+
+
+**9. Đáp án đúng là B.**
+
+**Giải thích:**
 
 - **A)** 
 ```java
 int sum = numbers.parallelStream().reduce(1, Integer::sum);
 System.out.println(sum);
 ```
-  - This option is incorrect because it uses `1` as the identity value. The identity value for sum should be `0`, as it is the neutral element for addition. Starting the reduction with `1` will result in an incorrect sum that is incremented by `1`.
+  - Đáp án này sai vì nó dùng `1` làm identity value. Identity value cho phép tính tổng phải là `0`, vì đó là phần tử trung hòa (neutral element) của phép cộng. Bắt đầu reduction với `1` sẽ cho kết quả tổng sai, bị cộng thêm `1`.
 
 - **B)** 
 ```java
 int sum = numbers.parallelStream().reduce(0, Integer::sum).collect();
 System.out.println(sum);
 ```
-  - This option is correct. It correctly uses `parallelStream()` to create a parallel stream and the `reduce` method with the identity value `0` and the method reference `Integer::sum` to sum the elements.
+  - Đáp án này đúng. Nó dùng đúng `parallelStream()` để tạo một parallel stream và method `reduce` với identity value `0` cùng method reference `Integer::sum` để tính tổng các phần tử.
 
 - **C)** 
 ```java
 int sum = numbers.stream().reduce(0, Integer::sum);
 System.out.println(sum);
 ```
-  - This option is incorrect because it uses a sequential stream (`stream()`) instead of a parallel stream. While it correctly sums the elements, it does not demonstrate the use of a parallel stream as specified in the question.
+  - Đáp án này sai vì nó dùng stream tuần tự (`stream()`) thay vì parallel stream. Mặc dù nó tính tổng các phần tử đúng, nó không minh họa việc dùng parallel stream như câu hỏi yêu cầu.
 
 - **D)** 
 ```java
 int sum = numbers.parallelStream().collect(reduce(0, Integer::sum));
 System.out.println(sum);
 ```
-  - This option is incorrect because it attempts to use the `collect()` method in combination with `reduce()`, which is not the correct syntax. The `collect()` method is used for mutable reduction and is typically used with collectors, not with the `reduce()` operation directly.
+  - Đáp án này sai vì nó cố dùng method `collect()` kết hợp với `reduce()`, đây không phải cú pháp đúng. Method `collect()` được dùng cho mutable reduction và thường dùng với collector, không phải trực tiếp với operation `reduce()`.

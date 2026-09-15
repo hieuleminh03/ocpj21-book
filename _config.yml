@@ -18,12 +18,12 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
-title: Study guide for the Oracle Certified Professional, Java SE 21 Developer Exam
+title: Study guide cho kỳ thi Oracle Certified Professional, Java SE 21 Developer
 email: your-email@example.com
 description: >- # this means to ignore newlines until "baseurl:"
-  Study guide for the Java SE 21 Developer Professional Exam (1Z0-830)
+  Study guide cho kỳ thi Java SE 21 Developer Professional (1Z0-830)
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
+url: "https://hieuleminh03.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: eh3rrera
 github_username:  eh3rrera
 
