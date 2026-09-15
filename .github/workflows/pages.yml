@@ -25,11 +25,10 @@ jobs:
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: "3.3"
+          bundler: "2.6.9"
 
       - name: Install dependencies
-        run: |
-          bundle lock --add-platform x86_64-linux
-          bundle install
+        run: bundle install
 
       - name: Setup Pages
         id: pages
